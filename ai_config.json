@@ -1,0 +1,12 @@
+{
+  "comfyui_url": "http://127.0.0.1:8188",
+  "checkpoint": "",
+  "steps": 22,
+  "cfg": 7.0,
+  "denoise": {
+    "lineart": 0.5,
+    "sketch": 0.6
+  },
+  "max_side": 768,
+  "timeout_s": 600
+}

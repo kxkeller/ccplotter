@@ -1,0 +1,146 @@
+{
+ "_comment": "Request body POSTed to /api/process (job_type is 'preview' for the preview pass and 'gcode' for the G-code pass). items[0].id is replaced with the id returned by /api/add_drawing.",
+ "request": {
+  "job_type": "gcode",
+  "style": "tracev3",
+  "sketch_gain": 0.12,
+  "sketch_max_passes": 2,
+  "sketch_spacing_px": 0,
+  "sketch_min_area": 6,
+  "resolution": 1600,
+  "clahe": false,
+  "isolate_blue": false,
+  "gamma": 1,
+  "channel": "auto",
+  "filter_speckle": 1,
+  "hatch_spacing": 1,
+  "hatch_levels": 2,
+  "crosshatch": false,
+  "vec_merge": 0.2,
+  "vec_min_len": 0.1,
+  "outline_close": 0,
+  "outline_simplify": 0.05,
+  "lineart_min_area": 0,
+  "lineart_gap_close": 0,
+  "prune_len": 12,
+  "auto_edges": true,
+  "lsd_min": 2,
+  "texture_layer": false,
+  "connector_distance": 0,
+  "target_z_moves": 0,
+  "threshold_mode": "otsu",
+  "ink_sensitivity": "normal",
+  "manual_threshold": 128,
+  "hybrid_preset": "balanced",
+  "geometry_weight": "auto",
+  "edge_weight": "auto",
+  "ink_weight": "auto",
+  "small_detail": "preserve",
+  "preserve_text": "balanced",
+  "noise_filter": "off",
+  "small_detail_fidelity": true,
+  "tone": "off",
+  "gap_guarantee": false,
+  "end_policy": "release",
+  "quiet_fans": true,
+  "pen_width": 0.5,
+  "force_detail_roi": false,
+  "debug": false,
+  "paper": "150x200",
+  "margin": 10,
+  "offset_x": 40,
+  "offset_y": 30,
+  "paper_rot": 0,
+  "z_up": 3.5,
+  "z_down": -0.6,
+  "microlift": true,
+  "draw_speed": 3000,
+  "travel_speed": 8000,
+  "plunge_speed": 500,
+  "lift_speed": 2000,
+  "pen_id": "energel_05",
+  "items": [
+   {
+    "id": "<set by reproduce.py after upload>",
+    "scale": 1,
+    "rot": 0,
+    "dx": 0,
+    "dy": 0,
+    "crop": null
+   }
+  ]
+ },
+ "calibration_in_effect": {
+  "calibration_json": "absent in the runtime home (load_cal() == {}); the app falls back to its built-in legacy reach rectangle",
+  "api_calibration_pen_reach": {
+   "bbox": [
+    34.0,
+    27.5,
+    247.0,
+    250.5
+   ],
+   "pen_bbox": [
+    34.0,
+    27.5,
+    247.0,
+    250.5
+   ],
+   "polygon": [
+    [
+     34.0,
+     27.5
+    ],
+    [
+     247.0,
+     27.5
+    ],
+    [
+     247.0,
+     250.5
+    ],
+    [
+     34.0,
+     250.5
+    ]
+   ],
+   "pen_polygon": [
+    [
+     34.0,
+     27.5
+    ],
+    [
+     247.0,
+     27.5
+    ],
+    [
+     247.0,
+     250.5
+    ],
+    [
+     34.0,
+     250.5
+    ]
+   ],
+   "composed_pen_offset_x": 0.0,
+   "composed_pen_offset_y": 0.0,
+   "clamped": false
+  },
+  "warning": "The reach rectangle and the pen profile below are the author's measurements for one machine. Do not use this G-code on any other setup."
+ },
+ "pen_profile_in_effect": {
+  "draw_speed": 3000,
+  "fill_mm": 0.25,
+  "label": "Pentel EnerGel 0.5 (Blue)",
+  "lift_speed": 2000,
+  "pen_mm": 0.5,
+  "pen_offset_x": 0.0,
+  "pen_offset_y": 0.0,
+  "plunge_speed": 500,
+  "travel_speed": 5000,
+  "z_down": -0.6,
+  "z_micro": 0.6,
+  "z_touch_abs": 12.05,
+  "z_up": 3.5
+ },
+ "active_pen_profile_id": "energel_05"
+}

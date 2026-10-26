@@ -1,0 +1,150 @@
+{
+ "key": "tram",
+ "wall_s": 75.8,
+ "app": {
+  "blue_lifts": 7443,
+  "black_lifts": 13107,
+  "total_lifts": 20550,
+  "connectors": {
+   "blue": {
+    "connector_distance_mm": 0.96,
+    "connector_count": 111668,
+    "connector_draw_length_mm": 23474.3,
+    "hatched_blue": {
+     "enabled": true,
+     "pen_mm": 0.12,
+     "runs": 119111,
+     "chains": 7443,
+     "clip_mm": 0.11,
+     "link": {
+      "candidate_tests": 1650701,
+      "accepted": 111668,
+      "ends_no_candidate": 3552,
+      "ends_all_rejected": 3891
+     },
+     "u_mm2": 20600.23535699485,
+     "c_mean_over_u": 0.9014555215835571,
+     "hatch_violations": 0,
+     "constants": {
+      "option": "body.hatched_blue (bool, default false)",
+      "label": "Hatched blue (lighter, faster)",
+      "sigma_pen_widths": 1.0,
+      "dither_levels": 8,
+      "line_pitch_pen_widths": [
+       1.0,
+       8.0
+      ],
+      "angle_deg": 45.0,
+      "clip_mm_rule": "0.5 W + 1 raster px (0.11 mm at W 0.12)",
+      "clip_pen_widths": 0.5,
+      "min_run_pen_widths": 1.0,
+      "link_radius_pen_widths": 8.0,
+      "link_preference": "forward line, same line, backward line; then nearer",
+      "link_candidates_cost_guard": 40,
+      "hatch_ppm": 20.0,
+      "run_step_mm": 0.025,
+      "walk_cap_not_used": "1,000,000 applied to the superseded router-linked arm B3 only; B3s uses the explicit linker",
+      "W": "the BLUE profile's fill_mm (like blue_trap), fallback the plain job's fill_mm",
+      "black": "blue_trap F black (specks < pi*(1.5 W)^2 reassigned to blue); implied by this option",
+      "precedence": "hatched_blue replaces the blue layer entirely (blue_trap's T1 blue mask and 0.5 mm blue connector are not used); black = F black; stay_down_over_ink applies to the black layer (own mask); the hatch linker is already pen-down only inside blue u black",
+      "excluded": "per-image threshold bisection (B1c/B3c) and the H1/H1v gain arms are never part of this option (D1736, D1762, D1763)",
+      "prototype_measurements": {
+       "note": "offline prototype numbers (artifacts/twopen-blue-redesign-2026-10-21/, twopen-hatchblue-confirm-2026-10-21/); the job does NOT compute them. Models unvalidated, nothing plotted.",
+       "lifts_tram_R_to_B3s": [
+        37345,
+        20550
+       ],
+       "lifts_heli_R_to_B3s": [
+        10401,
+        5247
+       ],
+       "model_c_hours_tram_R_to_B3s": [
+        9.82,
+        7.47
+       ],
+       "model_c_hours_heli_R_to_B3s": [
+        3.22,
+        2.14
+       ],
+       "uncovered_by_either_pct_tram_R_to_B3s": [
+        1.36,
+        0.18
+       ],
+       "uncovered_by_either_pct_heli_R_to_B3s": [
+        0.07,
+        0.27
+       ],
+       "uncovered_by_black_pct_tram_heli_unchanged": [
+        1.55,
+        2.33
+       ],
+       "blue_coverage_of_target_tram_heli_R_vs_B3s": [
+        [
+         0.92,
+         0.97
+        ],
+        [
+         0.55,
+         0.51
+        ]
+       ],
+       "tone_vs_R_Lstar_B3s_mid_bands": {
+        "tram": "+2.2..+2.6",
+        "heli": "+5..+8"
+       }
+      },
+      "d_numbers": "D1736-D1743, D1761-D1768",
+      "artifacts": "artifacts/twopen-blue-redesign-2026-10-21/ ; artifacts/twopen-hatchblue-confirm-2026-10-21/"
+     }
+    }
+   },
+   "black": {
+    "connector_distance_mm": 0.5,
+    "connector_count": 3006,
+    "connector_draw_length_mm": 1171.8
+   }
+  },
+  "runs": 119111,
+  "link": {
+   "candidate_tests": 1650701,
+   "accepted": 111668,
+   "ends_no_candidate": 3552,
+   "ends_all_rejected": 3891
+  },
+  "hatch_violations": 0,
+  "blue_trap": {
+   "enabled": false,
+   "black_fold_implied_by_hatched_blue": true,
+   "pen_mm": 0.12,
+   "fold_mm2": 0.10178760197630929,
+   "fold_components": 13944,
+   "fold_mm2_total": 646.3068251325657,
+   "black_mm2_before": 13681.623480079154,
+   "black_mm2_after": 13035.316654946588,
+   "invariants": {
+    "contains_blue_A": true,
+    "added_px": 1718921,
+    "added_in_black_px": 1693316,
+    "added_closed_holes_px": 42126,
+    "added_paper_px": 0,
+    "closed_ring_not_blue_px": 0,
+    "union_before_px": 11334508,
+    "union_after_px": 11334508,
+    "union_delta_px": 0,
+    "ok": true
+   }
+  }
+ },
+ "prototype": {
+  "blue_lifts": 7443,
+  "black_lifts": 13107,
+  "total_lifts": 20550
+ },
+ "expected_total_lifts": 20550,
+ "blue_pointwise_identical": true,
+ "black_pointwise_identical": true,
+ "blue_max_abs_diff_mm": 0.0,
+ "black_max_abs_diff_mm": 0.0,
+ "total_lifts_equal_prototype": true,
+ "total_lifts_equal_expected": true
+}

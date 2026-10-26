@@ -1,0 +1,97 @@
+# vpype-gcode profile for Elegoo Centauri Carbon pen plotter
+# Klipper firmware | usable bed 257x257mm
+#
+# After one-time Z calibration in the CC Plotter app:
+#   Everything is fully automatic. Just place paper, send plot.
+#
+# Before Z calibration (z_auto=0):
+#   Manually jog Z to pen-touch and click "Save Z" in the app once.
+
+[gwrite.elegoo_cc]
+unit = "mm"
+vertical_flip = true
+
+document_start = """\
+; Pen plotter - Elegoo Centauri Carbon
+; Source: {filename}
+; PRE-FLIGHT: Home printer WITHOUT pen first (G28 from touchscreen), then attach pen.
+; end_policy: {end_policy} | postamble: v1 (donor-derived, 2026-07-09)
+;
+; ABSOLUTE MACHINE COORDINATES - no G92 offset.
+; The drawing is pre-translated to its machine position, so re-running without
+; re-homing lands in the SAME physical spot, and the firmware's abort/cancel
+; macro (which moves in machine coords) no longer overshoots into the frame.
+;
+G21
+G90
+T0
+M117 Plotting...
+; (G28 removed to prevent crashes with pen attached)
+{preamble_fans}
+; Use the higher TRAVEL clearance for the long initial cross-plate sweep.
+G1 Z{z_travel_abs:.2f} F{lift_speed:.0f}
+G1 X{origin_x:.2f} Y{origin_y:.2f} F{travel_speed:.0f}
+"""
+
+segment_first = """\
+G1 Z{z_up_abs:.2f} F{lift_speed:.0f}
+G1 X{x:.3f} Y{y:.3f} F{travel_speed:.0f}
+G1 Z{z_down_abs:.2f} F{plunge_speed:.0f}
+"""
+
+segment = "G1 X{x:.3f} Y{y:.3f} F{draw_speed:.0f}\n"
+
+# Postamble v1, derived from the Elegoo Centauri Carbon OrcaSlicer
+# machine_end_gcode. It keeps that file's invariant pattern -- M400 (flush
+# motion buffer) before every state-changing command -- and its exact fan-off
+# + stepper-release commands, and leaves out its heater/extruder/purge-chute
+# lines (irrelevant to a pen). It lives in the shared profile (not a
+# Python-side append) so ANY writer using `gwrite --profile elegoo_cc` gets a
+# complete ending structurally; it cannot be skipped by a writer forgetting to
+# call a separate append function.
+document_end = """\
+M400
+{motion_smoothing_restore}G1 Z{z_travel_abs:.2f} F{lift_speed:.0f}
+G1 X{origin_x:.2f} Y{origin_y:.2f} F{travel_speed:.0f}
+; Park at the drawing origin (machine coords) - NOT X0 Y0, which is past the
+; front-left pen-travel limit and would crash the toolhead into the frame.
+M400
+M107
+M106 S0
+M106 P2 S0
+M106 P3 S0
+M400
+{end_stepper}
+M117 Plot complete
+"""
+
+[gwrite.elegoo_cc.default_values]
+z_up         = 2.7
+z_down       = -2.1
+z_up_abs     = 16.65
+z_down_abs   = 11.85
+z_touch_abs  = 13.95
+z_travel_abs = 18.95
+draw_speed   = 3000
+travel_speed = 10000
+lift_speed   = 3000
+plunge_speed = 800
+# Machine-coord position of the page's front-left corner (pen-travel origin).
+# Overridden per-job by the app from offset_x / offset_y.
+origin_x     = 100.0
+origin_y     = 100.0
+# Stepper policy: "release" appends M84 in document_end (the stock firmware
+# behaviour; the default, because releasing the motors is the safer end state).
+# "hold" leaves motors energized; the app sets end_stepper to a comment in that case.
+end_policy    = "release"
+end_stepper   = "M84"
+# Preamble fan-off (quiet_fans): a ONE-TIME block placed after initial
+# positioning, before any drawing motion -- not a repeated injection every N
+# lines. Repeated fan commands in a bare (motion-free) M-code file hard-halt the
+# firmware; this file has real motion before and after the block, so a single
+# block is safe. Default ON, since case-fan noise over a 60+ minute plot is
+# unwanted; set it empty via the app if the machine runs hot.
+preamble_fans = "M107\nM106 S0\nM106 P2 S0\nM106 P3 S0"
+# Empty for the byte-identical default. Zoned jobs restore Orca's own end-gcode
+# acceleration immediately before the parking/fan-off/stepper-release sequence.
+motion_smoothing_restore = ""

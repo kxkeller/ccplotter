@@ -1,0 +1,9 @@
+# Optional extras. Install with: pip install -r requirements-optional.txt
+-r requirements.txt
+# `flow` render mode only. Not on PyPI: installed from git, so this needs git and network.
+# KNOWN LIMITATION: it installs and registers `flow_img`, but with numpy 2.4.4 the
+# package's KD-tree fallback raises "TypeError: can't multiply sequence by non-int of
+# type 'numpy.bool'", so flow mode does not run on this dependency set.
+vpype-flow-imager @ git+https://github.com/serycjon/vpype-flow-imager.git@ae0a3144d171289e61e800208682b451b8e1bf6a
+# OpenAI line-art cleanup (also needs OPENAI_API_KEY in the environment).
+openai==2.20.0

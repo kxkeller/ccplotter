@@ -1,0 +1,116 @@
+{
+    "active":  "uright_gel",
+    "profiles":  {
+                     "energel_05":  {
+                                        "label":  "Pentel EnerGel 0.5 (Blue)",
+                                        "pen_mm":  0.5,
+                                        "fill_mm":  0.25,
+                                        "z_touch_abs":  12.05,
+                                        "z_up":  3.5,
+                                        "z_down":  -0.6,
+                                        "z_micro":  0.9,
+                                        "draw_speed":  3000,
+                                        "travel_speed":  5000,
+                                        "plunge_speed":  500,
+                                        "lift_speed":  2000,
+                                        "pen_offset_x":  0.0,
+                                        "pen_offset_y":  0.0
+                                    },
+                     "orenz_nero_03":  {
+                                           "label":  "Pentel Orenz Nero 0.3 (PLACEHOLDER, not calibrated)",
+                                           "pen_mm":  0.3,
+                                           "fill_mm":  0.3,
+                                           "z_up":  3.5,
+                                           "z_down":  -0.6,
+                                           "z_micro":  0.9,
+                                           "draw_speed":  3000,
+                                           "travel_speed":  5000,
+                                           "plunge_speed":  500,
+                                           "lift_speed":  2000,
+                                           "pen_offset_x":  0.0,
+                                           "pen_offset_y":  0.0
+                                       },
+                     "bic_cristal_black":  {
+                                               "label":  "BIC Cristal 1.0 Black",
+                                               "pen_mm":  1.0,
+                                               "fill_mm":  0.12,
+                                               "z_touch_abs":  18.75,
+                                               "z_up":  3.5,
+                                               "z_down":  -0.6,
+                                               "z_micro":  0.9,
+                                               "draw_speed":  3000,
+                                               "travel_speed":  5000,
+                                               "plunge_speed":  500,
+                                               "lift_speed":  2000,
+                                               "pen_offset_x":  0.0,
+                                               "pen_offset_y":  0.0
+                                           },
+                     "bic_cristal_blue":  {
+                                              "label":  "BIC Cristal 1.0 Blue",
+                                              "pen_mm":  1.0,
+                                              "fill_mm":  0.12,
+                                              "z_touch_abs":  18.75,
+                                              "z_up":  3.5,
+                                              "z_down":  -0.6,
+                                              "z_micro":  0.9,
+                                              "draw_speed":  3000,
+                                              "travel_speed":  5000,
+                                              "plunge_speed":  500,
+                                              "lift_speed":  2000,
+                                              "pen_offset_x":  0.0,
+                                              "pen_offset_y":  0.0
+                                          },
+                     "platinum_preppy":  {
+                                             "label":  "Platinum Preppy (45deg angled mount, 2026-08-01)",
+                                             "pen_mm":  0.25,
+                                             "fill_mm":  0.275,
+                                             "z_touch_abs":  20.95,
+                                             "z_up":  3.5,
+                                             "z_down":  -0.6,
+                                             "z_micro":  0.9,
+                                             "draw_speed":  3000,
+                                             "travel_speed":  5000,
+                                             "plunge_speed":  500,
+                                             "lift_speed":  2000,
+                                             "pen_offset_x":  4.4,
+                                             "pen_offset_y":  -6.2,
+                                             "reach_clamp":  {
+                                                                 "x_max":  256
+                                                             }
+                                         },
+                     "preppy_05":  {
+                                       "label":  "Platinum Preppy 0.5 (45deg angled mount, 2026-08-01)",
+                                       "pen_mm":  0.5,
+                                       "fill_mm":  0.4,
+                                       "z_touch_abs":  20.75,
+                                       "z_up":  3.5,
+                                       "z_down":  -0.5,
+                                       "z_micro":  0.9,
+                                       "draw_speed":  3000,
+                                       "travel_speed":  5000,
+                                       "plunge_speed":  500,
+                                       "lift_speed":  2000,
+                                       "pen_offset_x":  4.4,
+                                       "pen_offset_y":  -6.2,
+                                       "reach_clamp":  {
+                                                           "x_max":  256
+                                                       }
+                                   },
+                     "uright_gel":  {
+                                        "label":  "uRight Gel refill",
+                                        "pen_mm":  0.255,
+                                        "fill_mm":  0.25,
+                                        "z_touch_abs":  11.25,
+                                        "z_up":  3.5,
+                                        "z_down":  -0.6,
+                                        "z_micro":  0.9,
+                                        "draw_speed":  3000,
+                                        "travel_speed":  5000,
+                                        "plunge_speed":  500,
+                                        "lift_speed":  2000,
+                                        "pen_offset_x":  0.0,
+                                        "pen_offset_y":  0.0,
+                                        "laid_mm":  0.255
+                                    }
+                 }
+}

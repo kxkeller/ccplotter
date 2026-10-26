@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Deterministic clean line-art regression input for CC Plotter.
+     Tests three things a faithful line-art trace must handle WITHOUT sketch/shading:
+       1. text            -> must stay legible, no hatching
+       2. rectangle       -> clean closed outline, corners preserved
+       3. filled wheel     -> a solid black disc (logo/wheel). Faithful trace may
+                              hollow it to an outline, but must NOT invert it into
+                              noise or fill the whole canvas. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect x="0" y="0" width="400" height="300" fill="white"/>
+  <!-- 1. text -->
+  <text x="30" y="60" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="black">PLOT TEST</text>
+  <!-- 2. rectangle outline -->
+  <rect x="30" y="100" width="160" height="120" fill="none" stroke="black" stroke-width="4"/>
+  <!-- 3. filled wheel (solid disc) -->
+  <circle cx="300" cy="180" r="70" fill="black"/>
+  <!-- small inner hub to confirm wheel structure, not just a blob -->
+  <circle cx="300" cy="180" r="18" fill="white"/>
+</svg>

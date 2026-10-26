@@ -1,0 +1,21 @@
+{
+  "_PROVENANCE": "PINNED, HERMETIC harness-owned calibration -- NOT real calibration, do not plot with this file. Created 2026-07-31 for scripts/replay_harness.py's server subprocess (spawned with cwd=this directory) after the repo-root pen_profiles.json/calibration.json shadows were deliberately poisoned to stop accidental bed-crash runs from the repo root. Every golden fixture is pinned to pen_id='energel_05' (see FIXTURE_PEN_ID in replay_harness.py), so only that profile needs to exist here. Values below reproduce the energel_05 entry EXACTLY as it has existed since the 2026-07-17 re-measure and as still embedded in ccplotter/config.py's _PEN_PROFILE_SEED (the code's own built-in default for a missing/invalid pen_profiles.json) and in the live %LOCALAPPDATA%/ccPlotter/pen_profiles.json copy read 2026-07-31 -- both agree byte-for-byte on z_touch_abs=12.05/z_up=3.5/z_down=-0.6/z_micro=0.6/fill_mm=0.25/pen_mm=0.5. The golden manifest (tests/golden_tests/replay_manifest.json) was recorded 2026-07-19T23:48:35 at app_sha=1a2cb24, one day after these values were last touched (artifacts/wedge-v2-2026-07-18/record.md observed the identical z_touch_abs=12.05 live), with no calibration-changing commit in between -- see the diagnosis report for the full chain of evidence, including why the older artifacts/fixtures-2026-07-12/plane/layout.gcode capture's different Z values (from a pre-per-pen-Z-touch era) are NOT evidence against this pin.",
+  "active": "energel_05",
+  "profiles": {
+    "energel_05": {
+      "label": "Pentel EnerGel 0.5 (Blue)",
+      "pen_mm": 0.5,
+      "fill_mm": 0.25,
+      "z_touch_abs": 12.05,
+      "z_up": 3.5,
+      "z_down": -0.6,
+      "z_micro": 0.6,
+      "pen_offset_x": 0.0,
+      "pen_offset_y": 0.0,
+      "draw_speed": 3000,
+      "travel_speed": 5000,
+      "plunge_speed": 500,
+      "lift_speed": 2000
+    }
+  }
+}

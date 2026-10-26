@@ -1,0 +1,29 @@
+{
+ "job_type": "gcode",
+ "style": "bwphoto",
+ "debug": false,
+ "end_policy": "release",
+ "quiet_fans": true,
+ "paper": "200x200",
+ "margin": 10,
+ "offset_x": 13.5,
+ "offset_y": 14.5,
+ "paper_rot": 0,
+ "z_up": 3.5,
+ "z_down": -1,
+ "microlift": true,
+ "draw_speed": 3000,
+ "travel_speed": 8000,
+ "plunge_speed": 500,
+ "lift_speed": 2000,
+ "items": [
+  {
+   "id": "bwphoto-native-default",
+   "scale": 1,
+   "rot": 0,
+   "dx": 0,
+   "dy": 0,
+   "crop": null
+  }
+ ]
+}

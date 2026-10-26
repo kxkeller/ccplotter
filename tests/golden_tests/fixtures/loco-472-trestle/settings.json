@@ -1,0 +1,43 @@
+{
+  "job_type": "gcode",
+  "style": "tracev3",
+  "resolution": 2600,
+  "paper": "200x200",
+  "margin": 10,
+  "threshold_mode": "otsu",
+  "ink_sensitivity": "sensitive",
+  "manual_threshold": 128,
+  "native_res": false,
+  "pre_blur": 3,
+  "min_mark_mm2": 0.035,
+  "pocket_link": 3.0,
+  "tone": "off",
+  "hole_keep": 0.08,
+  "gap_guarantee": false,
+  "texture_layer": false,
+  "connector_distance": 0,
+  "target_z_moves": 0,
+  "microlift": true,
+  "debug": false,
+  "z_up": 3.5,
+  "z_down": -1.0,
+  "draw_speed": 3000,
+  "travel_speed": 8000,
+  "plunge_speed": 500,
+  "lift_speed": 2000,
+  "offset_x": 42.0,
+  "offset_y": 34.5,
+  "paper_rot": 0,
+  "end_policy": "release",
+  "quiet_fans": true,
+  "items": [
+    {
+      "id": "6f2e049b",
+      "scale": 1,
+      "rot": 0,
+      "dx": 0,
+      "dy": 0,
+      "crop": null
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "_honesty_note": "No numeric crop-box coordinates were persisted by the candidate-1 validation run (step3_validation_record.md Sec.3c: the rivet/ballast/handrail regions were re-located ad-hoc from step3b/render_full_{strict,trial}.png, the same undocumented-crop pattern 1373ae6 used and admitted in design.md Sec.5 -- no coordinate JSON exists to copy). This file records the one fact the candidate-1 artifacts DO carry: the pixel dimensions of the archived reference crops themselves, plus their provenance. If tighter regression automation is built on this fixture later, the crop rectangles will need to be re-located from render_full_strict.png/render_full_trial.png (or a fresh replay) and this file's box entries updated with real offsets -- do not treat the missing offsets below as authoritative zeros.",
+  "handrail_rivets": {
+    "description": "Running-board rivet/dash row on the locomotive tender, source of the dot-storm/beads-as-rings regression concern (1373ae6).",
+    "reference_crop": "handrail_rivets_strict.png",
+    "reference_crop_px": [3200, 350],
+    "cropped_from": "step3b/render_full_strict.png (candidate-1 validation, true-pen-width render)",
+    "src_box_in_render_full": null
+  },
+  "ballast_gravel": {
+    "description": "Dense small-blob ballast/gravel texture beneath the trestle, a texture-not-text control for the same regression concern.",
+    "reference_crop": "ballast_gravel_strict.png",
+    "reference_crop_px": [1850, 800],
+    "cropped_from": "step3b/render_full_strict.png (candidate-1 validation, true-pen-width render)",
+    "src_box_in_render_full": null
+  },
+  "pass_criterion_source": "artifacts/candidates-2026-07-12/isolation-gate/step3_validation_record.md Sec.3c: mean abs pixel diff 0.279 (rivets) / 0.217 (ballast), frac pixels changed >25: 0.29% / 0.22%, both an order of magnitude below the golden true-width replay's 1% 'clean' threshold."
+}

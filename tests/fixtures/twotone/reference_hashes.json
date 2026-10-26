@@ -1,0 +1,49 @@
+{
+ "source": "recipe_frozen.py",
+ "recipe_frozen_sha256": "49c3b9723f40e71d3618a5ad19ba6aea4f0ec28946bb2bec8a9d9f2cdb60b05e",
+ "inputs_sha256": {
+  "dahlia": "a77f6ec41e353afdf8bdff2ea981b2955535d8d83294f8cfa49cf4e423dd5638",
+  "pagoda": "8378025ad2519d649d02e32bd98990db4ab572357d9f09841c2fbfbb4fefad29",
+  "synth": "f9a2e16b422c8faf429f9b900a955445a74ad1ada957c228c18e385ec6e183c7"
+ },
+ "default_257x182": {
+  "dahlia": {
+   "hash": "67adcb504ddd586bb6dcc1b5fa6b8245cb5b1d3c39037b5d09588db12faa39e8",
+   "n_blue": 3952,
+   "n_black": 380,
+   "n_shadow": 116
+  },
+  "pagoda": {
+   "hash": "885bc0f7fd61dacec83c22c76977eb11043a9e87b24c3c776da437a225b8cde9",
+   "n_blue": 4044,
+   "n_black": 1413,
+   "n_shadow": 194
+  },
+  "synth": {
+   "hash": "219745a32caa02f7f3cbdd249f84a8fd56cd5b3529ee9b9a5fa3367198953a77",
+   "n_blue": 1873,
+   "n_black": 3540,
+   "n_shadow": 115
+  }
+ },
+ "legacy_257x176": {
+  "dahlia": {
+   "hash": "8beeef6e764a4342194b723b3750fd934efef23e8ce12f62530be8bfaa2c9965",
+   "n_blue": 3872,
+   "n_black": 375,
+   "n_shadow": 121
+  },
+  "pagoda": {
+   "hash": "d520fa83a539fbcd40ea46082ea7afe036aae5378ee96bcfe3188ac34e587d9a",
+   "n_blue": 3932,
+   "n_black": 1390,
+   "n_shadow": 180
+  },
+  "synth": {
+   "hash": "1cfdfcdec70b23bda0732a03a2049e83eb12d7be52ec07866dd8d5ad51122174",
+   "n_blue": 1851,
+   "n_black": 3504,
+   "n_shadow": 110
+  }
+ }
+}

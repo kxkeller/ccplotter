@@ -1,0 +1,43 @@
+{
+  "name": "alaska-737-jun14",
+  "source": "Model Images/line arts/ChatGPT Image Jun 14, 2026, 01_28_49 AM.png",
+  "subject": "Alaska Airlines 737 climbing over mountains (pen-and-ink line art)",
+  "date_run": "2026-07-15",
+  "baseline_commit": "fbd5b33",
+  "branch": "desktop-app",
+  "captured_from": "settings.json/source.png unchanged since 2026-07-11 (verified identical by SHA-256), only outputs re-baselined for the ratified pen-envelope correction (X 34-247, Y 27.5-250.5, replacing X 42-252, Y 34.5-244.5) -- see artifacts/pen-envelope-2026-07-15/measurement_record.md and applied_proof.md.",
+  "style": "plotready",
+  "settings_file": "settings.json",
+  "key_settings": {
+    "resolution": 3000,
+    "threshold_mode": "sensitivity",
+    "ink_sensitivity": "normal",
+    "filter_speckle": 1,
+    "vec_min_len": 0.1,
+    "lineart_min_area": 0,
+    "outline_simplify": 0.05,
+    "prune_len": 12,
+    "paper": "176x250",
+    "connector_distance": 0,
+    "target_z_moves": 0
+  },
+  "verdict": "PASS",
+  "verdict_by": "Kai (full-page true-width A/B, ratified 2026-07-11)",
+  "verdict_note": "Faithful clean line-art trace at Kai's real settings (res 3000, B5), rendered at TRUE pen width per the hairline-preview fix. Alaska 737 fuselage, 'Alaska' wordmark, tail logo, wings/engines, and full mountain-range hatching all recognizable. No added shading, no fill blobs, no sketch hatching, no coverage repair, no ink lanes, no inversion, not noisy garbage. Dense because the source is a detailed pen rendering - faithful to THIS input.",
+  "stats": {
+    "z_moves": 10702,
+    "stroke_count": 5351,
+    "pen_lifts": 5351,
+    "file_size_kb": 2703.5,
+    "note": "UNCHANGED by the 2026-07-15 pen-envelope re-baseline (z_moves/stroke_count/pen_lifts/file_size_kb identical to the 2026-07-13 fill_mm=0.25 baseline) -- this fixture's archived offset_x/offset_y place its content well inside both the old and new envelope, so no drawn geometry moved. Only the approach/park move (clamped to the reachable-area bounds, ccplotter/composite.py park_x/park_y) changed, which is why plot.gcode SHA-256 changed despite identical stats. Double-run replay confirmed byte-identical gcode across both runs (determinism preserved). See artifacts/pen-envelope-2026-07-15/applied_proof.md. Prior stats history: was z_moves 10868 / stroke_count 5434 as of the 2026-07-11 re-baseline; June 2026 baseline was z_moves 7978 / stroke_count 3989."
+  },
+  "baseline_identity": {
+    "asserted_on": ["plot.gcode SHA-256", "stats.z_moves", "stats.stroke_count", "stats.pen_lifts", "stats.file_size_kb", "true-width rasterized ink-mask (preview.png)"],
+    "gcode_sha256": "171c75dff188d7ea901228589194b8cb337f0b270043a5281a1b6b7ab88e26c6",
+    "not_asserted_on": "preview.svg",
+    "why_svg_excluded": "preview.svg is stored as reference material only, NOT a byte-identity assertion. Root cause fully pinpointed (not just inferred): vpype's SVG writer embeds a Dublin Core <dc:date> metadata timestamp at generation wall-clock time. A job_id-verified fresh replay against this same settings.json was diffed line-by-line against this checkpoint's preview.svg: all 5450 lines, all 5172 path/polyline elements, all 1,665,375 points-attribute characters, and the byte length (1818788) were IDENTICAL; the ONLY differing line was <dc:date>. G-code has no equivalent metadata field, which is why gcode SHA-256 is byte-stable across every run in this investigation while SVG SHA-256 never matched twice. See artifacts/rebaseline-2026-07-11/discriminators.json (root_cause_pinpointed) and golden_tests/expected/README.md.",
+    "gcode_is_byte_stable_across_all_measured_runs": true
+  },
+  "reproduce": "Load source in web UI, apply settings.json values, generate G-code. Or POST settings.json (with a fresh item id) to /api/process on this commit.",
+  "history": "Re-locked 2026-06-18 from Kai's real UI settings; an earlier commit used guessed API defaults that did not match the UI. Re-baselined 2026-07-11 after Kai ratified HEAD defaults (preserve_text default reconciliation, true-width rendering) via full-page A/B; artifacts: golden-truewidth-2026-07-11, rebaseline-2026-07-11. Re-baselined 2026-07-13 at ratified fill_mm=0.25. Re-baselined 2026-07-15 for the ratified pen-envelope correction (gcode-SHA-only shift, stats unchanged -- see stats.note). June 2026 baseline (z_moves 7978, stroke_count 3989) retrievable in git history."
+}

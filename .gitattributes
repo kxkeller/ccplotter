@@ -1,0 +1,7 @@
+# No end-of-line conversion for these files: they are stored with CRLF (the data module with LF)
+# and git must not rewrite that. Nothing in this repository hashes their bytes (the embedded photofe asset
+# is verified by its own payload hashes), so this only keeps checkouts identical to the stored files.
+ccplotter/calibration_fragment.py -text
+tests/test_calibration_fragment.py -text
+ccplotter/calibration_pocket.py -text
+ccplotter/calibration_photofe_data.py -text

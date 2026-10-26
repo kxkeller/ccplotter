@@ -1,0 +1,22 @@
+{
+  "mode": "plotready",
+  "source": "src_e9ab432a.png",
+  "settings": {
+    "threshold_mode": "sensitivity",
+    "ink_sensitivity": "normal",
+    "tiny_text": "auto",
+    "resolution": 3000,
+    "prune_len": 12
+  },
+  "audit": {
+    "strokes": 6381,
+    "closed_loops": 1262,
+    "hollowed_px": 1480243,
+    "skel_px": 296390,
+    "tiny_text_mode": "auto",
+    "tiny_text_rois": 19,
+    "tiny_text_strokes": 1249,
+    "tiny_text_min_glyph_px": 11.5
+  },
+  "note": "pinned after B1 fix (2d32ae7) - min_n=4 for auto tiny-text ROI acceptance. tiny_text_rois should stay <=~20 on this source; a jump back toward 29+ signals the false-positive regression returned."
+}

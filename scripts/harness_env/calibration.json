@@ -1,0 +1,39 @@
+{
+  "_PROVENANCE": "PINNED, HERMETIC harness-owned calibration -- NOT real calibration, do not plot with this file. Created 2026-07-31, see pen_profiles.json in this same directory for the full explanation. This file reproduces calibration.json exactly as committed at ffe46cc (2026-07-18 20:08, 'Calibration data: per-pen z_touch seeds, BIC Cristal MEASURED fill_mm'), the last commit to touch calibration.json before the golden manifest was recorded 2026-07-19T23:48:35 -- and it is byte-identical to the live %LOCALAPPDATA%/ccPlotter/calibration.json read 2026-07-31 (z_micro=0.9, z_travel=19.0, mega_hop_mm=70.0, active_reach_profile=plotter_2003_v32, pen_offset -1.0/-45.0), so nothing drifted in between. z_touch_abs here is only the GLOBAL FALLBACK (ccplotter/cal.py resolve_z_touch(): profile wins) -- every golden fixture pins pen_id='energel_05', whose own z_touch_abs (12.05, in pen_profiles.json) is what actually governs their gcode.",
+  "paper": "100x150",
+  "margin": 10,
+  "z_up": 1.25,
+  "z_down": 0.0,
+  "z_micro": 0.9,
+  "draw_speed": 3000,
+  "travel_speed": 10000,
+  "plunge_speed": 800,
+  "lift_speed": 3000,
+  "pen_min_x": 3.0,
+  "pen_min_y": 42.5,
+  "pen_max_x": 255.0,
+  "pen_max_y": 254.5,
+  "active_reach_profile": "plotter_2003_v32",
+  "reach_profiles": {
+    "plotter_2001": {
+      "label": "Plotter 2001 (legacy rectangular)",
+      "polygon": [[34.0, 27.5], [247.0, 27.5], [247.0, 250.5], [34.0, 250.5]],
+      "safe_park_point": [100.0, 100.0]
+    },
+    "plotter_2002": {
+      "label": "Plotter 2002",
+      "polygon": [[34.0, 27.5], [247.0, 27.5], [247.0, 250.5], [169.0, 250.5], [169.0, 264.5], [34.0, 264.5]],
+      "safe_park_point": [100.0, 100.0]
+    },
+    "plotter_2003_v32": {
+      "label": "Plotter V3.2 (confirmed rectangular reach)",
+      "polygon": [[3.0, 42.5], [255.0, 42.5], [255.0, 254.5], [3.0, 254.5]],
+      "safe_park_point": [100.0, 100.0]
+    }
+  },
+  "z_touch_abs": 12.05,
+  "z_travel": 19.0,
+  "mega_hop_mm": 70.0,
+  "pen_offset_x": -1.0,
+  "pen_offset_y": -45.0
+}

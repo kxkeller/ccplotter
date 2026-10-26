@@ -1,0 +1,31 @@
+# ccPlotter runtime dependencies. Python 3.12 is required (the tests and the
+# byte-identity golden hashes were produced on 3.12; other versions are untested).
+# Use a python.org install, not the Microsoft Store build: the Store build
+# virtualises %LOCALAPPDATA% and can serve stale copies of calibration files.
+#
+#   python -m venv .venv
+#   .venv\Scripts\activate
+#   pip install -r requirements.txt
+#
+# Exactly one OpenCV distribution is listed. The headless build is enough (the
+# app uses no GUI/highgui calls), and OpenCV 5.0 matters: the two-tone mode's
+# reference output hashes do not reproduce on OpenCV 4.x.
+#
+# `vpype-gcode` provides the `gwrite` command that writes all G-code.
+# Optional extras (flow mode, OpenAI cleanup): requirements-optional.txt
+# Running the tests: requirements-dev.txt
+vpype==1.15.0
+vpype-gcode==0.13.0
+numpy==2.4.4
+opencv-python-headless==5.0.0.93
+scikit-image==0.26.0
+scipy==1.17.1
+shapely==2.1.2
+Pillow==12.2.0
+Flask==3.1.3
+Jinja2==3.1.6
+websocket-client==1.9.2
+requests==2.33.1
+ezdxf==1.4.4
+PyMuPDF==1.27.2.3
+svgwrite==1.4.3

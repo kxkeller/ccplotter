@@ -1,0 +1,2221 @@
+{
+  "app_sha": "1a2cb24",
+  "fixtures": {
+    "bwphoto-native-default": {
+      "audit": {
+        "debug_metrics": {
+          "accepted_counts": {},
+          "candidate_counts": {},
+          "clean_lines": 1808,
+          "fused_lines": null,
+          "line_length_stats_mm": {
+            "max_mm": 44961.61,
+            "mean_mm": 72.4,
+            "median_mm": 3.56,
+            "min_mm": 0.09
+          },
+          "line_length_stats_px": {},
+          "lineart_quality": {},
+          "min_stroke_mm": 0.09,
+          "objective_score": null,
+          "pen_width_mm": 0.5,
+          "rejected_counts": {},
+          "routed_lines": 1808,
+          "small_detail": "off",
+          "weights": {}
+        },
+        "trace_info": {
+          "audit": {
+            "dropped_components": 38,
+            "dropped_ink_pct": 0.002,
+            "fallback_strokes": 425,
+            "fill_mm_resolved": 0.25,
+            "fill_px": 3.0,
+            "gap_guarantee_ridge_px": 0,
+            "gray_crush_fraction": 0.9805,
+            "levels": 238,
+            "lifts": 1815,
+            "lifts_before_link": 5020,
+            "lifts_per_meter": 8.0,
+            "min_mark_mm2": 0.035,
+            "mm_per_px": 0.0833,
+            "passes": 4937,
+            "pen_id_resolved": "energel_05",
+            "pinch_runs_fired": 223,
+            "pinch_runs_rejected": 229,
+            "pinch_runs_rejected_junction": 0,
+            "pinch_runs_rejected_short": 229,
+            "pinch_runs_total": 452,
+            "speck_ink_pct": 0.023,
+            "speck_polys_dropped": 342,
+            "texture_routing": "band_continuity_v1",
+            "tone": "off",
+            "total_polys": 1815,
+            "zero_pass_components": 34
+          },
+          "bilevel_source": false,
+          "downscaled": false,
+          "effective_res": 3536,
+          "front_end": {
+            "eps": 0.55,
+            "interpolated": false,
+            "k": 1.6,
+            "name": "bw_xdog",
+            "p": 20.0,
+            "phi": 2.0,
+            "side": 427,
+            "side_requested": "native",
+            "side_used": 427,
+            "sigma_px": 0.8,
+            "sigma_rescaled": false,
+            "src_short_side": 427
+          },
+          "mode": "tracev3",
+          "mode_cap": 3536,
+          "native_px": null,
+          "requested_res": 3536,
+          "texture_enabled": false,
+          "texture_sidecar_exists": false,
+          "texture_strokes": 0,
+          "upsampled": false
+        }
+      },
+      "audit_json_sha256": "65a5bbf002734449e4983ea66712462722d7231c399aff5817be3bd3bf5bb19b",
+      "gcode_file": "layout.gcode",
+      "gcode_sha256": "9c0484180b4863f4bd54c21b17d7aec48d4097f619fec2bfd9e2c9584598a70b",
+      "http_status": 200,
+      "kind": "process",
+      "preview_file": "layout.preview.svg",
+      "preview_svg_sha256_stripped": "fc18e5c1a6e9149b84c8b9b2e10c64029de42767face4144a0312207d523bf73",
+      "request": {
+        "path": "tests/golden_tests/fixtures/bwphoto-native-default/request.json",
+        "sha256": "c096cc2e13b5f004c9aa46a5ca476e1e37de99c5502c1c79ccba6f275aa26ea1"
+      },
+      "response_metadata": {
+        "bbox_mm": [
+          19.0,
+          46.0,
+          181.0,
+          154.0
+        ],
+        "connector_count": 0,
+        "connector_distance_mm": 0.0,
+        "connector_draw_length_mm": 0.0,
+        "coverage_audit": null,
+        "debug_files": {},
+        "draw_length_mm": 130893.3,
+        "draw_moves": 1808,
+        "end_policy": "release",
+        "estimated_pen_lifts": 1808,
+        "estimated_plot_time_min": 64.4,
+        "estimated_plot_time_s": 3866.2,
+        "estimated_z_moves": 3616,
+        "file_size_kb": 6092.3,
+        "gcode_file": "layout.gcode",
+        "item_bboxes": [
+          [
+            19.0,
+            45.97,
+            181.0,
+            154.03
+          ]
+        ],
+        "item_geometry": [
+          {
+            "base_fit_scale": 0.173206,
+            "item_settings": {
+              "crop": null,
+              "dx": 0.0,
+              "dy": 0.0,
+              "id": "<upload-id, order-normalized>",
+              "rot": 0.0,
+              "scale": 1.0
+            },
+            "layout_center_mm": [
+              100.0,
+              100.0
+            ],
+            "scale_aware_equivalence_prelim_approx": {
+              "actual_placed_height_mm": 108.061103,
+              "actual_placed_width_mm": 162.0,
+              "analytic_base_fit": 0.236224,
+              "analytic_base_fit_prelim_raw": 0.278437,
+              "analytic_placed_height_mm": 108.0,
+              "analytic_placed_width_mm": 162.0,
+              "analytic_resolution_basis": "final (boost fired, corrected via actual_boost)",
+              "analytic_s": 0.236224,
+              "analytic_s_prelim_raw": 0.278437,
+              "divergence_height_mm": 0.061103,
+              "divergence_width_mm": 0.0,
+              "fill_px_real": 2.999872,
+              "final_fit": 0.173206,
+              "final_height_mm": 623.887837,
+              "final_s": 0.173206,
+              "final_width_mm": 935.302588,
+              "mm_per_px_real": 0.062501,
+              "mm_per_px_real_prelim_raw": 0.07367,
+              "prelim_bbox_mm": [
+                0.0,
+                0.0,
+                581.819064,
+                387.879376
+              ],
+              "prelim_height_mm": 387.879376,
+              "prelim_width_mm": 581.819064,
+              "scale_aware_v2": true,
+              "v2_res_boost": {
+                "actual_boost": 1.1787,
+                "base_res": 3000,
+                "boosted_res": 3536,
+                "fill_px_real_pre_boost": 2.54514,
+                "needed_boost": 1.1787
+              }
+            },
+            "source_bbox_mm": [
+              0.0,
+              0.0,
+              935.302588,
+              623.887837
+            ],
+            "source_center_mm": [
+              467.651294,
+              311.943918
+            ],
+            "source_height_mm": 623.887837,
+            "source_width_mm": 935.302588
+          }
+        ],
+        "job_type": "gcode",
+        "lazy_preview_pen_mm": 0.25,
+        "line_length_stats_mm": {
+          "max_mm": 44961.61,
+          "mean_mm": 72.4,
+          "median_mm": 3.56,
+          "min_mm": 0.09
+        },
+        "longest_connector_mm": 0.0,
+        "machine_bbox": {
+          "bbox": [
+            33.5,
+            105.5,
+            195.5,
+            213.5
+          ],
+          "reach_bbox": [
+            3.0,
+            42.5,
+            255.0,
+            254.5
+          ],
+          "reach_label": "Plotter V3.2 (confirmed rectangular reach)",
+          "reach_polygon": [
+            [
+              3.0,
+              42.5
+            ],
+            [
+              255.0,
+              42.5
+            ],
+            [
+              255.0,
+              254.5
+            ],
+            [
+              3.0,
+              254.5
+            ]
+          ],
+          "reach_profile": "plotter_2003_v32",
+          "reach_validated": true,
+          "xy_moves_checked": 224075
+        },
+        "microlift": {
+          "lifts": 1808,
+          "mega_added_mm": 31.0,
+          "mega_lift_mm": 31.05,
+          "mega_lifts": 1,
+          "micro_hop_mm": 8.0,
+          "short_lift_mm": 0.6,
+          "short_lift_source": "profile:Pentel EnerGel 0.5 (Blue)",
+          "short_lifts": 1760,
+          "z_travel_saved_mm": 10208.0
+        },
+        "min_stroke_mm": 0.09,
+        "paper": "200x200mm",
+        "pen_lifts": 1808,
+        "pen_width_mm": 0.5,
+        "preview_clean_available": true,
+        "preview_file": "layout.preview.svg",
+        "preview_xray_available": false,
+        "quiet_fans": true,
+        "realised_pitch": {
+          "basis": "fill_px_final x (final placed scale x PX2MM); not the preliminary scale, not the fill_mm/fill_px back-solve",
+          "items": [
+            {
+              "fill_mm_target": 0.25,
+              "fill_px_audit": 3.0,
+              "fill_px_final": 2.9999,
+              "fill_px_source": "composite item_opts.fill_px (analytic path), floored at 1.2",
+              "final_scale": 0.173206,
+              "floor_binds": false,
+              "id": "e1b0df9d",
+              "mm_per_px_final": 0.045827,
+              "realised_pitch_mm": 0.1375,
+              "scale_source": "composite._composite placement s = fit*item.scale (final traced SVG bbox); x PX2MM"
+            }
+          ],
+          "max_mm": 0.1375,
+          "min_mm": 0.1375
+        },
+        "small_detail": "off",
+        "stroke_count": 1808,
+        "strokes_after": 1808,
+        "strokes_before": 1808,
+        "target_z_moves": 0,
+        "travel_length_mm": 3720.8,
+        "z_moves": 3616,
+        "z_moves_after": 3616,
+        "z_moves_before": 3616
+      },
+      "source_native_px_wh": [
+        [
+          640,
+          427
+        ]
+      ],
+      "warnings": [
+        {
+          "level": "warning",
+          "msg": "Pen-physics ceiling: smallest strokes ~0.09mm \u2014 below the ~0.5mm / 2\u00d7 pen-width line, readability may be physically limited. Plot larger, use a finer pen, or accept symbolic marks.",
+          "tier": "primary"
+        },
+        {
+          "level": "warning",
+          "msg": "Shading/hatching is being crushed into solid blobs by the ink threshold (~98% of the ink comes from gray-wash source regions collapsed into filled areas, not lines). Consider AI Clean to Line Art for a cleaner result.",
+          "tier": "primary"
+        },
+        {
+          "level": "warning",
+          "msg": "Dense: 1808 strokes. Raise Connect Strokes first (keeps detail); Smoothness / Min Stroke Length reduce strokes by deleting detail.",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "Estimated 3,616 Z-moves \u2014 high. Raise Connect Strokes or set Target Z-moves (keeps detail).",
+          "tier": "secondary"
+        }
+      ]
+    },
+    "calibration_plot": {
+      "audit": {},
+      "audit_json_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "gcode_file": "calibration_plot.gcode",
+      "gcode_sha256": "fc55488e39c9efe4f018a9f4d251b8c0f5ab012fd62b07efa505823c89bf7766",
+      "http_status": 200,
+      "kind": "calibration_plot",
+      "preview_file": "calibration_preview.svg",
+      "preview_svg_sha256_stripped": "5aafa58fa48e9a74b615f91dd65d9f3e734009e32a11bc72ed9d3aeb543fa302",
+      "request": {
+        "path": null,
+        "sha256": "7ea3ed40cb7d799e732c2669c02773df9aad3512b6aa558c622aa6127d32020b"
+      },
+      "response_metadata": {
+        "end_policy": "release",
+        "file": "calibration_plot.gcode",
+        "fill_mm_estimate": 0.25,
+        "gcode_url": "/work/calibration_plot.gcode",
+        "offset_mm": [
+          23.0,
+          62.5
+        ],
+        "ok": true,
+        "pattern_mm": [
+          70,
+          24
+        ],
+        "pen_id": "energel_05",
+        "pen_label": "Pentel EnerGel 0.5 (Blue)",
+        "pen_mm": 0.5,
+        "place": {
+          "h": 20.0,
+          "w": 63.0,
+          "x": 23.0,
+          "y": 62.5
+        },
+        "polylines": 233,
+        "preview": "calibration_preview.svg",
+        "preview_url": "/work/calibration_preview.svg",
+        "quiet_fans": true,
+        "safety_selfcheck": {
+          "ascii_ok": true,
+          "fan_index_ok": true,
+          "no_g92": true,
+          "z_down_abs": 11.45,
+          "z_floor_ok": true,
+          "z_levels_mm": [
+            11.45,
+            15.55,
+            31.05
+          ]
+        },
+        "size_kb": 31.3,
+        "spacings_mm": [
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.4
+        ],
+        "svg_name": "calibration_plot_pattern.svg",
+        "svg_path": "work\\calibration_plot_pattern.svg",
+        "svg_wh_px": [
+          265,
+          91
+        ],
+        "z_down_abs": 11.45,
+        "z_touch_abs": 12.05,
+        "z_touch_source": "profile:Pentel EnerGel 0.5 (Blue)",
+        "z_up_abs": 15.55
+      },
+      "warnings": []
+    },
+    "dotstorm-proxy-rivets-ballast": {
+      "audit": {
+        "debug_metrics": {
+          "accepted_counts": {},
+          "candidate_counts": {},
+          "clean_lines": 4858,
+          "fused_lines": null,
+          "line_length_stats_mm": {
+            "max_mm": 113.14,
+            "mean_mm": 3.66,
+            "median_mm": 1.56,
+            "min_mm": 0.05
+          },
+          "line_length_stats_px": {},
+          "lineart_quality": {
+            "background_brightness": 254.0,
+            "components": 8019,
+            "foreground_pct": 35.94,
+            "gray_pct": 23.81,
+            "looks_like_line_art": false,
+            "stroke_thickness_px": 6.2,
+            "warnings": [
+              [
+                "warning",
+                "This image has lots of gray/shading (24%). Clean it to line art first (AI Clean to Line Art) for best results."
+              ]
+            ]
+          },
+          "min_stroke_mm": 0.05,
+          "objective_score": null,
+          "pen_width_mm": 0.5,
+          "rejected_counts": {},
+          "routed_lines": 4858,
+          "small_detail": "preserve",
+          "weights": {}
+        },
+        "trace_info": {
+          "audit": {
+            "closed_loops": 201,
+            "fidelity_isolation": "strict",
+            "gray_crush_fraction": 0.0,
+            "hollowed_px": 1481464,
+            "skel_px": 319831,
+            "small_detail_checked": 689,
+            "small_detail_fidelity": "on",
+            "small_detail_min_switched_px": 3.0,
+            "small_detail_switched": 89,
+            "strokes": 6328,
+            "text_outlines": 0
+          },
+          "bilevel_source": false,
+          "downscaled": false,
+          "effective_res": 3000,
+          "mode": "plotready",
+          "mode_cap": 4800,
+          "native_px": 1448,
+          "requested_res": 3000,
+          "texture_enabled": false,
+          "texture_sidecar_exists": false,
+          "texture_strokes": 0,
+          "upsampled": true
+        }
+      },
+      "audit_json_sha256": "c559e3667adbe286a38cd389950561825f1f35614898d1c0893e3229dec54928",
+      "gcode_file": "layout.gcode",
+      "gcode_sha256": "ffc33154e09bfea82fd67915df93dec0101e684950dde98c5c7c36e9045fa9d6",
+      "http_status": 200,
+      "kind": "process",
+      "preview_file": "layout.preview.svg",
+      "preview_svg_sha256_stripped": "51d94eb40c0929e9a108644a01d19490563131e614d6f8ed1067b10cfa689180",
+      "request": {
+        "path": "tests/golden_tests/fixtures/dotstorm-proxy-rivets-ballast/request.json",
+        "sha256": "efb68525ea36260f5b6667538d7ca416ed073853fd4fd31ebf048fef454ecbec"
+      },
+      "response_metadata": {
+        "bbox_mm": [
+          19.0,
+          39.3,
+          181.0,
+          160.7
+        ],
+        "connector_count": 0,
+        "connector_distance_mm": 0.0,
+        "connector_draw_length_mm": 0.0,
+        "debug_files": {
+          "clean_svg": "layout.clean.svg",
+          "connectors_svg": "layout.connectors.svg",
+          "gray": "debug_gray.png",
+          "mask_clean": "debug_mask_clean.png",
+          "mask_raw": "debug_mask_raw.png",
+          "preview_svg": "layout.preview.svg",
+          "raw_paths": "debug_raw_paths.svg",
+          "routed_svg": "layout.routed.svg",
+          "skeleton": "debug_skeleton.png"
+        },
+        "draw_length_mm": 17792.3,
+        "draw_moves": 4858,
+        "end_policy": "release",
+        "estimated_pen_lifts": 4858,
+        "estimated_plot_time_min": 61.3,
+        "estimated_plot_time_s": 3681.0,
+        "estimated_z_moves": 9716,
+        "file_size_kb": 2171.5,
+        "gcode_file": "layout.gcode",
+        "item_bboxes": [
+          [
+            19.0,
+            39.31,
+            181.0,
+            160.69
+          ]
+        ],
+        "item_geometry": [
+          {
+            "base_fit_scale": 0.204162,
+            "item_settings": {
+              "crop": null,
+              "dx": 0.0,
+              "dy": 0.0,
+              "id": "<upload-id, order-normalized>",
+              "rot": 0.0,
+              "scale": 1.0
+            },
+            "layout_center_mm": [
+              100.0,
+              100.0
+            ],
+            "source_bbox_mm": [
+              0.0,
+              0.0,
+              793.485845,
+              594.519071
+            ],
+            "source_center_mm": [
+              396.742923,
+              297.259536
+            ],
+            "source_height_mm": 594.519071,
+            "source_width_mm": 793.485845
+          }
+        ],
+        "job_type": "gcode",
+        "lazy_preview_pen_mm": 0.25,
+        "line_length_stats_mm": {
+          "max_mm": 113.14,
+          "mean_mm": 3.66,
+          "median_mm": 1.56,
+          "min_mm": 0.05
+        },
+        "lineart_quality": {
+          "background_brightness": 254.0,
+          "components": 8019,
+          "foreground_pct": 35.94,
+          "gray_pct": 23.81,
+          "looks_like_line_art": false,
+          "stroke_thickness_px": 6.2,
+          "warnings": [
+            [
+              "warning",
+              "This image has lots of gray/shading (24%). Clean it to line art first (AI Clean to Line Art) for best results."
+            ]
+          ]
+        },
+        "longest_connector_mm": 0.0,
+        "machine_bbox": {
+          "bbox": [
+            33.5,
+            98.8,
+            195.5,
+            220.2
+          ],
+          "reach_bbox": [
+            3.0,
+            42.5,
+            255.0,
+            254.5
+          ],
+          "reach_label": "Plotter V3.2 (confirmed rectangular reach)",
+          "reach_polygon": [
+            [
+              3.0,
+              42.5
+            ],
+            [
+              255.0,
+              42.5
+            ],
+            [
+              255.0,
+              254.5
+            ],
+            [
+              3.0,
+              254.5
+            ]
+          ],
+          "reach_profile": "plotter_2003_v32",
+          "reach_validated": true,
+          "xy_moves_checked": 74837
+        },
+        "microlift": {
+          "lifts": 4858,
+          "mega_added_mm": 31.0,
+          "mega_lift_mm": 31.05,
+          "mega_lifts": 1,
+          "micro_hop_mm": 8.0,
+          "short_lift_mm": 0.6,
+          "short_lift_source": "profile:Pentel EnerGel 0.5 (Blue)",
+          "short_lifts": 4801,
+          "z_travel_saved_mm": 27845.8
+        },
+        "min_stroke_mm": 0.05,
+        "paper": "200x200mm",
+        "pen_lifts": 4858,
+        "pen_width_mm": 0.5,
+        "preview_clean_available": true,
+        "preview_file": "layout.preview.svg",
+        "preview_xray_available": false,
+        "quiet_fans": true,
+        "small_detail": "preserve",
+        "stroke_count": 4858,
+        "strokes_after": 4858,
+        "strokes_before": 4858,
+        "target_z_moves": 0,
+        "travel_length_mm": 6128.8,
+        "z_moves": 9716,
+        "z_moves_after": 9716,
+        "z_moves_before": 9716
+      },
+      "warnings": [
+        {
+          "level": "warning",
+          "msg": "Pen-physics ceiling: tiny detail ~0.2mm (~0.3\u00d7 the 0.5mm pen); smallest strokes ~0.05mm \u2014 below the ~0.5mm / 2\u00d7 pen-width line, readability may be physically limited. Plot larger, use a finer pen, or accept symbolic marks.",
+          "tier": "primary"
+        },
+        {
+          "level": "warning",
+          "msg": "Very dense: 4858 strokes. Prefer Connect Strokes / Target Z-moves (keeps detail); Min Stroke Length / Noise Cull also reduce strokes but DELETE small detail (text, ticks).",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "Estimated 9,716 Z-moves \u2014 very hard on the Z stepper. Raise Connect Strokes / set Target Z-moves before sending (detail-preserving); Min Stroke Length helps but deletes small detail.",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "This image has lots of gray/shading (24%). Clean it to line art first (AI Clean to Line Art) for best results.",
+          "tier": "secondary"
+        }
+      ]
+    },
+    "fan_probe": {
+      "audit": {},
+      "audit_json_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "gcode_file": "fan_probe.gcode",
+      "gcode_sha256": "5fb92f6a234f33d492bf41b8d1e2fcbe4dd80f63ebf1ccf3479ea781dd519085",
+      "http_status": 200,
+      "kind": "fan_probe",
+      "preview_file": null,
+      "preview_svg_sha256_stripped": null,
+      "request": {
+        "path": null,
+        "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      },
+      "response_metadata": {
+        "file": "fan_probe.gcode",
+        "gcode_url": "/work/fan_probe.gcode",
+        "ok": true,
+        "size_kb": 0.5
+      },
+      "warnings": []
+    },
+    "golden-alaska-737-jun14": {
+      "audit": {
+        "debug_metrics": {
+          "accepted_counts": {},
+          "candidate_counts": {},
+          "clean_lines": 5351,
+          "fused_lines": null,
+          "line_length_stats_mm": {
+            "max_mm": 63.59,
+            "mean_mm": 2.74,
+            "median_mm": 1.51,
+            "min_mm": 0.05
+          },
+          "line_length_stats_px": {},
+          "lineart_quality": {
+            "background_brightness": 255.0,
+            "components": 18211,
+            "foreground_pct": 16.8,
+            "gray_pct": 17.79,
+            "looks_like_line_art": true,
+            "stroke_thickness_px": 3.7,
+            "warnings": [
+              [
+                "okay",
+                "Looks like clean line art \u2014 tracing should be faithful."
+              ]
+            ]
+          },
+          "min_stroke_mm": 0.05,
+          "objective_score": null,
+          "pen_width_mm": 0.5,
+          "rejected_counts": {},
+          "routed_lines": 5351,
+          "small_detail": "off",
+          "weights": {}
+        },
+        "trace_info": {
+          "audit": {
+            "closed_loops": 93,
+            "fidelity_isolation": "strict",
+            "gray_crush_fraction": 0.0,
+            "hollowed_px": 251907,
+            "skel_px": 286288,
+            "small_detail_checked": 594,
+            "small_detail_fidelity": "on",
+            "small_detail_min_switched_px": 3.0,
+            "small_detail_switched": 36,
+            "strokes": 11917,
+            "text_outlines": 0
+          },
+          "bilevel_source": false,
+          "downscaled": false,
+          "effective_res": 3000,
+          "mode": "plotready",
+          "mode_cap": 4800,
+          "native_px": 1536,
+          "requested_res": 3000,
+          "texture_enabled": false,
+          "texture_sidecar_exists": false,
+          "texture_strokes": 0,
+          "upsampled": true
+        }
+      },
+      "audit_json_sha256": "9a4aad10679ec1a93a493b4660e51efb2b92ca0abffa19e501c9709086105fca",
+      "gcode_file": "layout.gcode",
+      "gcode_sha256": "f7f47efdac27a494b26b276d959a1eee33af96ca96033cdcb063bad2298b152b",
+      "http_status": 200,
+      "kind": "process",
+      "preview_file": "layout.preview.svg",
+      "preview_svg_sha256_stripped": "f6e08f4dfd0af12b3324bea89c2aefdab4b52ce9e4bd6dd7e40372beceee513e",
+      "request": {
+        "path": "tests/golden_tests/expected/alaska-737-jun14/settings.json",
+        "sha256": "cf291db1d88e3e8547c41fa3d6118f9c1367247196f5fb25945600669fa09a84"
+      },
+      "response_metadata": {
+        "bbox_mm": [
+          17.8,
+          86.4,
+          158.2,
+          163.6
+        ],
+        "connector_count": 0,
+        "connector_distance_mm": 0.0,
+        "connector_draw_length_mm": 0.0,
+        "debug_files": {
+          "clean_svg": "layout.clean.svg",
+          "connectors_svg": "layout.connectors.svg",
+          "gray": "debug_gray.png",
+          "mask_clean": "debug_mask_clean.png",
+          "mask_raw": "debug_mask_raw.png",
+          "preview_svg": "layout.preview.svg",
+          "raw_paths": "debug_raw_paths.svg",
+          "routed_svg": "layout.routed.svg",
+          "skeleton": "debug_skeleton.png"
+        },
+        "draw_length_mm": 14668.3,
+        "draw_moves": 5351,
+        "end_policy": "release",
+        "estimated_pen_lifts": 5351,
+        "estimated_plot_time_min": 16.0,
+        "estimated_plot_time_s": 959.7,
+        "estimated_z_moves": 10702,
+        "file_size_kb": 2683.4,
+        "gcode_file": "layout.gcode",
+        "item_bboxes": [
+          [
+            17.8,
+            86.42,
+            158.2,
+            163.58
+          ]
+        ],
+        "item_geometry": [
+          {
+            "base_fit_scale": 0.176941,
+            "item_settings": {
+              "crop": null,
+              "dx": 0.0,
+              "dy": 0.0,
+              "id": "<upload-id, order-normalized>",
+              "rot": 0.0,
+              "scale": 1.0
+            },
+            "layout_center_mm": [
+              88.0,
+              125.0
+            ],
+            "source_bbox_mm": [
+              0.0,
+              92.8688,
+              793.485845,
+              528.902369
+            ],
+            "source_center_mm": [
+              396.742923,
+              310.885585
+            ],
+            "source_height_mm": 436.033569,
+            "source_width_mm": 793.485845
+          }
+        ],
+        "job_type": "gcode",
+        "lazy_preview_pen_mm": 0.25,
+        "line_length_stats_mm": {
+          "max_mm": 63.59,
+          "mean_mm": 2.74,
+          "median_mm": 1.51,
+          "min_mm": 0.05
+        },
+        "lineart_quality": {
+          "background_brightness": 255.0,
+          "components": 18211,
+          "foreground_pct": 16.8,
+          "gray_pct": 17.79,
+          "looks_like_line_art": true,
+          "stroke_thickness_px": 3.7,
+          "warnings": [
+            [
+              "okay",
+              "Looks like clean line art \u2014 tracing should be faithful."
+            ]
+          ]
+        },
+        "longest_connector_mm": 0.0,
+        "machine_bbox": {
+          "bbox": [
+            27.5,
+            131.4,
+            167.9,
+            208.6
+          ],
+          "reach_bbox": [
+            3.0,
+            42.5,
+            255.0,
+            254.5
+          ],
+          "reach_label": "Plotter V3.2 (confirmed rectangular reach)",
+          "reach_polygon": [
+            [
+              3.0,
+              42.5
+            ],
+            [
+              255.0,
+              42.5
+            ],
+            [
+              255.0,
+              254.5
+            ],
+            [
+              3.0,
+              254.5
+            ]
+          ],
+          "reach_profile": "plotter_2003_v32",
+          "reach_validated": true,
+          "xy_moves_checked": 93279
+        },
+        "microlift": {
+          "lifts": 5351,
+          "mega_added_mm": 0.0,
+          "mega_lift_mm": 31.05,
+          "mega_lifts": 0,
+          "micro_hop_mm": 8.0,
+          "short_lift_mm": 0.6,
+          "short_lift_source": "profile:Pentel EnerGel 0.5 (Blue)",
+          "short_lifts": 5318,
+          "z_travel_saved_mm": 6913.4
+        },
+        "min_stroke_mm": 0.05,
+        "paper": "176.0x250.0mm",
+        "pen_lifts": 5351,
+        "pen_width_mm": 0.5,
+        "preview_clean_available": true,
+        "preview_file": "layout.preview.svg",
+        "preview_xray_available": false,
+        "quiet_fans": true,
+        "small_detail": "off",
+        "stroke_count": 5351,
+        "strokes_after": 5351,
+        "strokes_before": 5351,
+        "target_z_moves": 0,
+        "travel_length_mm": 5149.2,
+        "z_moves": 10702,
+        "z_moves_after": 10702,
+        "z_moves_before": 10702
+      },
+      "ssim": {
+        "minimum": 0.999,
+        "reference": "tests/golden_tests/expected/alaska-737-jun14/preview.png",
+        "value": 1.0
+      },
+      "warnings": [
+        {
+          "level": "warning",
+          "msg": "Pen-physics ceiling: tiny detail ~0.1mm (~0.3\u00d7 the 0.5mm pen); smallest strokes ~0.05mm \u2014 below the ~0.5mm / 2\u00d7 pen-width line, readability may be physically limited. Plot larger, use a finer pen, or accept symbolic marks.",
+          "tier": "primary"
+        },
+        {
+          "level": "warning",
+          "msg": "Very dense: 5351 strokes. Prefer Connect Strokes / Target Z-moves (keeps detail); Min Stroke Length / Noise Cull also reduce strokes but DELETE small detail (text, ticks).",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "Estimated 10,702 Z-moves \u2014 very hard on the Z stepper. Raise Connect Strokes / set Target Z-moves before sending (detail-preserving); Min Stroke Length helps but deletes small detail.",
+          "tier": "secondary"
+        },
+        {
+          "level": "okay",
+          "msg": "Looks like clean line art \u2014 tracing should be faithful.",
+          "tier": "primary"
+        }
+      ]
+    },
+    "golden-tram-hongkong-lightrail": {
+      "attribution_audit": null,
+      "expected_error_substring": "reach safety check failed",
+      "expected_http_status": 500,
+      "gate": "docs/history/REVIEW_LOG.md 2026-07-16 (evening, V3.2 manifest drift attribution); Kai ruling on the V3.2 envelope trade (2026-07-16).",
+      "last_observed_error": "Pipeline failed: reach safety check failed: Generated G-code leaves active reach profile Plotter V3.2 (confirmed rectangular reach): line 38569: X84.746 Y254.769, line 38570: X84.746 Y257.516, line 38571: X84.719 Y257.641, line 38572: X84.657 Y257.739",
+      "reason": "Archived settings.json places the drawing so its bbox reaches Y257.5 at X~84.7; plotter_2002's stepped polygon allowed Y up to 264.5 in that X band (drawing fit), but the Kai-ratified plotter_2003_v32 rectangle caps Y at 254.5 everywhere -- an accepted trade for full B5-plus width (Kai, 2026-07-16: \"we likely are losing reach in some places, but more than make up for it...\").",
+      "recorded_at": "2026-07-19T23:44:03",
+      "status": "negative"
+    },
+    "loco-472-trestle": {
+      "audit": {
+        "debug_metrics": {
+          "accepted_counts": {},
+          "candidate_counts": {},
+          "clean_lines": 7873,
+          "fused_lines": null,
+          "line_length_stats_mm": {
+            "max_mm": 2286.32,
+            "mean_mm": 7.5,
+            "median_mm": 2.44,
+            "min_mm": 0.18
+          },
+          "line_length_stats_px": {},
+          "lineart_quality": {},
+          "min_stroke_mm": 0.18,
+          "objective_score": null,
+          "pen_width_mm": 0.5,
+          "rejected_counts": {},
+          "routed_lines": 7873,
+          "small_detail": "off",
+          "weights": {}
+        },
+        "trace_info": {
+          "audit": {
+            "dropped_components": 1875,
+            "dropped_ink_pct": 0.276,
+            "fallback_strokes": 9986,
+            "fill_mm_resolved": 0.25,
+            "fill_px": 3.0,
+            "gap_guarantee_ridge_px": 0,
+            "gray_crush_fraction": 0.0,
+            "levels": 15,
+            "lifts": 7901,
+            "lifts_before_link": 19741,
+            "lifts_per_meter": 85.0,
+            "min_mark_mm2": 0.035,
+            "mm_per_px": 0.0833,
+            "passes": 12775,
+            "pen_id_resolved": "energel_05",
+            "pinch_runs_fired": 8945,
+            "pinch_runs_rejected": 9246,
+            "pinch_runs_rejected_junction": 3595,
+            "pinch_runs_rejected_short": 5651,
+            "pinch_runs_total": 18191,
+            "speck_ink_pct": 0.988,
+            "speck_polys_dropped": 3020,
+            "texture_routing": "band_continuity_v1",
+            "tone": "off",
+            "total_polys": 7901,
+            "zero_pass_components": 2111
+          },
+          "bilevel_source": false,
+          "downscaled": false,
+          "effective_res": 3065,
+          "mode": "tracev3",
+          "mode_cap": 3065,
+          "native_px": null,
+          "requested_res": 3065,
+          "texture_enabled": false,
+          "texture_sidecar_exists": false,
+          "texture_strokes": 0,
+          "upsampled": false
+        }
+      },
+      "audit_json_sha256": "a70a4037a5cd597028ae429256ab7f872a9737857f5515b99f3e7201c33dfff3",
+      "gcode_file": "layout.gcode",
+      "gcode_sha256": "f5d46c5c4d18ec8900c5c15e75dc8bf6d722a34ea89d1a338aaf28c8a9237e8a",
+      "http_status": 200,
+      "kind": "process",
+      "preview_file": "layout.preview.svg",
+      "preview_svg_sha256_stripped": "663b2bfb71cd2d9449826d0bccdc6eb7bfae81c035291da0404d05589af696b6",
+      "request": {
+        "path": "tests/golden_tests/fixtures/loco-472-trestle/settings.json",
+        "sha256": "50507b2e64063d3b5075d6c443cb7ffd432cf230494898c182e22db11a849456"
+      },
+      "response_metadata": {
+        "bbox_mm": [
+          19.0,
+          39.3,
+          181.0,
+          160.7
+        ],
+        "connector_count": 0,
+        "connector_distance_mm": 0.0,
+        "connector_draw_length_mm": 0.0,
+        "debug_files": {},
+        "draw_length_mm": 59040.7,
+        "draw_moves": 7873,
+        "end_policy": "release",
+        "estimated_pen_lifts": 7873,
+        "estimated_plot_time_min": 109.5,
+        "estimated_plot_time_s": 6572.7,
+        "estimated_z_moves": 15746,
+        "file_size_kb": 8196.8,
+        "gcode_file": "layout.gcode",
+        "item_bboxes": [
+          [
+            19.0,
+            39.33,
+            181.0,
+            160.67
+          ]
+        ],
+        "item_geometry": [
+          {
+            "base_fit_scale": 0.199831,
+            "item_settings": {
+              "crop": null,
+              "dx": 0.0,
+              "dy": 0.0,
+              "id": "<upload-id, order-normalized>",
+              "rot": 0.0,
+              "scale": 1.0
+            },
+            "layout_center_mm": [
+              100.0,
+              100.0
+            ],
+            "scale_aware_equivalence_prelim_approx": {
+              "actual_placed_height_mm": 121.341384,
+              "actual_placed_width_mm": 162.0,
+              "analytic_base_fit": 0.236204,
+              "analytic_base_fit_prelim_raw": 0.278437,
+              "analytic_placed_height_mm": 121.334243,
+              "analytic_placed_width_mm": 162.0,
+              "analytic_resolution_basis": "final (boost fired, corrected via actual_boost)",
+              "analytic_s": 0.236204,
+              "analytic_s_prelim_raw": 0.278437,
+              "divergence_height_mm": 0.007141,
+              "divergence_width_mm": 0.0,
+              "fill_px_real": 3.000329,
+              "final_fit": 0.199831,
+              "final_height_mm": 607.219078,
+              "final_s": 0.199831,
+              "final_width_mm": 810.683771,
+              "mm_per_px_real": 0.062496,
+              "mm_per_px_real_prelim_raw": 0.07367,
+              "prelim_bbox_mm": [
+                0.0,
+                0.0,
+                581.819064,
+                435.768985
+              ],
+              "prelim_height_mm": 435.768985,
+              "prelim_width_mm": 581.819064,
+              "scale_aware_v2": true,
+              "v2_res_boost": {
+                "actual_boost": 1.1788,
+                "base_res": 2600,
+                "boosted_res": 3065,
+                "fill_px_real_pre_boost": 2.54514,
+                "needed_boost": 1.1787
+              }
+            },
+            "source_bbox_mm": [
+              0.0,
+              0.0,
+              810.683771,
+              607.219078
+            ],
+            "source_center_mm": [
+              405.341886,
+              303.609539
+            ],
+            "source_height_mm": 607.219078,
+            "source_width_mm": 810.683771
+          }
+        ],
+        "job_type": "gcode",
+        "lazy_preview_pen_mm": 0.25,
+        "line_length_stats_mm": {
+          "max_mm": 2286.32,
+          "mean_mm": 7.5,
+          "median_mm": 2.44,
+          "min_mm": 0.18
+        },
+        "longest_connector_mm": 0.0,
+        "machine_bbox": {
+          "bbox": [
+            62.0,
+            118.8,
+            224.0,
+            240.2
+          ],
+          "reach_bbox": [
+            3.0,
+            42.5,
+            255.0,
+            254.5
+          ],
+          "reach_label": "Plotter V3.2 (confirmed rectangular reach)",
+          "reach_polygon": [
+            [
+              3.0,
+              42.5
+            ],
+            [
+              255.0,
+              42.5
+            ],
+            [
+              255.0,
+              254.5
+            ],
+            [
+              3.0,
+              254.5
+            ]
+          ],
+          "reach_profile": "plotter_2003_v32",
+          "reach_validated": true,
+          "xy_moves_checked": 292517
+        },
+        "microlift": {
+          "lifts": 7873,
+          "mega_added_mm": 93.0,
+          "mega_lift_mm": 31.05,
+          "mega_lifts": 3,
+          "micro_hop_mm": 8.0,
+          "short_lift_mm": 0.6,
+          "short_lift_source": "profile:Pentel EnerGel 0.5 (Blue)",
+          "short_lifts": 7812,
+          "z_travel_saved_mm": 45309.6
+        },
+        "min_stroke_mm": 0.18,
+        "paper": "200x200mm",
+        "pen_lifts": 7873,
+        "pen_width_mm": 0.5,
+        "preview_clean_available": true,
+        "preview_file": "layout.preview.svg",
+        "preview_xray_available": false,
+        "quiet_fans": true,
+        "small_detail": "off",
+        "stroke_count": 7873,
+        "strokes_after": 7873,
+        "strokes_before": 7873,
+        "target_z_moves": 0,
+        "travel_length_mm": 10349.3,
+        "z_moves": 15746,
+        "z_moves_after": 15746,
+        "z_moves_before": 15746
+      },
+      "warnings": [
+        {
+          "level": "warning",
+          "msg": "Pen-physics ceiling: smallest strokes ~0.18mm \u2014 below the ~0.5mm / 2\u00d7 pen-width line, readability may be physically limited. Plot larger, use a finer pen, or accept symbolic marks.",
+          "tier": "primary"
+        },
+        {
+          "level": "warning",
+          "msg": "Very dense: 7873 strokes. Prefer Connect Strokes / Target Z-moves (keeps detail); Min Stroke Length / Noise Cull also reduce strokes but DELETE small detail (text, ticks).",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "Estimated 15,746 Z-moves \u2014 very hard on the Z stepper. Raise Connect Strokes / set Target Z-moves before sending (detail-preserving); Min Stroke Length helps but deletes small detail.",
+          "tier": "secondary"
+        }
+      ]
+    },
+    "loco-lineart-isolation-trial": {
+      "audit": {
+        "debug_metrics": {
+          "accepted_counts": {},
+          "candidate_counts": {},
+          "clean_lines": 5090,
+          "fused_lines": null,
+          "line_length_stats_mm": {
+            "max_mm": 113.14,
+            "mean_mm": 3.56,
+            "median_mm": 1.51,
+            "min_mm": 0.05
+          },
+          "line_length_stats_px": {},
+          "lineart_quality": {
+            "background_brightness": 254.0,
+            "components": 8019,
+            "foreground_pct": 35.94,
+            "gray_pct": 23.81,
+            "looks_like_line_art": false,
+            "stroke_thickness_px": 6.2,
+            "warnings": [
+              [
+                "warning",
+                "This image has lots of gray/shading (24%). Clean it to line art first (AI Clean to Line Art) for best results."
+              ]
+            ]
+          },
+          "min_stroke_mm": 0.05,
+          "objective_score": null,
+          "pen_width_mm": 0.5,
+          "rejected_counts": {},
+          "routed_lines": 5090,
+          "small_detail": "preserve",
+          "weights": {}
+        },
+        "trace_info": {
+          "audit": {
+            "closed_loops": 557,
+            "fidelity_isolation": "trial",
+            "gray_crush_fraction": 0.0,
+            "hollowed_px": 1481464,
+            "skel_px": 319412,
+            "small_detail_checked": 2644,
+            "small_detail_fidelity": "on",
+            "small_detail_min_switched_px": 3.0,
+            "small_detail_switched": 204,
+            "strokes": 6652,
+            "text_outlines": 0
+          },
+          "bilevel_source": false,
+          "downscaled": false,
+          "effective_res": 3000,
+          "mode": "plotready",
+          "mode_cap": 4800,
+          "native_px": 1448,
+          "requested_res": 3000,
+          "texture_enabled": false,
+          "texture_sidecar_exists": false,
+          "texture_strokes": 0,
+          "upsampled": true
+        }
+      },
+      "audit_json_sha256": "4ec76a3d02af3e0fe064a9d01a8e59a7131f97ae9842f73bd524fb867d1d4b35",
+      "gcode_file": "layout.gcode",
+      "gcode_sha256": "2f8276d8cf16c2b951cb86ad3afe966045f6d3a7f5d2e0cb764113fab8569b7d",
+      "http_status": 200,
+      "kind": "process",
+      "preview_file": "layout.preview.svg",
+      "preview_svg_sha256_stripped": "8082af081bc51657143b8c95888fbc6cb764c3924dfe00f7565cfdbf640d8f23",
+      "request": {
+        "path": "tests/golden_tests/fixtures/loco-lineart-isolation-trial/request.json",
+        "sha256": "8fc2843f779ac321adeb0b72bff8761bc680caa3688ee0a003f7f5e0957b5ba2"
+      },
+      "response_metadata": {
+        "bbox_mm": [
+          19.0,
+          39.3,
+          181.0,
+          160.7
+        ],
+        "connector_count": 0,
+        "connector_distance_mm": 0.0,
+        "connector_draw_length_mm": 0.0,
+        "debug_files": {},
+        "draw_length_mm": 18105.3,
+        "draw_moves": 5090,
+        "end_policy": "release",
+        "estimated_pen_lifts": 5090,
+        "estimated_plot_time_min": 64.1,
+        "estimated_plot_time_s": 3844.3,
+        "estimated_z_moves": 10180,
+        "file_size_kb": 2244.9,
+        "gcode_file": "layout.gcode",
+        "item_bboxes": [
+          [
+            19.0,
+            39.31,
+            181.0,
+            160.69
+          ]
+        ],
+        "item_geometry": [
+          {
+            "base_fit_scale": 0.204162,
+            "item_settings": {
+              "crop": null,
+              "dx": 0.0,
+              "dy": 0.0,
+              "id": "<upload-id, order-normalized>",
+              "rot": 0.0,
+              "scale": 1.0
+            },
+            "layout_center_mm": [
+              100.0,
+              100.0
+            ],
+            "source_bbox_mm": [
+              0.0,
+              0.0,
+              793.485845,
+              594.519071
+            ],
+            "source_center_mm": [
+              396.742923,
+              297.259536
+            ],
+            "source_height_mm": 594.519071,
+            "source_width_mm": 793.485845
+          }
+        ],
+        "job_type": "gcode",
+        "lazy_preview_pen_mm": 0.25,
+        "line_length_stats_mm": {
+          "max_mm": 113.14,
+          "mean_mm": 3.56,
+          "median_mm": 1.51,
+          "min_mm": 0.05
+        },
+        "lineart_quality": {
+          "background_brightness": 254.0,
+          "components": 8019,
+          "foreground_pct": 35.94,
+          "gray_pct": 23.81,
+          "looks_like_line_art": false,
+          "stroke_thickness_px": 6.2,
+          "warnings": [
+            [
+              "warning",
+              "This image has lots of gray/shading (24%). Clean it to line art first (AI Clean to Line Art) for best results."
+            ]
+          ]
+        },
+        "longest_connector_mm": 0.0,
+        "machine_bbox": {
+          "bbox": [
+            33.5,
+            98.8,
+            195.5,
+            220.2
+          ],
+          "reach_bbox": [
+            3.0,
+            42.5,
+            255.0,
+            254.5
+          ],
+          "reach_label": "Plotter V3.2 (confirmed rectangular reach)",
+          "reach_polygon": [
+            [
+              3.0,
+              42.5
+            ],
+            [
+              255.0,
+              42.5
+            ],
+            [
+              255.0,
+              254.5
+            ],
+            [
+              3.0,
+              254.5
+            ]
+          ],
+          "reach_profile": "plotter_2003_v32",
+          "reach_validated": true,
+          "xy_moves_checked": 77291
+        },
+        "microlift": {
+          "lifts": 5090,
+          "mega_added_mm": 62.0,
+          "mega_lift_mm": 31.05,
+          "mega_lifts": 2,
+          "micro_hop_mm": 8.0,
+          "short_lift_mm": 0.6,
+          "short_lift_source": "profile:Pentel EnerGel 0.5 (Blue)",
+          "short_lifts": 5022,
+          "z_travel_saved_mm": 29127.6
+        },
+        "min_stroke_mm": 0.05,
+        "paper": "200x200mm",
+        "pen_lifts": 5090,
+        "pen_width_mm": 0.5,
+        "preview_clean_available": true,
+        "preview_file": "layout.preview.svg",
+        "preview_xray_available": false,
+        "quiet_fans": true,
+        "small_detail": "preserve",
+        "stroke_count": 5090,
+        "strokes_after": 5090,
+        "strokes_before": 5090,
+        "target_z_moves": 0,
+        "travel_length_mm": 6188.4,
+        "z_moves": 10180,
+        "z_moves_after": 10180,
+        "z_moves_before": 10180
+      },
+      "warnings": [
+        {
+          "level": "warning",
+          "msg": "Pen-physics ceiling: tiny detail ~0.2mm (~0.3\u00d7 the 0.5mm pen); smallest strokes ~0.05mm \u2014 below the ~0.5mm / 2\u00d7 pen-width line, readability may be physically limited. Plot larger, use a finer pen, or accept symbolic marks.",
+          "tier": "primary"
+        },
+        {
+          "level": "warning",
+          "msg": "Very dense: 5090 strokes. Prefer Connect Strokes / Target Z-moves (keeps detail); Min Stroke Length / Noise Cull also reduce strokes but DELETE small detail (text, ticks).",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "Estimated 10,180 Z-moves \u2014 very hard on the Z stepper. Raise Connect Strokes / set Target Z-moves before sending (detail-preserving); Min Stroke Length helps but deletes small detail.",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "This image has lots of gray/shading (24%). Clean it to line art first (AI Clean to Line Art) for best results.",
+          "tier": "secondary"
+        }
+      ]
+    },
+    "plane": {
+      "audit": {
+        "debug_metrics": {
+          "accepted_counts": {},
+          "candidate_counts": {},
+          "clean_lines": 4117,
+          "fused_lines": null,
+          "line_length_stats_mm": {
+            "max_mm": 2995.38,
+            "mean_mm": 9.2,
+            "median_mm": 2.2,
+            "min_mm": 0.18
+          },
+          "line_length_stats_px": {},
+          "lineart_quality": {},
+          "min_stroke_mm": 0.18,
+          "objective_score": null,
+          "pen_width_mm": 0.5,
+          "rejected_counts": {},
+          "routed_lines": 4117,
+          "small_detail": "preserve",
+          "weights": {}
+        },
+        "trace_info": {
+          "audit": {
+            "dropped_components": 2360,
+            "dropped_ink_pct": 0.419,
+            "fallback_strokes": 4516,
+            "fill_mm_resolved": 0.25,
+            "fill_px": 3.0,
+            "gap_guarantee_ridge_px": 0,
+            "gray_crush_fraction": 0.935,
+            "levels": 17,
+            "lifts": 4119,
+            "lifts_before_link": 9867,
+            "lifts_per_meter": 69.0,
+            "min_mark_mm2": 0.035,
+            "mm_per_px": 0.0833,
+            "passes": 6332,
+            "pen_id_resolved": "energel_05",
+            "pinch_runs_fired": 3072,
+            "pinch_runs_rejected": 2815,
+            "pinch_runs_rejected_junction": 1283,
+            "pinch_runs_rejected_short": 1532,
+            "pinch_runs_total": 5887,
+            "speck_ink_pct": 0.384,
+            "speck_polys_dropped": 981,
+            "texture_routing": "band_continuity_v1",
+            "tone": "off",
+            "total_polys": 4119,
+            "zero_pass_components": 1615
+          },
+          "bilevel_source": false,
+          "downscaled": false,
+          "effective_res": 3065,
+          "mode": "tracev3",
+          "mode_cap": 3065,
+          "native_px": null,
+          "requested_res": 3065,
+          "texture_enabled": false,
+          "texture_sidecar_exists": false,
+          "texture_strokes": 0,
+          "upsampled": false
+        }
+      },
+      "audit_json_sha256": "7dd61cb67a672b5c4f45fe1f27775e3d489a6db68f8fb42953cb244ad7142ad6",
+      "gcode_file": "layout.gcode",
+      "gcode_sha256": "1a551eb24edf018fee8f80a7a8ed38d654a357d3f51cf95730bf1fa15afcc650",
+      "http_status": 200,
+      "kind": "process",
+      "preview_file": "layout.preview.svg",
+      "preview_svg_sha256_stripped": "c98c347403fdde300199c8f244feb8219b0819c86e16fd324f1b0af25fe47207",
+      "request": {
+        "path": "tests/golden_tests/fixtures/plane/replay_request.json",
+        "sha256": "b841a8ee71b5873f9522043f32782d19579e55f68342718e11205c1fd69c258f"
+      },
+      "response_metadata": {
+        "bbox_mm": [
+          19.0,
+          41.5,
+          181.0,
+          158.5
+        ],
+        "connector_count": 0,
+        "connector_distance_mm": 0.0,
+        "connector_draw_length_mm": 0.0,
+        "debug_files": {
+          "clean_svg": "layout.clean.svg",
+          "connectors_svg": "layout.connectors.svg",
+          "gray": "debug_gray.png",
+          "preview_svg": "layout.preview.svg",
+          "routed_svg": "layout.routed.svg"
+        },
+        "draw_length_mm": 37895.5,
+        "draw_moves": 4117,
+        "end_policy": "release",
+        "estimated_pen_lifts": 4117,
+        "estimated_plot_time_min": 59.8,
+        "estimated_plot_time_s": 3587.3,
+        "estimated_z_moves": 8234,
+        "file_size_kb": 4135.3,
+        "gcode_file": "layout.gcode",
+        "item_bboxes": [
+          [
+            19.0,
+            41.52,
+            181.0,
+            158.48
+          ]
+        ],
+        "item_geometry": [
+          {
+            "base_fit_scale": 0.199831,
+            "item_settings": {
+              "crop": null,
+              "dx": 0.0,
+              "dy": 0.0,
+              "id": "<upload-id, order-normalized>",
+              "rot": 0.0,
+              "scale": 1.0
+            },
+            "layout_center_mm": [
+              100.0,
+              100.0
+            ],
+            "scale_aware_equivalence_prelim_approx": {
+              "actual_placed_height_mm": 116.953003,
+              "actual_placed_width_mm": 162.0,
+              "analytic_base_fit": 0.236204,
+              "analytic_base_fit_prelim_raw": 0.278437,
+              "analytic_placed_height_mm": 116.987722,
+              "analytic_placed_width_mm": 162.0,
+              "analytic_resolution_basis": "final (boost fired, corrected via actual_boost)",
+              "analytic_s": 0.236204,
+              "analytic_s_prelim_raw": 0.278437,
+              "divergence_height_mm": 0.034719,
+              "divergence_width_mm": 0.0,
+              "fill_px_real": 3.000329,
+              "final_fit": 0.199831,
+              "final_height_mm": 585.258649,
+              "final_s": 0.199831,
+              "final_width_mm": 810.683771,
+              "mm_per_px_real": 0.062496,
+              "mm_per_px_real_prelim_raw": 0.07367,
+              "prelim_bbox_mm": [
+                0.0,
+                16.139592,
+                581.819064,
+                436.298152
+              ],
+              "prelim_height_mm": 420.15856,
+              "prelim_width_mm": 581.819064,
+              "scale_aware_v2": true,
+              "v2_res_boost": {
+                "actual_boost": 1.1788,
+                "base_res": 2600,
+                "boosted_res": 3065,
+                "fill_px_real_pre_boost": 2.54514,
+                "needed_boost": 1.1787
+              }
+            },
+            "source_bbox_mm": [
+              0.0,
+              22.489595,
+              810.683771,
+              607.748245
+            ],
+            "source_center_mm": [
+              405.341886,
+              315.11892
+            ],
+            "source_height_mm": 585.258649,
+            "source_width_mm": 810.683771
+          }
+        ],
+        "job_type": "gcode",
+        "lazy_preview_pen_mm": 0.25,
+        "line_length_stats_mm": {
+          "max_mm": 2995.38,
+          "mean_mm": 9.2,
+          "median_mm": 2.2,
+          "min_mm": 0.18
+        },
+        "longest_connector_mm": 0.0,
+        "machine_bbox": {
+          "bbox": [
+            33.5,
+            101.0,
+            195.5,
+            218.0
+          ],
+          "reach_bbox": [
+            3.0,
+            42.5,
+            255.0,
+            254.5
+          ],
+          "reach_label": "Plotter V3.2 (confirmed rectangular reach)",
+          "reach_polygon": [
+            [
+              3.0,
+              42.5
+            ],
+            [
+              255.0,
+              42.5
+            ],
+            [
+              255.0,
+              254.5
+            ],
+            [
+              3.0,
+              254.5
+            ]
+          ],
+          "reach_profile": "plotter_2003_v32",
+          "reach_validated": true,
+          "xy_moves_checked": 148508
+        },
+        "microlift": {
+          "lifts": 4117,
+          "mega_added_mm": 62.0,
+          "mega_lift_mm": 31.05,
+          "mega_lifts": 2,
+          "micro_hop_mm": 8.0,
+          "short_lift_mm": 0.6,
+          "short_lift_source": "profile:Pentel EnerGel 0.5 (Blue)",
+          "short_lifts": 4059,
+          "z_travel_saved_mm": 23542.2
+        },
+        "min_stroke_mm": 0.18,
+        "paper": "200x200mm",
+        "pen_lifts": 4117,
+        "pen_width_mm": 0.5,
+        "preview_clean_available": true,
+        "preview_file": "layout.preview.svg",
+        "preview_xray_available": false,
+        "quiet_fans": true,
+        "small_detail": "preserve",
+        "stroke_count": 4117,
+        "strokes_after": 4117,
+        "strokes_before": 4117,
+        "target_z_moves": 0,
+        "travel_length_mm": 6720.9,
+        "z_moves": 8234,
+        "z_moves_after": 8234,
+        "z_moves_before": 8234
+      },
+      "warnings": [
+        {
+          "level": "warning",
+          "msg": "Pen-physics ceiling: smallest strokes ~0.18mm \u2014 below the ~0.5mm / 2\u00d7 pen-width line, readability may be physically limited. Plot larger, use a finer pen, or accept symbolic marks.",
+          "tier": "primary"
+        },
+        {
+          "level": "warning",
+          "msg": "Shading/hatching is being crushed into solid blobs by the ink threshold (~94% of the ink comes from gray-wash source regions collapsed into filled areas, not lines). Consider AI Clean to Line Art for a cleaner result.",
+          "tier": "primary"
+        },
+        {
+          "level": "warning",
+          "msg": "Very dense: 4117 strokes. Prefer Connect Strokes / Target Z-moves (keeps detail); Min Stroke Length / Noise Cull also reduce strokes but DELETE small detail (text, ticks).",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "Estimated 8,234 Z-moves \u2014 very hard on the Z stepper. Raise Connect Strokes / set Target Z-moves before sending (detail-preserving); Min Stroke Length helps but deletes small detail.",
+          "tier": "secondary"
+        }
+      ]
+    },
+    "ship": {
+      "audit": {
+        "debug_metrics": {
+          "accepted_counts": {},
+          "candidate_counts": {},
+          "clean_lines": 7497,
+          "fused_lines": null,
+          "line_length_stats_mm": {
+            "max_mm": 4807.71,
+            "mean_mm": 6.92,
+            "median_mm": 2.5,
+            "min_mm": 0.18
+          },
+          "line_length_stats_px": {},
+          "lineart_quality": {},
+          "min_stroke_mm": 0.18,
+          "objective_score": null,
+          "pen_width_mm": 0.5,
+          "rejected_counts": {},
+          "routed_lines": 7497,
+          "small_detail": "preserve",
+          "weights": {}
+        },
+        "trace_info": {
+          "audit": {
+            "dropped_components": 1278,
+            "dropped_ink_pct": 0.254,
+            "fallback_strokes": 10184,
+            "fill_mm_resolved": 0.25,
+            "fill_px": 3.0,
+            "gap_guarantee_ridge_px": 0,
+            "gray_crush_fraction": 0.0199,
+            "levels": 13,
+            "lifts": 7497,
+            "lifts_before_link": 19417,
+            "lifts_per_meter": 92.0,
+            "min_mark_mm2": 0.035,
+            "mm_per_px": 0.0833,
+            "passes": 11779,
+            "pen_id_resolved": "energel_05",
+            "pinch_runs_fired": 9053,
+            "pinch_runs_rejected": 9312,
+            "pinch_runs_rejected_junction": 4811,
+            "pinch_runs_rejected_short": 4501,
+            "pinch_runs_total": 18365,
+            "speck_ink_pct": 0.851,
+            "speck_polys_dropped": 2546,
+            "texture_routing": "band_continuity_v1",
+            "tone": "off",
+            "total_polys": 7497,
+            "zero_pass_components": 1589
+          },
+          "bilevel_source": false,
+          "downscaled": false,
+          "effective_res": 3065,
+          "mode": "tracev3",
+          "mode_cap": 3065,
+          "native_px": null,
+          "requested_res": 3065,
+          "texture_enabled": false,
+          "texture_sidecar_exists": false,
+          "texture_strokes": 0,
+          "upsampled": false
+        }
+      },
+      "audit_json_sha256": "ebd2fde6fbbc1ec9e905c1c30cc4a9f0190dd6d33048ceb1ea97d41826fa2a70",
+      "gcode_file": "layout.gcode",
+      "gcode_sha256": "9063a6d2b585eb20058d5a860bdbbf2c3866f4ed8f47773e4773752d39250679",
+      "http_status": 200,
+      "kind": "process",
+      "preview_file": "layout.preview.svg",
+      "preview_svg_sha256_stripped": "e626b1c2ed0155910164b6b3c9f86e6f8d2ca32172b91b530a0b7a34b69abc4b",
+      "request": {
+        "path": "tests/golden_tests/fixtures/ship/replay_request.json",
+        "sha256": "1301a0325ba409cad478fc083d1d3bdc1a4523e4896842dedf20c93dc57c97c4"
+      },
+      "response_metadata": {
+        "bbox_mm": [
+          19.0,
+          39.6,
+          181.0,
+          160.4
+        ],
+        "connector_count": 0,
+        "connector_distance_mm": 0.0,
+        "connector_draw_length_mm": 0.0,
+        "debug_files": {
+          "clean_svg": "layout.clean.svg",
+          "connectors_svg": "layout.connectors.svg",
+          "gray": "debug_gray.png",
+          "preview_svg": "layout.preview.svg",
+          "routed_svg": "layout.routed.svg"
+        },
+        "draw_length_mm": 51856.9,
+        "draw_moves": 7497,
+        "end_policy": "release",
+        "estimated_pen_lifts": 7497,
+        "estimated_plot_time_min": 102.8,
+        "estimated_plot_time_s": 6167.8,
+        "estimated_z_moves": 14994,
+        "file_size_kb": 7683.9,
+        "gcode_file": "layout.gcode",
+        "item_bboxes": [
+          [
+            19.0,
+            39.57,
+            181.0,
+            160.43
+          ]
+        ],
+        "item_geometry": [
+          {
+            "base_fit_scale": 0.199831,
+            "item_settings": {
+              "crop": null,
+              "dx": 0.0,
+              "dy": 0.0,
+              "id": "<upload-id, order-normalized>",
+              "rot": 0.0,
+              "scale": 1.0
+            },
+            "layout_center_mm": [
+              100.0,
+              100.0
+            ],
+            "scale_aware_equivalence_prelim_approx": {
+              "actual_placed_height_mm": 120.865535,
+              "actual_placed_width_mm": 162.0,
+              "analytic_base_fit": 0.236204,
+              "analytic_base_fit_prelim_raw": 0.278437,
+              "analytic_placed_height_mm": 120.892224,
+              "analytic_placed_width_mm": 162.0,
+              "analytic_resolution_basis": "final (boost fired, corrected via actual_boost)",
+              "analytic_s": 0.236204,
+              "analytic_s_prelim_raw": 0.278437,
+              "divergence_height_mm": 0.026689,
+              "divergence_width_mm": 0.0,
+              "fill_px_real": 3.000329,
+              "final_fit": 0.199831,
+              "final_height_mm": 604.837827,
+              "final_s": 0.199831,
+              "final_width_mm": 810.683771,
+              "mm_per_px_real": 0.062496,
+              "mm_per_px_real_prelim_raw": 0.07367,
+              "prelim_bbox_mm": [
+                0.0,
+                0.0,
+                581.819064,
+                434.181484
+              ],
+              "prelim_height_mm": 434.181484,
+              "prelim_width_mm": 581.819064,
+              "scale_aware_v2": true,
+              "v2_res_boost": {
+                "actual_boost": 1.1788,
+                "base_res": 2600,
+                "boosted_res": 3065,
+                "fill_px_real_pre_boost": 2.54514,
+                "needed_boost": 1.1787
+              }
+            },
+            "source_bbox_mm": [
+              0.0,
+              0.0,
+              810.683771,
+              604.837827
+            ],
+            "source_center_mm": [
+              405.341886,
+              302.418913
+            ],
+            "source_height_mm": 604.837827,
+            "source_width_mm": 810.683771
+          }
+        ],
+        "job_type": "gcode",
+        "lazy_preview_pen_mm": 0.25,
+        "line_length_stats_mm": {
+          "max_mm": 4807.71,
+          "mean_mm": 6.92,
+          "median_mm": 2.5,
+          "min_mm": 0.18
+        },
+        "longest_connector_mm": 0.0,
+        "machine_bbox": {
+          "bbox": [
+            33.5,
+            99.1,
+            195.5,
+            219.9
+          ],
+          "reach_bbox": [
+            3.0,
+            42.5,
+            255.0,
+            254.5
+          ],
+          "reach_label": "Plotter V3.2 (confirmed rectangular reach)",
+          "reach_polygon": [
+            [
+              3.0,
+              42.5
+            ],
+            [
+              255.0,
+              42.5
+            ],
+            [
+              255.0,
+              254.5
+            ],
+            [
+              3.0,
+              254.5
+            ]
+          ],
+          "reach_profile": "plotter_2003_v32",
+          "reach_validated": true,
+          "xy_moves_checked": 275595
+        },
+        "microlift": {
+          "lifts": 7497,
+          "mega_added_mm": 31.0,
+          "mega_lift_mm": 31.05,
+          "mega_lifts": 1,
+          "micro_hop_mm": 8.0,
+          "short_lift_mm": 0.6,
+          "short_lift_source": "profile:Pentel EnerGel 0.5 (Blue)",
+          "short_lifts": 7438,
+          "z_travel_saved_mm": 43140.4
+        },
+        "min_stroke_mm": 0.18,
+        "paper": "200x200mm",
+        "pen_lifts": 7497,
+        "pen_width_mm": 0.5,
+        "preview_clean_available": true,
+        "preview_file": "layout.preview.svg",
+        "preview_xray_available": false,
+        "quiet_fans": true,
+        "small_detail": "preserve",
+        "stroke_count": 7497,
+        "strokes_after": 7497,
+        "strokes_before": 7497,
+        "target_z_moves": 0,
+        "travel_length_mm": 9362.1,
+        "z_moves": 14994,
+        "z_moves_after": 14994,
+        "z_moves_before": 14994
+      },
+      "warnings": [
+        {
+          "level": "warning",
+          "msg": "Pen-physics ceiling: smallest strokes ~0.18mm \u2014 below the ~0.5mm / 2\u00d7 pen-width line, readability may be physically limited. Plot larger, use a finer pen, or accept symbolic marks.",
+          "tier": "primary"
+        },
+        {
+          "level": "warning",
+          "msg": "Shading/hatching is being crushed into solid blobs by the ink threshold (~2% of the ink comes from gray-wash source regions collapsed into filled areas, not lines). Consider AI Clean to Line Art for a cleaner result.",
+          "tier": "primary"
+        },
+        {
+          "level": "warning",
+          "msg": "Very dense: 7497 strokes. Prefer Connect Strokes / Target Z-moves (keeps detail); Min Stroke Length / Noise Cull also reduce strokes but DELETE small detail (text, ticks).",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "Estimated 14,994 Z-moves \u2014 very hard on the Z stepper. Raise Connect Strokes / set Target Z-moves before sending (detail-preserving); Min Stroke Length helps but deletes small detail.",
+          "tier": "secondary"
+        }
+      ]
+    },
+    "synth-tallframe-height-limited": {
+      "audit": {
+        "debug_metrics": {
+          "accepted_counts": {},
+          "candidate_counts": {},
+          "clean_lines": 3,
+          "fused_lines": null,
+          "line_length_stats_mm": {
+            "max_mm": 332.04,
+            "mean_mm": 197.58,
+            "median_mm": 161.79,
+            "min_mm": 98.92
+          },
+          "line_length_stats_px": {},
+          "lineart_quality": {
+            "background_brightness": 255.0,
+            "components": 1,
+            "foreground_pct": 2.01,
+            "gray_pct": 0.36,
+            "looks_like_line_art": true,
+            "stroke_thickness_px": 6.3,
+            "warnings": [
+              [
+                "okay",
+                "Looks like clean line art \u2014 tracing should be faithful."
+              ]
+            ]
+          },
+          "min_stroke_mm": 98.92,
+          "objective_score": null,
+          "pen_width_mm": 0.5,
+          "rejected_counts": {},
+          "routed_lines": 3,
+          "small_detail": "preserve",
+          "weights": {}
+        },
+        "trace_info": {
+          "audit": {
+            "closed_loops": 0,
+            "fidelity_isolation": "strict",
+            "gray_crush_fraction": 0.0,
+            "hollowed_px": 132,
+            "skel_px": 14068,
+            "small_detail_checked": 0,
+            "small_detail_fidelity": "on",
+            "small_detail_min_switched_px": 0.0,
+            "small_detail_switched": 0,
+            "strokes": 3,
+            "text_outlines": 0
+          },
+          "bilevel_source": true,
+          "downscaled": false,
+          "effective_res": 3000,
+          "mode": "plotready",
+          "mode_cap": 4800,
+          "native_px": 1400,
+          "requested_res": 3000,
+          "texture_enabled": false,
+          "texture_sidecar_exists": false,
+          "texture_strokes": 0,
+          "upsampled": true
+        }
+      },
+      "audit_json_sha256": "1839c0191e0f447e88d6b29372720fb63ef097dc29fcdde6b0f55032799388e7",
+      "gcode_file": "layout.gcode",
+      "gcode_sha256": "a43f275eab7ec2548320511690391988abbd095f59dbc6cdeed847cb71417b3f",
+      "http_status": 200,
+      "kind": "process",
+      "preview_file": "layout.preview.svg",
+      "preview_svg_sha256_stripped": "17ad78d9ca6831d561354bc17d7fa043e15220729cd9fca2ee6bf92637f960a7",
+      "request": {
+        "path": "tests/golden_tests/fixtures/synth-tallframe-height-limited/request.json",
+        "sha256": "f745381987ecc45285852b9d3e9059acf40299d73c3e2bc220c4ab796e12ec03"
+      },
+      "response_metadata": {
+        "bbox_mm": [
+          74.1,
+          17.0,
+          145.9,
+          143.0
+        ],
+        "connector_count": 0,
+        "connector_distance_mm": 0.0,
+        "connector_draw_length_mm": 0.0,
+        "debug_files": {
+          "clean_svg": "layout.clean.svg",
+          "connectors_svg": "layout.connectors.svg",
+          "gray": "debug_gray.png",
+          "mask_clean": "debug_mask_clean.png",
+          "mask_raw": "debug_mask_raw.png",
+          "preview_svg": "layout.preview.svg",
+          "raw_paths": "debug_raw_paths.svg",
+          "routed_svg": "layout.routed.svg",
+          "skeleton": "debug_skeleton.png"
+        },
+        "draw_length_mm": 592.7,
+        "draw_moves": 3,
+        "end_policy": "release",
+        "estimated_pen_lifts": 3,
+        "estimated_plot_time_min": 0.2,
+        "estimated_plot_time_s": 14.9,
+        "estimated_z_moves": 6,
+        "file_size_kb": 3.2,
+        "gcode_file": "layout.gcode",
+        "item_bboxes": [
+          [
+            74.07,
+            17.0,
+            145.93,
+            143.0
+          ]
+        ],
+        "item_geometry": [
+          {
+            "base_fit_scale": 0.159111,
+            "item_settings": {
+              "crop": null,
+              "dx": 0.0,
+              "dy": 0.0,
+              "id": "<upload-id, order-normalized>",
+              "rot": 0.0,
+              "scale": 1.0
+            },
+            "layout_center_mm": [
+              110.0,
+              80.0
+            ],
+            "source_bbox_mm": [
+              0.79375,
+              0.79375,
+              452.437744,
+              792.692095
+            ],
+            "source_center_mm": [
+              226.615747,
+              396.742923
+            ],
+            "source_height_mm": 791.898344,
+            "source_width_mm": 451.643994
+          }
+        ],
+        "job_type": "gcode",
+        "lazy_preview_pen_mm": 0.25,
+        "line_length_stats_mm": {
+          "max_mm": 332.04,
+          "mean_mm": 197.58,
+          "median_mm": 161.79,
+          "min_mm": 98.92
+        },
+        "lineart_quality": {
+          "background_brightness": 255.0,
+          "components": 1,
+          "foreground_pct": 2.01,
+          "gray_pct": 0.36,
+          "looks_like_line_art": true,
+          "stroke_thickness_px": 6.3,
+          "warnings": [
+            [
+              "okay",
+              "Looks like clean line art \u2014 tracing should be faithful."
+            ]
+          ]
+        },
+        "longest_connector_mm": 0.0,
+        "machine_bbox": {
+          "bbox": [
+            88.6,
+            106.0,
+            160.4,
+            232.0
+          ],
+          "reach_bbox": [
+            3.0,
+            42.5,
+            255.0,
+            254.5
+          ],
+          "reach_label": "Plotter V3.2 (confirmed rectangular reach)",
+          "reach_polygon": [
+            [
+              3.0,
+              42.5
+            ],
+            [
+              255.0,
+              42.5
+            ],
+            [
+              255.0,
+              254.5
+            ],
+            [
+              3.0,
+              254.5
+            ]
+          ],
+          "reach_profile": "plotter_2003_v32",
+          "reach_validated": true,
+          "xy_moves_checked": 81
+        },
+        "microlift": {
+          "lifts": 3,
+          "mega_added_mm": 62.0,
+          "mega_lift_mm": 31.05,
+          "mega_lifts": 2,
+          "micro_hop_mm": 8.0,
+          "short_lift_mm": 0.6,
+          "short_lift_source": "profile:Pentel EnerGel 0.5 (Blue)",
+          "short_lifts": 0,
+          "z_travel_saved_mm": 0.0
+        },
+        "min_stroke_mm": 98.92,
+        "paper": "220.0x160.0mm",
+        "pen_lifts": 3,
+        "pen_width_mm": 0.5,
+        "preview_clean_available": true,
+        "preview_file": "layout.preview.svg",
+        "preview_xray_available": false,
+        "quiet_fans": true,
+        "small_detail": "preserve",
+        "stroke_count": 3,
+        "strokes_after": 3,
+        "strokes_before": 3,
+        "target_z_moves": 0,
+        "travel_length_mm": 134.2,
+        "z_moves": 6,
+        "z_moves_after": 6,
+        "z_moves_before": 6
+      },
+      "source_native_px_wh": [
+        [
+          800,
+          1400
+        ]
+      ],
+      "warnings": [
+        {
+          "level": "okay",
+          "msg": "Looks like clean line art \u2014 tracing should be faithful.",
+          "tier": "primary"
+        }
+      ]
+    }
+  },
+  "ignored_fields": [
+    "cached",
+    "elapsed_s",
+    "job_id"
+  ],
+  "recorded_at": "2026-08-05T22:59:00 (partial: 6 microlift fixtures re-recorded 2026-08-05; calibration_plot left at its pre-existing recorded value, still failing, cause unknown) | partial addition 2026-08-16T02:56:02: synth-tallframe-height-limited added (M04 criterion 2, height-limited golden fixture); all prior entries left byte-identical -- see artifacts/height-fixture-2026-08-16/RESULT.md"
+}
