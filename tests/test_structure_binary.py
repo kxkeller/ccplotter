@@ -128,7 +128,7 @@ def route_env():
     shutil.rmtree(home, ignore_errors=True)
 
 
-PHOTO = REPO / "assets" / "Model Images" / "rfr-bigboy-03.jpg"      # git-tracked benchmark photo (steam locomotive); ON drops 85 components on it
+PHOTO = REPO / "tests" / "fixtures" / "benchmark" / "sources" / "04_hktram_source.jpg"
 
 
 def _photo(path):
@@ -169,15 +169,15 @@ def test_route_absent_equals_explicit_true_and_records_provenance(route_env):
     assert a_on.get("structure_binary", {}).get("R_sha16") == rec["R_sha16"]
 
 
-# gcode sha (non-comment lines) of this fixture run with the mode OFF, captured at HEAD cd919f7f BEFORE the default flip (key absent == OFF then).
-# Explicit false after the flip must reproduce it exactly (artifacts/structure-binary-default-2026-11-04/RESULT.md).
-PRE_FLIP_PIN = "b40148b467cb5f276e94c0ac6ab273d8ff61307e24ca217c134db074e31a0fed"
+# G-code SHA (non-comment lines) for the tracked hktram fixture with the mode
+# explicitly OFF, captured from the public export at c0c780a.
+OFF_PIN = "1c1fcd99ad8f70819c5ee441c27d5cf363c04846889b2fb1692a2323101d5474"
 
 
-def test_route_explicit_false_equals_pre_flip_output_and_differs_from_on(route_env):
+def test_route_explicit_false_equals_pinned_off_output_and_differs_from_on(route_env):
     _, h_off, a_off = _run(route_env, "sb_exp_off", {"bw_structure_binary": False})
     assert "structure_binary" not in a_off
-    assert h_off == PRE_FLIP_PIN, "explicit false must reproduce the pre-flip (mode OFF) gcode"
+    assert h_off == OFF_PIN, "explicit false must reproduce the pinned mode-OFF gcode"
     _, h_on, _ = _run(route_env, "sb_cmp_on", {})
     assert h_on != h_off, "positive control: ON must change the generated job (else deleting the mechanism would pass)"
     _, h_on2, _ = _run(route_env, "sb_cmp_on2", {"bw_structure_binary": True})
@@ -187,7 +187,7 @@ def test_route_explicit_false_equals_pre_flip_output_and_differs_from_on(route_e
 def test_route_strict_falsy_variants_are_off_and_junk_is_on(route_env):
     for i, v in enumerate(OFF_VARIANTS):
         _, h, a = _run(route_env, f"sb_off{i}", {"bw_structure_binary": v})
-        assert h == PRE_FLIP_PIN and "structure_binary" not in a, repr(v)
+        assert h == OFF_PIN and "structure_binary" not in a, repr(v)
     _, h_on, _ = _run(route_env, "sb_junk_ref", {})
     for i, v in enumerate(JUNK_VARIANTS):
         _, h, a = _run(route_env, f"sb_junk{i}", {"bw_structure_binary": v})
