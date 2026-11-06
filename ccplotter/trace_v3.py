@@ -2464,7 +2464,9 @@ def _trace_svg(img, out_path: Path, opts: dict, debug_prefix: str = None,
                 _zero_thr = _level0   # thinner than the inset ring can sit -> skeleton, never dropped
             _rings, _hybrid_core_passes, _core_mask, _cau = contour_passes(
                 dt, fill_px, _level0, _core_r_px, _inset_mm > 0, int(dt.max() / fill_px) + 2,
-                rows_cfg=({"angle_deg": ROWS_ANGLE_DEG, **({"outline_rows": True} if _orows else {})}
+                rows_cfg=({"angle_deg": ROWS_ANGLE_DEG, **({"outline_rows": True} if _orows else {}),
+                           **({"angle_rule": opts.get("row_angle_rule")}
+                              if opts.get("row_angle_rule") not in (None, "", "zero") else {})}
                           if (_rows_mode or _orows) else None))
             passes = _rings
             n_pass_polys, n_levels = len(_rings) + len(_hybrid_core_passes), _cau["n_levels"]
@@ -2483,6 +2485,11 @@ def _trace_svg(img, out_path: Path, opts: dict, debug_prefix: str = None,
                                **({"rows_angle_deg": ROWS_ANGLE_DEG,
                                    "n_core_small_ring_levels": _cau["n_core_small_ring"]}
                                   if (_rows_mode or _orows) else {}),
+                               # EXPERIMENTAL row_angle_rule (core_fill.row_angle_for_region): present ONLY when not "zero"
+                               **({"row_angle_rule": opts.get("row_angle_rule"),
+                                   "row_angle_hist": _cau.get("row_angle_hist", {"0": 0, "45": 0, "90": 0, "135": 0}),
+                                   "row_angle_fallback_regions": _cau.get("row_angle_fallback", 0)}
+                                  if ((_rows_mode or _orows) and opts.get("row_angle_rule") not in (None, "", "zero")) else {}),
                                **({"outline_rings": OUTLINE_ROWS_RINGS, "n_outline_rings": _cau["n_rings"]}
                                   if _orows else {})}
                               if (_hyb or _rows_mode or _orows) else {}),

@@ -64,12 +64,13 @@ def test_index_html_hidden_panels_still_in_dom():
         assert needle in HTML, needle
 
 
-def test_photo512_not_restorable_default_is_tracev3():
-    """No restore path re-selects photo512. The page persists only
+def test_photo512_not_restorable_default_is_bwphoto():
+    """D1615: no restore path re-selects photo512. The page persists only
     'ccplotter_registered_spot' and 'ccplotter_paper' in localStorage (no
-    style key), so the style select always loads at its HTML default."""
+    style key), so the style select always loads at its HTML default.
+    Default style is B/W photo since 2026-10-27 (Kai); Trace (V3) stays in the list."""
     keys = set(re.findall(r"localStorage\.setItem\('([^']+)'", HTML))
     assert keys == {"ccplotter_registered_spot", "ccplotter_paper"}, keys
     sel = re.search(r"<select[^>]*>(?:(?!</select>).)*value=\"photo512\".*?</select>", HTML, re.S).group(0)
     selected = re.findall(r'<option value="([a-z0-9_]+)"[^>]*\bselected\b', sel)
-    assert selected == ["tracev3"], selected
+    assert selected == ["bwphoto"], selected

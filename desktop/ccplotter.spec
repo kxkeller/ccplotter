@@ -37,7 +37,13 @@ datas += [
     # calibration.seed.json and seeded once into the data dir by
     # desktop/ccplotter_app.py seed_defaults().
     (os.path.join(ROOT, "assets", "seed", "calibration.seed.json"), "."),
+    # D1023: the row-direction sheet asset ships as DATA (not embedded in ccplotter/*.py); read from sys._MEIPASS by
+    # ccplotter/calibration_rowangle.py asset_path().
+    (os.path.join(ROOT, "assets", "calibration", "rowangle_asset.json.xz"), "."),
+    # ink-routed-connectors paper sheet asset (D1902d): same pattern, read by ccplotter/calibration_inkroute.py asset_path().
+    (os.path.join(ROOT, "assets", "calibration", "inkroute_asset.json.xz"), "."),
 ]
+
 # Version stamp (written by desktop/build.ps1 just before this spec runs).
 # Bundled at the resource root, same place app.py's _load_version_info looks
 # for it (sys._MEIPASS / "version.json"). Building via `pyinstaller ...` alone
@@ -123,6 +129,7 @@ hiddenimports += collect_submodules("shapely")
 # --- Guard: never bundle credentials or a user's runtime state. Every data file above is listed
 #     explicitly (no globbing of the working directory); this check makes that a hard failure if a
 #     key file, an environment file or a calibration/pen-profile file ever ends up in `datas`.
+#     (gemini_key.txt was bundled here until 2026-11-05; nothing reads it any more.)
 import fnmatch as _fnmatch
 _FORBIDDEN_DATA = ("*_key.txt", ".env*", "pen_profiles.json", "calibration.json", "openai_key.txt")
 for _src, _dest in datas:

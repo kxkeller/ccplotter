@@ -734,10 +734,10 @@ input[type="range"]::-webkit-slider-thumb:hover { background: var(--accent3); }
       <div class="field">
         <select id="img-style">
           <option value="plotready">Plot-Ready Line Art — trace clean / AI line art</option>
-          <option value="tracev3" selected>Trace (V3) — source-faithful ink coverage (fills to your pen)</option>
+          <option value="tracev3">Trace (V3) — source-faithful ink coverage (fills to your pen)</option>
           <option value="illustration">Trace V3+ — clean drawings (e.g. ChatGPT redraws), validated settings, spacing held up to the resolution limit; a warning says when</option>
           <option value="photo512" hidden>Photo 512 — plain greyscale photo, downsampled to 512px before tracing</option>
-          <option value="bwphoto">B/W photo — XDoG line filter at native detail, then Trace (V3)</option>
+          <option value="bwphoto" selected>B/W photo — XDoG line filter at native detail, then Trace (V3)</option>
           <option value="twopenkt">Black Line + Blue Tone (2 pens) — blue tint pass, then black line pass; two files</option>
           <option value="tsp">TSP Scribble — stippling (experimental, slow)</option>
           <option value="sketchfield">Sketch Field — darkness-seeking sketch strokes (opt-in restyle, native PFM)</option>
@@ -986,8 +986,18 @@ input[type="range"]::-webkit-slider-thumb:hover { background: var(--accent3); }
           <div style="font-size:11px;color:var(--muted);margin-top:4px;line-height:1.35">Router may draw longer connectors to try to hit this Z-move budget. Leave 0 for distance-only routing.</div>
         </div>
         <div class="field">
-          <label style="display:flex;align-items:center;gap:6px;cursor:pointer" title="Off by default. The pen stays down for any hop that runs over ink, so no extra marks land on bare paper. Short joins still follow the Connect Strokes setting, and on very dense one-pen drawings this box also switches that joining on. Also applies to Black Line + Blue Tone, each pen over its own ink.">
-            <input type="checkbox" id="stay-down-over-ink" onchange="markStale()" style="margin:0"> Stay down over ink (no stray lines)
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer" title="On by default. The pen also stays down for any longer hop that runs over ink, so no extra marks land on bare paper. Short joins keep the Connect Strokes setting. Also applies to Black Line + Blue Tone, each pen over its own ink.">
+            <input type="checkbox" id="stay-down-over-ink" checked onchange="markStale()" style="margin:0"> Stay down over ink (no stray lines)
+          </label>
+        </div>
+        <div class="field" id="ink-routed-field" style="display:none">
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer" title="Off by default. Experimental. Keeps the pen down across short gaps by routing through ink already drawn, never over bare paper; fewer lifts; can thicken outlines by up to half a pen width; shown in the preview; adds routing time to the preview.">
+            <input type="checkbox" id="ink-routed-connectors" onchange="markStale()" style="margin:0"> Route pen-down joins through ink (experimental)
+          </label>
+        </div>
+        <div class="field" id="structure-binary-field" style="display:none">
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer" title="On by default: drops small blurry texture patches and keeps sharp edges, so fewer pen-downs (B/W photo mode only). Uncheck to keep every speck.">
+            <input type="checkbox" id="structure-binary" checked onchange="markStale()" style="margin:0"> Structure-aware binary
           </label>
         </div>
         <div class="field">
@@ -1088,7 +1098,11 @@ input[type="range"]::-webkit-slider-thumb:hover { background: var(--accent3); }
             <div style="font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent3);margin:0 0 4px;padding-bottom:3px;border-bottom:1px solid var(--border)">Experimental <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted)">(opt-in, all default off; judge on a real plot)</span></div>
             <label style="display:flex;align-items:center;gap:6px;font-size:11px;margin-top:4px" title="Contour fill only. Rings = today's concentric rings all the way in. Hybrid = rings stop once the remaining interior is narrower than 0.45mm in radius, and the core is filled with straight parallel passes at the same pitch (no tiny closing loops). The core mask is saved as debug_core_mask.png with Debug outputs on.">
               <span style="color:var(--muted)">core fill</span>
-              <select id="trace-core-fill" onchange="markStale()" style="margin:0"><option value="rings" selected>Rings (today)</option><option value="hybrid">Hybrid (rings + straight core)</option><option value="rows">Rows in big solid cores</option><option value="outline_rows">Outline ring + rows (no inner rings)</option></select>
+              <select id="trace-core-fill" onchange="markStale(); updateRowAngleUI()" style="margin:0"><option value="rings" selected>Rings (today)</option><option value="hybrid">Hybrid (rings + straight core)</option><option value="rows">Rows in big solid cores</option><option value="outline_rows">Outline ring + rows (no inner rings)</option></select>
+            </label>
+            <label id="row-angle-field" style="display:none;align-items:center;gap:6px;font-size:11px;margin-top:4px" title="Look option for row fills. Coverage is the same in every direction; only the look changes. Experimental.">
+              <span style="color:var(--muted)">Row direction</span>
+              <select id="row-angle-rule" onchange="markStale()" style="margin:0"><option value="a135" selected>45 deg, bottom-left to top-right (/)</option><option value="a45">45 deg, top-left to bottom-right (\)</option><option value="zero">As today (0)</option><option value="across">Across short side</option><option value="set">Mixed per area</option></select>
             </label>
             <label style="display:flex;align-items:center;gap:6px;font-size:11px;margin-top:4px" title="Contour fill only. Puts the first ring this far inside the shape edge (about half the pen's laid width) instead of half a pass pitch. Ring pitch is unchanged. 0 = off.">
               <span style="color:var(--muted)">edge inset</span>
@@ -1857,6 +1871,26 @@ function updateTwoPenKtPens() {
   }).join('<br>') + '<br>Fixed by the mode. Check both profiles before plotting each pass.' +
     '<br>In this mode the plate reach overlay, Fit to Paper and auto-fit use the two BIC profiles (the ACTIVE pen is ignored). Reach is also checked per pass at generation.';
 }
+// Row direction (row_angle_rule): only meaningful with core fill rows / outline_rows; hidden otherwise. Default "/" (a135) since 2026-11-04; the value is ALWAYS sent explicitly when active (incl. "zero"). Not persisted.
+function rowAngleActive() {
+  const cf = ge('trace-core-fill'), ra = ge('row-angle-rule');
+  const st = ge('img-style').value;   // Trace V3+ (illustration) pins core fill to rings server-side, so it never sends the key
+  return !!(cf && ra && (st === 'tracev3' || st === 'bwphoto') && (cf.value === 'rows' || cf.value === 'outline_rows'));
+}
+// Route pen-down joins through ink (experimental, ink_routed_connectors): honoured only by the composite path of tracev3-engine items (tracev3, bwphoto, illustration).
+// Black Line + Blue Tone only forwards the key to its reference job, so it is hidden there; not persisted.
+function inkRouteStyleOk() { const st = ge('img-style').value; return st === 'tracev3' || st === 'bwphoto' || st === 'illustration'; }
+function inkRouteActive() { const c = ge('ink-routed-connectors'); return !!(c && c.checked && inkRouteStyleOk()); }
+function updateInkRouteUI() { const f = ge('ink-routed-field'); if (f) f.style.display = inkRouteStyleOk() ? '' : 'none'; }
+// Structure-aware binary (bw_structure_binary, ON by default since 2026-11-04): honoured by the B/W photo style only; hidden and never sent elsewhere; not persisted. In bwphoto an explicit boolean is always sent (like stay_down_over_ink).
+function structureBinaryStyleOk() { return ge('img-style').value === 'bwphoto'; }
+function structureBinaryActive() { const c = ge('structure-binary'); return !!(c && c.checked && structureBinaryStyleOk()); }
+function updateStructureBinaryUI() { const f = ge('structure-binary-field'); if (f) f.style.display = structureBinaryStyleOk() ? '' : 'none'; }
+function updateRowAngleUI() {
+  const cf = ge('trace-core-fill'), f = ge('row-angle-field');
+  // hidden in Black Line + Blue Tone too: the key is not sent there until a two-pen look check (D1913)
+  if (f) f.style.display = (cf && (cf.value === 'rows' || cf.value === 'outline_rows') && ge('img-style').value !== 'twopenkt') ? 'flex' : 'none';
+}
 function updateThresholdUI() {
   const m = ge('img-style').value;
   const usesThreshold = (m === 'lineart' || m === 'plotready' || m === 'tracev3');
@@ -1912,6 +1946,9 @@ function updateThresholdUI() {
     el.disabled = isIllus;
     el.title = isIllus ? nm + ' is pinned by Trace V3+ (config.ILLUSTRATION_RECIPE) — this field is ignored in this mode.' : el.dataset.t0;
   });
+  updateRowAngleUI();
+  updateInkRouteUI();
+  updateStructureBinaryUI();
 }
 
 // End-of-plot stepper policy note, kept in sync with the select.
@@ -3896,7 +3933,9 @@ function buildBody(jobType) {
     // Switch off must also kill the Z-move target: target alone re-activates
     // the router (connectors up to the hard cap) even at distance 0.
     target_z_moves: ge('join-enable').checked ? numOf('target-z') : 0,
-    ...(ge('stay-down-over-ink').checked ? { stay_down_over_ink: true } : {}),
+    stay_down_over_ink: ge('stay-down-over-ink').checked,
+    ...(inkRouteActive() ? { ink_routed_connectors: true } : {}),
+    ...(structureBinaryStyleOk() ? { bw_structure_binary: structureBinaryActive() } : {}),
     threshold_mode: ge('threshold-mode').value,
     ink_sensitivity: ge('ink-sensitivity').value,
     manual_threshold: numOf('manual-threshold'),
@@ -3921,6 +3960,7 @@ function buildBody(jobType) {
     ...((ge('trace-core-fill') && ge('trace-core-fill').value === 'hybrid') ? { core_fill: 'hybrid' } : {}),
     ...((ge('trace-core-fill') && ge('trace-core-fill').value === 'rows') ? { core_fill: 'rows' } : {}),
     ...((ge('trace-core-fill') && ge('trace-core-fill').value === 'outline_rows') ? { core_fill: 'outline_rows' } : {}),
+    ...(rowAngleActive() ? { row_angle_rule: ge('row-angle-rule').value } : {}),
     ...((ge('trace-edge-inset') && parseFloat(ge('trace-edge-inset').value) > 0) ? { edge_inset_mm: parseFloat(ge('trace-edge-inset').value) } : {}),
     ...((ge('trace-bw-clahe') && ge('trace-bw-clahe').value !== 'on') ? { bw_clahe: ge('trace-bw-clahe').value } : {}),
     ...((ge('trace-bw-cut') && ge('trace-bw-cut').value === 'mid') ? { bw_cut: 'mid' } : {}),

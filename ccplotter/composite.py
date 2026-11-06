@@ -424,7 +424,7 @@ def _realised_pitch_record(item_id, item_opts, analytic_equiv, svg, final_scale)
         return None
 
 
-def _composite(items, paper_w, paper_h, margin, output_path, z_up, z_down, draw_speed, travel_speed, plunge_speed, lift_speed, offset_x=None, offset_y=None, render_opts=None, paper_rot=0.0, generate_gcode=True, connector_distance=0.0, target_z_moves=None, microlift=True, debug=False, end_policy="release", quiet_fans=True, motion_smoothing="off", pen_profile=None, pen_id=None, paper_keepout=None, preview_reach_check=False, connector_mask_check=False, prelim_res_basis=None, stay_down_over_ink=False):
+def _composite(items, paper_w, paper_h, margin, output_path, z_up, z_down, draw_speed, travel_speed, plunge_speed, lift_speed, offset_x=None, offset_y=None, render_opts=None, paper_rot=0.0, generate_gcode=True, connector_distance=0.0, target_z_moves=None, microlift=True, debug=False, end_policy="release", quiet_fans=True, motion_smoothing="off", pen_profile=None, pen_id=None, paper_keepout=None, preview_reach_check=False, connector_mask_check=False, prelim_res_basis=None, stay_down_over_ink=False, ink_routed_connectors=False):
     # pen_profile: the resolved pen profile this job is plotting with.
     # Defaults to None -> active_pen_profile(). Callers that already resolved a
     # specific profile (e.g. routes/core.py honouring an explicit pen_id
@@ -580,9 +580,12 @@ def _composite(items, paper_w, paper_h, margin, output_path, z_up, z_down, draw_
     # connector_mask_check (opt-in): per-layer placement context for the Stage E mask test.
     # None when off -> nothing below this line and nothing at Stage E changes.
     _mask_ctx = {} if connector_mask_check else None
-    # stay_down_over_ink (opt-in, default OFF): the same placement context, but its Stage E use is the
+    # stay_down_over_ink (the ROUTES default it ON since 2026-10-25; this library default stays False): the same placement context, but its Stage E use is the
     # "stay down over ink" pass (any-length pen-down connectors inside the layer's own ink). None when off.
     _sd_ctx = {} if stay_down_over_ink else None
+    # ink_routed_connectors (opt-in, request key, default OFF, D1902b): placement contexts for the post-linesort path router (ccplotter/ink_routing.py). None when off.
+    _ir_ctx = {} if ink_routed_connectors else None
+    _sd_na = set()      # D1802: layers with no trace mask by construction; stay-down is not applicable there (not a failure)
     for idx, item in enumerate(items):
         L = idx + 1
         item_opts = (render_opts or {}).copy()
@@ -627,9 +630,11 @@ def _composite(items, paper_w, paper_h, margin, output_path, z_up, z_down, draw_
                 item_opts["_fill_frame_offset_deg"] = _fill_frame_offset
         # connector_mask_check (opt-in): ask trace_v3 to persist this item's final trace mask
         # beside its SVG. Private key, set only under the flag, so the off-run opt_hash is untouched.
-        if ((connector_mask_check or stay_down_over_ink) and not is_verbatim_item and not _is_zigzag_item
+        if ((connector_mask_check or stay_down_over_ink or ink_routed_connectors) and not is_verbatim_item and not _is_zigzag_item
                 and item_opts.get("mode") == "tracev3"):
             item_opts["_stage_e_mask"] = True
+        elif stay_down_over_ink:
+            _sd_na.add(L)
         # Debug intermediates only for the first (primary) drawing.
         dbg = str(WORK_DIR / "debug") if (debug and idx == 0) else None
         col, row = idx % cols, idx // cols
@@ -1059,7 +1064,7 @@ def _composite(items, paper_w, paper_h, margin, output_path, z_up, z_down, draw_
         fit = 1.0 if bool(item.get("true_size")) else min(cellW / rw, cellH / rh) * 0.9
         s = fit * float(item.get("scale", 1.0))
         tx, ty = ccx - ncx + float(item.get("dx", 0.0)), ccy - ncy + float(item.get("dy", 0.0))
-        if (_mask_ctx is not None or _sd_ctx is not None) and item_opts.get("_stage_e_mask"):
+        if (_mask_ctx is not None or _sd_ctx is not None or _ir_ctx is not None) and item_opts.get("_stage_e_mask"):
             # Exact placement applied below by vpype: scale s and rotate r about the layer's bbox
             # centre (c0), then translate (tx, ty). Page units are vpype px (mm / PX2MM).
             _ctx1 = {"svg": svg, "s": s, "rot_deg": r,
@@ -1069,6 +1074,8 @@ def _composite(items, paper_w, paper_h, margin, output_path, z_up, z_down, draw_
                 _mask_ctx[L] = _ctx1
             if _sd_ctx is not None:
                 _sd_ctx[L] = _ctx1
+            if _ir_ctx is not None:
+                _ir_ctx[L] = _ctx1
         # Authoritative fit metadata: this is the source vector bbox BEFORE the
         # user scale/rotation and before cleanup/routing can add artifacts.  The
         # browser must never reverse-engineer these dimensions from a rotated
@@ -1179,7 +1186,7 @@ def _composite(items, paper_w, paper_h, margin, output_path, z_up, z_down, draw_
     route_stats = _route_low_lift_doc(clean_svg, routed_svg, connector_distance, target_z_moves, connectors_svg=connectors_svg, bypass_layers=verbatim_layers, **({"mask_ctx": _mask_ctx} if _mask_ctx is not None else {}),
                                      # Stay down over ink (opt-in): the walk cap rises to the two-pen one, else tram-size plain
                                      # jobs (>20000 strokes) skip the router and nothing could be joined.
-                                     **({"stay_down_ctx": _sd_ctx, "max_walk_segs": ROUTE_WALK_MAX_SEGS_TWOPEN} if _sd_ctx is not None else {}))
+                                     **({"stay_down_ctx": _sd_ctx, "stay_down_na": _sd_na, "max_walk_segs": ROUTE_WALK_MAX_SEGS_TWOPEN} if (_sd_ctx is not None and len(_sd_na) < len(items)) else {}))
     if _mask_ctx is not None and "connector_mask_check" in route_stats:
         # Connector-mask per-job record. The (large) rejected-connector list is written only under debug.
         _rej = route_stats["connector_mask_check"].pop("_rejected_segments_page_px", [])
@@ -1194,6 +1201,11 @@ def _composite(items, paper_w, paper_h, margin, output_path, z_up, z_down, draw_
         # off run: drop stale connector-mask records from an earlier on-run so the vcache never snapshots them under an off key
         for _stale in ("debug_connector_mask_check.json", "debug_connector_mask_rejected.json"):
             try: (WORK_DIR / _stale).unlink()
+            except OSError: pass
+
+    if not ink_routed_connectors:
+        for _stale in (".ink_connectors.svg", ".irsorted.svg", ".irfused.svg", ".ink_routing_timing.json"):    # off run: drop leftovers of an earlier opt-in run (never snapshot under an off key)
+            try: output_path.with_suffix(_stale).unlink()
             except OSError: pass
 
     # Fill Page (cover-crop): the clip runs AFTER routing (Stage E), never
@@ -1284,7 +1296,36 @@ def _composite(items, paper_w, paper_h, margin, output_path, z_up, z_down, draw_
     # strokes, and which side of it the truth falls on is undetermined.
     preview_pen_mm = preview_pen_width_mm(render_opts, pen_profile)
     preview_path = output_path.with_suffix(".preview.svg")
-    _render_routed_preview(routed_svg, preview_path, preview_pen_mm)
+    simplify_mult = float((render_opts or {}).get("simplify_mult", SIMPLIFY_FILL_MULT))
+    simplify_mm = round(simplify_mult * pen_mm, 4) if simplify_mult > 0 else 0.0
+    simplify_cmd = f' linesimplify --tolerance {simplify_mm}mm' if simplify_mm > 0 else ''
+    ink_routed_stats = None
+    ink_routed_svg = None
+    if _ir_ctx:
+        # ink_routed_connectors (opt-in, D1927): the preview, its lifts/time stats and the gcode must all show the SAME routed job, for preview and gcode
+        # jobs alike. Order: linesort (exactly as the plain gcode path sorts) -> route -> re-apply the keep-out / fill-page clips (a connector may not
+        # cross them) -> preview rendered from the fused document -> stats from it -> gwrite of that same document with NO second linesort.
+        import time as _t_ir
+        from ccplotter.ink_routing import route_document
+        from ccplotter.stage_e_mask import build_layer_check as _bl_ir
+        _ir_sorted = output_path.with_suffix(".irsorted.svg"); _ir_fused = output_path.with_suffix(".irfused.svg")
+        _ir_conn = output_path.with_suffix(".ink_connectors.svg")
+        _t0_ir = _t_ir.perf_counter()
+        vpype_cli.execute(f'read {shlex.quote(str(routed_svg))}{simplify_cmd} linesort write {shlex.quote(str(_ir_sorted))}')
+        _t_sort_ir = _t_ir.perf_counter() - _t0_ir
+        _t1_ir = _t_ir.perf_counter()
+        ink_routed_stats = route_document(_ir_sorted, _ir_fused, _ir_conn, _ir_ctx, _bl_ir, bypass_layers=verbatim_layers)
+        if fill_page_clips:
+            _apply_fill_page_clips(_ir_fused, fill_page_clips)
+        if paper_keepout_region is not None:
+            _apply_global_clip(_ir_fused, paper_keepout_region)
+        # D1933: wall-clock seconds are run-dependent, so they live in a debug sidecar (debug_files), NOT in the compared response stats
+        atomic_write_text(output_path.with_suffix(".ink_routing_timing.json"), json.dumps({"sort_s": round(_t_sort_ir, 2), "routing_s": round(_t_ir.perf_counter() - _t1_ir, 2),
+                                                                                       "note": "wall-clock, run-dependent; not part of the compared response"}))
+        ink_routed_svg = _ir_fused
+        _render_routed_preview(_ir_fused, preview_path, preview_pen_mm)
+    else:
+        _render_routed_preview(routed_svg, preview_path, preview_pen_mm)
     microlift_stats = None
     motion_smoothing_stats = None
     drawing_bbox_machine = None
@@ -1310,12 +1351,12 @@ def _composite(items, paper_w, paper_h, margin, output_path, z_up, z_down, draw_
     # emitted XY endpoint and chord against the reach envelope. Simplification
     # can move a point by up to the tolerance, so it must never bypass that
     # check; running it here means it cannot.
-    simplify_mult = float((render_opts or {}).get("simplify_mult", SIMPLIFY_FILL_MULT))
-    simplify_mm = round(simplify_mult * pen_mm, 4) if simplify_mult > 0 else 0.0
-    simplify_cmd = f' linesimplify --tolerance {simplify_mm}mm' if simplify_mm > 0 else ''
     if generate_gcode:
         with atomic_target(output_path) as tmp_output:
-            vpype_cli.execute(f'read {shlex.quote(str(routed_svg))}{simplify_cmd} linesort{rot} translate -- {comp_off_x}mm {-comp_off_y}mm gwrite --profile elegoo_cc {shlex.quote(str(tmp_output))}')
+            if ink_routed_svg is not None:
+                vpype_cli.execute(f'read {shlex.quote(str(ink_routed_svg))}{rot} translate -- {comp_off_x}mm {-comp_off_y}mm gwrite --profile elegoo_cc {shlex.quote(str(tmp_output))}')
+            else:
+                vpype_cli.execute(f'read {shlex.quote(str(routed_svg))}{simplify_cmd} linesort{rot} translate -- {comp_off_x}mm {-comp_off_y}mm gwrite --profile elegoo_cc {shlex.quote(str(tmp_output))}')
             _fix_gwrite_source_comment(tmp_output, output_path)
         # Micro-lift: short travels get a low hop instead of the full z_up —
         # same Z count, far less Z travel = far less lead-screw wear. Micro-lift
@@ -1391,9 +1432,16 @@ def _composite(items, paper_w, paper_h, margin, output_path, z_up, z_down, draw_
             if L in prev.layers:
                 b = prev.layers[L].bounds()
                 if b: item_bboxes[did] = [round(b[0] * PX2MM, 2), round(b[1] * PX2MM, 2), round(b[2] * PX2MM, 2), round(b[3] * PX2MM, 2)]
-        stats = compute_vector_stats(prev, draw_speed, travel_speed, plunge_speed, lift_speed, z_up, z_down)
+        if ink_routed_svg is not None:
+            # opt-in only: the emitted strokes are the fused ones, so lifts / draw length / time estimate come from them
+            _fz = vp.read_multilayer_svg(str(ink_routed_svg), quantization=0.1)
+            stats = compute_vector_stats(_fz, draw_speed, travel_speed, plunge_speed, lift_speed, z_up, z_down)
+        else:
+            stats = compute_vector_stats(prev, draw_speed, travel_speed, plunge_speed, lift_speed, z_up, z_down)
     except Exception as e: print(f"stats/bbox compute failed: {e}")
     stats.update(route_stats)
+    if ink_routed_stats is not None:
+        stats["ink_routed_connectors"] = ink_routed_stats
     stats["item_geometry"] = item_geometry
     if realised_pitch_items:
         # Absent for every job with no tracev3-engine raster item (other styles, vector
@@ -1482,6 +1530,10 @@ def _composite(items, paper_w, paper_h, margin, output_path, z_up, z_down, draw_
                 debug_files["connector_mask_rejected"] = "debug_connector_mask_rejected.json"
         for key, p in (("clean_svg", clean_svg), ("routed_svg", routed_svg), ("preview_svg", preview_path), ("connectors_svg", connectors_svg)):
             if p.exists(): debug_files[key] = p.name
+        if ink_routed_stats is not None and output_path.with_suffix(".ink_connectors.svg").exists():
+            debug_files["ink_connectors_svg"] = output_path.with_suffix(".ink_connectors.svg").name
+        if ink_routed_stats is not None and output_path.with_suffix(".ink_routing_timing.json").exists():
+            debug_files["ink_routing_timing"] = output_path.with_suffix(".ink_routing_timing.json").name
     stats["debug_files"] = debug_files
     # Stamp the lifecycle policy actually used into info.json (the
     # gcode header comment carries the same values -- see vpype.toml document_start).

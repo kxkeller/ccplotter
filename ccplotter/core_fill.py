@@ -37,7 +37,8 @@ test, curved cores included). C is large when max(dt over C) >= core_r (a solid 
 max(dt over C) >= core_r/2 and area(C) >= pi*core_r^2 (a wide curved/long core); thin line
 work and small dots are never large and keep the untouched default ring path (same cv2 band,
 same T = (k+0.5)*fill_px). See ROWS_* constants and `contour_passes(rows_cfg=...)`. Rows run along ONE fixed global
-angle (ROWS_ANGLE_DEG, image/working frame), not per-region.
+angle (ROWS_ANGLE_DEG, image/working frame), not per-region. EXPERIMENTAL opt-in `row_angle_rule`
+(zero|a45|a135|across|set; since 2026-11-04 the route defaults rows / outline_rows to a135, explicit "zero" = this behaviour byte-identical): see `row_angle_for_region`.
 
 Why not reuse trace_v3._zigzag_fill: it anchors scanlines to a canvas grid
 (arbitrary phase, up to one pitch of uncovered margin at each core edge, and a
@@ -104,6 +105,57 @@ CORE_MIN_RECT_FILL = 0.6      # a core is row-filled only if area >= 0.6 x its p
 ROWS_ANGLE_DEG = 0.0          # core_fill="rows": ONE global row direction (image/working-frame x axis)
 ROWS_HALFWIDTH_FRAC = 0.5     # core_fill="rows" size rule, second clause: half-width floor, x core_r
 OUTLINE_ROWS_RINGS = 1        # core_fill="outline_rows": outline rings before the rows (one global rule)
+
+
+# ---- row_angle_rule (EXPERIMENTAL opt-in, 2026-10-26; default "zero" == the one global angle above, byte-identical) ----
+ROW_ANGLE_RULES = ("zero", "a45", "a135", "across", "set")
+ROW_ANGLE_DEFAULT = "a135"         # 2026-11-04 (Kai, paper rule knowingly waived): route default for rows / outline_rows jobs
+ROW_ANGLE_ISO_RATIO = 1.3          # across: pixel-PCA eigenvalue ratio below this (near-round) or < 3 px -> fallback
+ROW_ANGLE_FALLBACK_DEG = 45.0
+ROW_ANGLE_SET = (0.0, 45.0, 90.0, 135.0)
+
+
+def row_angle_for_region(rule, xs, ys, base_deg):
+    """Row angle (image/working frame, y down, same convention as core_rows) for ONE region.
+    zero   -> base_deg (ROWS_ANGLE_DEG), the production behaviour
+    a45    -> 45 deg for every region (image frame, y down: "\\" on the preview at item rot 0/180, "/" at 90/270)
+    a135   -> 135 deg (= -45) for every region: "/" (bottom-left -> top-right) on the preview at item rot 0/180, "\\" at 90/270
+    across -> principal axis of the region's pixels + 90 deg (rows run along the SHORT side);
+              eigenvalue ratio < ROW_ANGLE_ISO_RATIO or < 3 pixels -> ROW_ANGLE_FALLBACK_DEG
+    set    -> one of 0/45/90/135 by an integer hash of (rounded centroid x, y, pixel count); no RNG state
+    Returns (angle_deg, used_fallback)."""
+    import math
+    if rule == "a45":
+        return 45.0, False
+    if rule == "a135":
+        return 135.0, False
+    if rule == "set":
+        h = (int(round(float(np.mean(xs)))) * 73856093) ^ (int(round(float(np.mean(ys)))) * 19349663) ^ (int(len(xs)) * 83492791)
+        return ROW_ANGLE_SET[h % 4], False
+    if rule == "across":
+        if len(xs) < 3:
+            return ROW_ANGLE_FALLBACK_DEG, True
+        cx, cy = float(np.mean(xs)), float(np.mean(ys))
+        c = np.cov(np.stack([xs - cx, ys - cy]))
+        ev = np.linalg.eigvalsh(c)
+        if float(ev[1] / max(ev[0], 1e-12)) < ROW_ANGLE_ISO_RATIO:
+            return ROW_ANGLE_FALLBACK_DEG, True
+        return math.degrees(0.5 * math.atan2(2.0 * c[0, 1], c[0, 0] - c[1, 1])) + 90.0, False
+    return float(base_deg), False
+
+
+def _region_angle(rows_cfg, xs, ys, au):
+    """Angle for one region of rows mode; records the histogram into `au` ONLY when a non-zero rule is active."""
+    rule = rows_cfg.get("angle_rule")
+    if not rule or rule == "zero":
+        return rows_cfg["angle_deg"]
+    ang, fb = row_angle_for_region(rule, xs, ys, rows_cfg["angle_deg"])
+    hist = au.setdefault("row_angle_hist", {"0": 0, "45": 0, "90": 0, "135": 0})
+    key = str(int(round((ang % 180.0) / 45.0)) % 4 * 45)
+    hist[key] += 1
+    if fb:
+        au["row_angle_fallback"] = au.get("row_angle_fallback", 0) + 1
+    return ang
 
 
 def core_rows(poly, ys, xs, pitch, min_chord=0.25, min_rect_fill=0.0, angle_deg=None, link_multi=False):
@@ -304,7 +356,7 @@ def contour_passes_outline_rows(dt, fill_px, max_levels, rows_cfg):
                 cs = _contours_subpixel(dt[y0:y1, x0:x1], sub, T, x0, y0)
                 poly = _polygon_from_contours(cs)
                 polys, n_ink = core_rows(poly, ys, xs, fill_px, min_rect_fill=0.0,
-                                         angle_deg=rows_cfg["angle_deg"], link_multi=True)
+                                         angle_deg=_region_angle(rows_cfg, xs, ys, au), link_multi=True)
             except Exception:
                 polys, n_ink = [], 0
                 au["n_core_failed"] += 1
@@ -412,7 +464,7 @@ def contour_passes(dt, fill_px, level0, core_r_px, subpixel, max_levels, rows_cf
                     polys, n_ink = core_rows(poly, ys, xs, fill_px, min_rect_fill=CORE_MIN_RECT_FILL)
                 else:
                     polys, n_ink = core_rows(poly, ys, xs, fill_px, min_rect_fill=0.0,
-                                             angle_deg=rows_cfg["angle_deg"], link_multi=True)
+                                             angle_deg=_region_angle(rows_cfg, xs, ys, au), link_multi=True)
             except Exception:
                 polys, n_ink = [], 0
             if polys is None:       # curved / branching thin core: rows along one axis would chop it

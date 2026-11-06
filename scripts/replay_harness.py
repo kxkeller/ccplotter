@@ -269,6 +269,7 @@ FIXTURES = [
         "kind": "process",
         "request_path": "tests/golden_tests/fixtures/loco-472-trestle/settings.json",
         "sources": ["tests/golden_tests/fixtures/loco-472-trestle/source.png"],
+        "body_overrides": {"stay_down_over_ink": False},   # D1801: recorded before the default flip; pinned OFF
         "pen_id": FIXTURE_PEN_ID,
     },
     {
@@ -311,6 +312,7 @@ FIXTURES = [
         "kind": "process",
         "request_path": "tests/golden_tests/fixtures/plane/replay_request.json",
         "sources": ["tests/golden_tests/fixtures/plane/source.png"],
+        "body_overrides": {"stay_down_over_ink": False},   # D1801: recorded before the default flip; pinned OFF
         "pen_id": FIXTURE_PEN_ID,
     },
     {
@@ -318,6 +320,7 @@ FIXTURES = [
         "kind": "process",
         "request_path": "tests/golden_tests/fixtures/ship/replay_request.json",
         "sources": ["tests/golden_tests/fixtures/ship/source.png"],
+        "body_overrides": {"stay_down_over_ink": False},   # D1801: recorded before the default flip; pinned OFF
         "pen_id": FIXTURE_PEN_ID,
     },
     {
@@ -327,7 +330,110 @@ FIXTURES = [
         "kind": "process",
         "request_path": "tests/golden_tests/fixtures/bwphoto-native-default/request.json",
         "sources": ["tests/fixtures/twotone/dahlia.jpg"],
+        "body_overrides": {"stay_down_over_ink": False},   # D1801: recorded before the default flip; pinned OFF
         "pen_id": FIXTURE_PEN_ID,
+    },
+    {
+        # D1801 (2026-10-25): the SAME request as bwphoto-native-default with stay_down_over_ink ABSENT, i.e. the new default (ON).
+        "label": "bwphoto-native-default-stay-down-on",
+        "kind": "process",
+        "request_path": "tests/golden_tests/fixtures/bwphoto-native-default/request.json",
+        "sources": ["tests/fixtures/twotone/dahlia.jpg"],
+        "pen_id": FIXTURE_PEN_ID,
+    },
+    {
+        # D1837 (2026-10-27, Kai authorised `record --only`): bwphoto-native-default request + core_fill=outline_rows + row_angle_rule=a45
+        # (EXPERIMENTAL opt-in; own request.json so the body_overrides pin set stays exactly the four stay-down-off goldens).
+        "label": "bwphoto-outline-rows-a45",
+        "kind": "process",
+        "request_path": "tests/golden_tests/fixtures/bwphoto-outline-rows-a45/request.json",
+        "sources": ["tests/fixtures/twotone/dahlia.jpg"],
+        "pen_id": FIXTURE_PEN_ID,
+    },
+    {
+        # D2005 (2026-11-04, Kai "Yes, record both (Recommended)", record --only): bwphoto-native-default request + core_fill=outline_rows + row_angle_rule=zero explicit.
+        # Pins today's 0-deg rows; its gcode sha MUST equal the PRE-flip dry run 05b3ea8f (D1990/D2005/D2007).
+        "label": "bwphoto-outline-rows-zero",
+        "kind": "process",
+        "request_path": "tests/golden_tests/fixtures/bwphoto-outline-rows-zero/request.json",
+        "sources": ["tests/fixtures/twotone/dahlia.jpg"],
+        "pen_id": FIXTURE_PEN_ID,
+    },
+    {
+        # D2005 (2026-11-04, Kai "Yes, record both (Recommended)", record --only): bwphoto-native-default request + core_fill=outline_rows + row_angle_rule=a135 explicit
+        # ("/" at item rot 0, the rows default since 2026-11-04; equals the absent-key job).
+        "label": "bwphoto-outline-rows-a135",
+        "kind": "process",
+        "request_path": "tests/golden_tests/fixtures/bwphoto-outline-rows-a135/request.json",
+        "sources": ["tests/fixtures/twotone/dahlia.jpg"],
+        "pen_id": FIXTURE_PEN_ID,
+    },
+    {
+        # D1837 (2026-10-27, Kai authorised `record --only`): bwphoto-native-default request + core_fill=outline_rows + row_angle_rule=across
+        # (EXPERIMENTAL opt-in; own request.json so the body_overrides pin set stays exactly the four stay-down-off goldens).
+        "label": "bwphoto-outline-rows-across",
+        "kind": "process",
+        "request_path": "tests/golden_tests/fixtures/bwphoto-outline-rows-across/request.json",
+        "sources": ["tests/fixtures/twotone/dahlia.jpg"],
+        "pen_id": FIXTURE_PEN_ID,
+    },
+    {
+        # D1837 (2026-10-27, Kai authorised `record --only`): bwphoto-native-default request + core_fill=outline_rows + row_angle_rule=set
+        # (EXPERIMENTAL opt-in; own request.json so the body_overrides pin set stays exactly the four stay-down-off goldens).
+        "label": "bwphoto-outline-rows-set",
+        "kind": "process",
+        "request_path": "tests/golden_tests/fixtures/bwphoto-outline-rows-set/request.json",
+        "sources": ["tests/fixtures/twotone/dahlia.jpg"],
+        "pen_id": FIXTURE_PEN_ID,
+    },
+    {
+        # D1902d (2026-10-29, Kai authorised `record --only`: "2-sure"): the bwphoto-native-default request + ink_routed_connectors=true
+        # (EXPERIMENTAL opt-in, no UI). Own request.json; NO body_overrides (the pin set stays exactly the four stay-down-off goldens).
+        "label": "bwphoto-native-default-ink-routed",
+        "kind": "process",
+        "request_path": "tests/golden_tests/fixtures/bwphoto-native-default-ink-routed/request.json",
+        "sources": ["tests/fixtures/twotone/dahlia.jpg"],
+        "pen_id": FIXTURE_PEN_ID,
+    },
+    {
+        # D1974 (2026-11-03, Kai "Yea"): the bwphoto-native-default request + bw_structure_binary=true
+        # (EXPERIMENTAL opt-in, M11 mode B). Own request.json; NO body_overrides.
+        "label": "bwphoto-native-default-structure-binary",
+        "kind": "process",
+        "request_path": "tests/golden_tests/fixtures/bwphoto-native-default-structure-binary/request.json",
+        "sources": ["tests/fixtures/twotone/dahlia.jpg"],
+        "pen_id": FIXTURE_PEN_ID,
+    },
+    {
+        # D1983-D1988 (2026-11-04): bw_structure_binary became the bwphoto DEFAULT (ON). This is the explicit-OFF twin: the
+        # bwphoto-native-default request (stay_down pinned OFF, exactly as that golden) + bw_structure_binary=false. Its gcode sha must
+        # equal the pre-flip bwphoto-native-default golden (9c048418...). recorded 2026-11-04, Kai 'Yes, re-record'; must equal the pre-flip bwphoto-native-default 9c048418.
+        "label": "bwphoto-native-default-structure-binary-off",
+        "kind": "process",
+        "request_path": "tests/golden_tests/fixtures/bwphoto-native-default-structure-binary-off/request.json",
+        "sources": ["tests/fixtures/twotone/dahlia.jpg"],
+        "body_overrides": {"stay_down_over_ink": False},
+        "pen_id": FIXTURE_PEN_ID,
+    },
+    {
+        # D1837: the registry paper sheet rowangle_bic (ccplotter/calibration_rowangle.py). Pinned to bic_cristal_blue, which the
+        # hermetic scripts/harness_env/pen_profiles.json now carries (a snapshot of the live profile, z_touch 19.05).
+        # D1847: this golden's gcode sha (496813e7...) is the HERMETIC sha: the harness calibration has pen offset -1.0/-45.0.
+        # The PLOT reference is a548942f... (live offset -1.3/-43.7, artifacts/rowfill-paper-sheet-2026-10-26/sheet/). The two
+        # differing is EXPECTED (coordinates shift by the offset difference); do NOT "repair" either to match the other.
+        "label": "rowangle-sheet-bic",
+        "kind": "calibration_sheet",
+        "request_body": {"id": "rowangle_bic"},
+        "pen_id": "bic_cristal_blue",
+    },
+    {
+        # D1917a (2026-10-29, Kai authorised `record --only`: "1-yes"): the registry paper sheet inkroute_bic (ccplotter/calibration_inkroute.py),
+        # same pattern as rowangle-sheet-bic. Pinned to bic_cristal_blue. This golden's gcode sha is the HERMETIC sha (harness calibration
+        # offset -1.0/-45.0); the PLOT reference f8850f3c... (live offset -1.3/-43.7) differs BY DESIGN -- see the fixture README.
+        "label": "inkroute-sheet-bic",
+        "kind": "calibration_sheet",
+        "request_body": {"id": "inkroute_bic"},
+        "pen_id": "bic_cristal_blue",
     },
     {
         "label": "calibration_plot",
@@ -673,6 +779,9 @@ def run_process_fixture(fx: dict) -> dict:
     # that hash. See FIXTURE_PEN_ID / check_pen_context() above.
     if fx.get("pen_id"):
         body["pen_id"] = fx["pen_id"]
+    # D1801 (2026-10-25): per-fixture in-memory body overrides, applied AFTER the request sha is taken (the sha is over the
+    # on-disk file, unchanged). Used to pin stay_down_over_ink=false on goldens recorded before that default flipped to ON.
+    body.update(fx.get("body_overrides") or {})
     sources = fx["sources"]
     items = body.get("items", [])
     if len(items) != len(sources):
@@ -798,6 +907,42 @@ def run_calibration_plot_fixture(fx: dict) -> dict:
     return result
 
 
+def run_calibration_sheet_fixture(fx: dict) -> dict:
+    """POST /api/calibration_sheet (registry sheet). Volatile fields (run-record id, ?t= stamp, absolute paths) are excluded;
+    the gcode sha is over the whole file (the sheet writes no per-run comment)."""
+    body = dict(fx.get("request_body", {}))
+    if fx.get("pen_id"):
+        body["pen_id"] = fx["pen_id"]
+    r = requests.post(BASE_URL + "/api/calibration_sheet", json=body, timeout=300)
+    result = {"kind": "calibration_sheet", "request": {"path": None, "sha256": sha256_bytes(canonical_json(body).encode())},
+              "http_status": r.status_code}
+    try:
+        resp = r.json()
+    except Exception:
+        resp = {}
+    blk = resp.get("block") or {}
+    if r.status_code == 200 and resp.get("ok") and blk.get("file"):
+        result["gcode_file"] = blk["file"]
+        result["gcode_sha256"] = sha256_bytes((WORK_DIR_FOR_HARNESS / blk["file"]).read_bytes())
+        pfile = str(blk.get("preview_url", "")).split("?")[0].rsplit("/", 1)[-1]
+        result["preview_file"] = pfile or None
+        result["preview_svg_sha256_stripped"] = (sha256_bytes(strip_dc_date((WORK_DIR_FOR_HARNESS / pfile).read_bytes())) if pfile else None)
+        sw = resp.get("sweep") or {}
+        audit = {k: sw.get(k) for k in ("asset_sha256", "n_pendown_actual_total", "n_pendown_expected_total", "pendown_count_matches",
+                                        "total_draw_mm", "deepest_z_down_abs", "z_up_abs", "plot_time_estimate_s", "plot_time_model_a_min")}
+        audit.update({"z_touch_abs": resp.get("z_touch_abs"), "z_touch_source": resp.get("z_touch_source"), "pen_id": resp.get("pen_id")})
+        meta = {"kind": resp.get("kind"), "label": resp.get("label"), "placement_notes": resp.get("placement_notes"),
+                "size_kb": blk.get("size_kb"), "gcode_file": blk.get("file")}
+    else:
+        result.update({"gcode_file": None, "gcode_sha256": None, "preview_file": None, "preview_svg_sha256_stripped": None})
+        audit, meta = {}, {"error": resp.get("error")}
+    result["audit"] = round_floats(audit)
+    result["audit_json_sha256"] = sha256_bytes(canonical_json(result["audit"]).encode())
+    result["warnings"] = []
+    result["response_metadata"] = round_floats(meta)
+    return result
+
+
 def run_fan_probe_fixture(fx: dict) -> dict:
     body = fx.get("request_body", {})
     r = requests.post(BASE_URL + "/api/fan_probe", json=body, timeout=30)
@@ -830,6 +975,7 @@ def run_fan_probe_fixture(fx: dict) -> dict:
 FIXTURE_RUNNERS = {
     "process": run_process_fixture,
     "calibration_plot": run_calibration_plot_fixture,
+    "calibration_sheet": run_calibration_sheet_fixture,
     "fan_probe": run_fan_probe_fixture,
 }
 

@@ -53,6 +53,8 @@ from ccplotter.calibration_fragment import fragment_bic_probe
 from ccplotter.calibration_uright_short import uright_short_gcode
 from ccplotter.calibration_photofe import photofe_bic
 from ccplotter.calibration_pocket import pocket_bic, pocket_preppy
+from ccplotter.calibration_rowangle import rowangle_bic
+from ccplotter.calibration_inkroute import inkroute_bic
 from ccplotter.calibration_singlepass import singlepass_gcode
 from ccplotter.calibration_solidpitch import solidpitch_gcode
 
@@ -465,6 +467,60 @@ _SHEETS = (
                      "not stopwatch-validated): check the pen has ink and the ball is not dry, and "
                      "expect to re-check the pen part-way.",
         generator=photofe_bic,
+        ui="generic",
+    ),
+    CalSheet(
+        id="rowangle_bic",
+        label="Row direction on paper: one heli window x 4 row looks (BIC Cristal, 0.12mm)",
+        blurb="Which direction should the solid-fill rows run? ONE 34 x 40mm window of the cleaned heli (slanted "
+              "bar, C, A, D letter forms: solids of several shapes) drawn four times side by side: 1 ZERO = "
+              "today's rows (0 deg of the image frame, the control), 2 A45 = every region at 45 deg, 3 ACROSS = "
+              "each region's rows along its SHORT side (near-round regions fall back to 45 deg, eigenvalue "
+              "ratio < 1.3), 4 SET = each region 0/45/90/135 deg by a deterministic hash of its centroid and "
+              "size (mixed look). The strokes are the REAL outline_rows tracev3 output of the full-page job "
+              "(stay-down over ink ON, the production default) clipped to the window, NOT re-traced; the four "
+              "patches share one mask and one placement, only the row angle differs. Offline, coverage did not "
+              "depend on direction; this sheet is for the LOOK, pen anisotropy and dimples, which only paper "
+              "can show. row_angle_rule defaults to a135 (\"/\") on rows / outline_rows since 2026-11-04 (Kai waived the paper rule); this sheet has no A135 patch, A45 is its mirror. Every patch "
+              "carries a printed ASCII label; 0/90 rulers and six fiducials as on the photofe sheet. The strokes "
+              "are a precomputed asset shipped as assets/calibration/rowangle_asset.json.xz (PyInstaller datas "
+              "entry), sha256 checked at generation. Pinned to bic_cristal_blue (fill_mm 0.12); label it "
+              "'nominal 0.12, laid unknown'. See artifacts/rowfill-paper-sheet-2026-10-26/ and "
+              "ccplotter/calibration_rowangle.py.",
+        plot_warning="Plot the linked g-code file directly. Adding this sheet to the canvas shows you WHERE it "
+                     "lands, but plotting from the canvas would let vpype merge/reorder/simplify the pieces and "
+                     "destroy the real-trace geometry this sheet exists to compare. POST with "
+                     "pen_id=bic_cristal_blue explicitly and re-read the live z_touch first (the active "
+                     "profile drifts; BIC and uRight differ by several mm of Z). Record the z_touch the sheet reports. Check "
+                     "the pen has ink and the ball is not dry before starting.",
+        generator=rowangle_bic,
+        ui="generic",
+    ),
+    CalSheet(
+        id="inkroute_bic",
+        label="Ink-routed connectors on paper: one heli window, OFF then ON (BIC Cristal, 0.12mm)",
+        blurb="Does the opt-in ink_routed_connectors look as good as today's output, and is it really faster? ONE 100 x 70mm "
+              "window of the heli bwphoto drawn TWICE side by side: A OFF (left, today's production output, key absent) and "
+              "B ON (right, ink_routed_connectors true; short pen-down paths inside the ink replace some lifts). The strokes "
+              "are the REAL /api/process gcode strokes of the full-page job, in emitted order, clipped to the window, NOT "
+              "re-traced; the window contains the audit's registered G3b hot spot. ALL of half A plots first, then ALL of half "
+              "B (never interleaved); an ASCII marker line in the gcode ('; ===== HALF A' / '; ===== HALF B') is each half's "
+              "stopwatch cut point. WHAT TO DO: time each half; compare the look; re-read z_touch at plot time (the gcode header "
+              "prints the value the sheet resolved). Printed under each half: its pen-down (lift) count and its MODEL minutes "
+              "(model b, a floor, NOT stopwatch-validated). Window lift counts are pieces (border cuts included) and are not the "
+              "page-wide counts. A always plots before B, so ink warm-up and pen drift are not randomised: read the stopwatch "
+              "with that in mind. EXPERIMENTAL: ink_routed_connectors is a request-body option, never a default. Every item "
+              "carries a printed ASCII label; 0/90 rulers and six fiducials as on the rowangle sheet. The strokes are a "
+              "precomputed asset shipped as assets/calibration/inkroute_asset.json.xz (PyInstaller datas entry), sha256 "
+              "checked at generation. Pinned to bic_cristal_blue (fill_mm 0.12); label it 'nominal 0.12, laid unknown'. See "
+              "artifacts/inkroute-paper-sheet-2026-10-29/ and ccplotter/calibration_inkroute.py.",
+        plot_warning="Plot the linked g-code file directly. Adding this sheet to the canvas shows you WHERE it lands, but "
+                     "plotting from the canvas would let vpype merge/reorder/simplify the pieces and destroy the real-trace "
+                     "geometry and the half A then half B order this sheet exists to compare. POST with "
+                     "pen_id=bic_cristal_blue explicitly and re-read the live z_touch first (the active profile drifts; BIC and "
+                     "uRight differ by several mm of Z). Record the z_touch the sheet reports. Time each half with a stopwatch "
+                     "from its marker; compare the look. Check the pen has ink and the ball is not dry before starting.",
+        generator=inkroute_bic,
         ui="generic",
     ),
     # ---- bespoke: own route AND own UI handler; listed for completeness ----

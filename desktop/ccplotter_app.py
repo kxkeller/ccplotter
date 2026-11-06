@@ -63,6 +63,7 @@ def seed_defaults(res: Path, data: Path) -> None:
     # data dir as calibration.json.
     for src_name, name in (("ai_config.json", "ai_config.json"),
                            ("calibration.seed.json", "calibration.json")):
+        # API key files are never bundled (the spec refuses *_key.txt), so none is seeded.
         src, dst = res / src_name, data / name
         if src.exists() and not dst.exists():
             try:

@@ -325,6 +325,17 @@ def render_raster_to_svg(raw_path: Path, out_path: Path, opts: dict, debug_prefi
         from ccplotter import trace_boundary as _tbd
         _tbd.reset_mask_record()
         _tb_gray = _tbd.gray_record(img, opts.get("clahe", False), opts.get("bw_clahe_clip"))
+        # Structure-aware binary (EXPERIMENTAL opt-in, M11 mode B; ccplotter/structure_binary.py): only when routes/core.py set the private
+        # `structure_binary` render key (bwphoto + request key bw_structure_binary). Hands Trace V3 the mode's final binary instead of the
+        # production raster; absent key == this block never runs (byte-identical).
+        _sb_audit = None
+        if opts.get("structure_binary"):
+            from ccplotter import structure_binary as _sb_mod
+            # D994 note: trace_boundary's gray_record above hashes the PRE-mode production raster; the mode's binary hash is audit.structure_binary.R_sha16.
+            img, _sb_audit = _sb_mod.apply(img, raw_path, opts, _trace_v3_mod._binarize_mask)
+            ng = None
+            if debug_prefix:
+                cv2.imwrite(f"{debug_prefix}_structure_binary.png", img)
         _trace_svg(img, temp_cl, opts, debug_prefix=debug_prefix, native_gray=ng)
         with atomic_target(out_path) as tmp_out:
             vpype_cli.execute(f"read {shlex.quote(str(temp_cl))} linesort penwidth {float(opts.get('fill_mm', 0.15))}mm write {shlex.quote(str(tmp_out))}")
@@ -427,6 +438,8 @@ def render_raster_to_svg(raw_path: Path, out_path: Path, opts: dict, debug_prefi
             # any generation code.
             info["audit"]["pen_id_resolved"] = pen_id
             info["audit"]["fill_mm_resolved"] = opts.get("fill_mm")
+            if _sb_audit is not None:
+                info["audit"]["structure_binary"] = _sb_audit
             atomic_write_text(ip, json.dumps(info))
         except Exception: pass
     print(f"  [perf] total {mode}: {time.time()-t_start:.2f}s")

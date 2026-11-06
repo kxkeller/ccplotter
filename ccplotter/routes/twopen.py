@@ -373,8 +373,8 @@ def _keytint_prepare(body, rid):
     if not isinstance(bt, bool):
         raise TwoPenRefusal("blue_trap must be true or false")
     # Opt-in "Stay down over ink (no stray lines)": each layer's pen-up travels that lie wholly inside that layer's own
-    # ink become pen-down connectors. Same parse, absent / false -> the unchanged path, for every entry path.
-    sd = body.get("stay_down_over_ink", False)
+    # ink become pen-down connectors. Key ABSENT = ON (default since 2026-10-25); explicit false / null / "" -> the unchanged path, for every entry path.
+    sd = body.get("stay_down_over_ink", True)     # default ON since 2026-10-25 (Kai sign-off); explicit false / null / "" = OFF
     if sd is None or sd == "":
         sd = False
     if not isinstance(sd, bool):

@@ -626,7 +626,7 @@ def _route_low_lift(lines, max_conn_px, target_strokes=None, hard_cap_px=None, c
     return new_lines, connectors, conn_len, longest
 
 def _route_low_lift_doc(in_svg, out_svg, conn_dist_mm, target_z_moves, connectors_svg=None, bypass_layers=None, mask_ctx=None,
-                       max_walk_segs=ROUTE_WALK_MAX_SEGS_PLAIN, stay_down_ctx=None):
+                       max_walk_segs=ROUTE_WALK_MAX_SEGS_PLAIN, stay_down_ctx=None, stay_down_na=None):
     """Read the cleaned layout SVG, run the low-lift router per layer (never
     bridging across separate drawings), write the routed multilayer SVG, and
     return before/after routing stats. If connectors_svg is given, the bare
@@ -649,7 +649,11 @@ def _route_low_lift_doc(in_svg, out_svg, conn_dist_mm, target_z_moves, connector
     layer-id -> placement context (same shape as mask_ctx, but its sidecar is the layer's OWN ink
     mask). Independent of mask_ctx: the connector-distance fuses keep whatever checking they had;
     on top, every remaining pen lift whose straight connector lies wholly inside the layer's own
-    ink becomes a pen-down connector of any length. Stats gain a `stay_down_over_ink` record."""
+    ink becomes a pen-down connector of any length. Stats gain a `stay_down_over_ink` record.
+    stay_down_na (D1802): layer ids that are INELIGIBLE BY CONSTRUCTION (no trace mask exists: plotready / non-tracev3,
+    zigzag, verbatim). They are routed exactly as with stay-down OFF (plain walk cap, no check), recorded as
+    `not_applicable`, and never counted as failed closed (no warning). The record is emitted only when at least one
+    layer was eligible. An ELIGIBLE layer whose mask sidecar is missing still fails closed with a warning."""
     bypass_layers = bypass_layers or set()
     doc = vp.read_multilayer_svg(str(in_svg), quantization=0.1)
     conn_px = max(0.0, float(conn_dist_mm)) / PX2MM
@@ -668,7 +672,8 @@ def _route_low_lift_doc(in_svg, out_svg, conn_dist_mm, target_z_moves, connector
     if mask_ctx is not None:
         from ccplotter.stage_e_mask import empty_totals, build_layer_check
         mc_tot = empty_totals()
-    sd_layers, sd_tot = {}, None
+    sd_layers, sd_tot, sd_elig = {}, None, 0
+    stay_down_na = set(stay_down_na or ())
     if stay_down_ctx is not None:
         sd_tot = {"layers_checked": 0, "layers_failed_closed": 0, "candidates": 0, "fused": 0, "rejected": 0, "fused_mm": 0.0, "layers_failed_closed_detail": {}}
     for lid, lc in doc.layers.items():
@@ -685,7 +690,9 @@ def _route_low_lift_doc(in_svg, out_svg, conn_dist_mm, target_z_moves, connector
             tgt = max(1, int(round(target_strokes * len(lines) / before)))
         _si = {}
         _sd_kw = {}
-        if stay_down_ctx is not None:
+        _sd_this = stay_down_ctx is not None and lid not in stay_down_na
+        _mws = max_walk_segs if (stay_down_ctx is None or _sd_this) else ROUTE_WALK_MAX_SEGS_PLAIN
+        if _sd_this:
             from ccplotter.stage_e_mask import NoMaskCheck, build_layer_check as _bl
             if lid in stay_down_ctx and lines:
                 _sdchk = _bl(stay_down_ctx[lid], np.concatenate([np.asarray(l) for l in lines]))
@@ -693,8 +700,15 @@ def _route_low_lift_doc(in_svg, out_svg, conn_dist_mm, target_z_moves, connector
                 _sdchk = NoMaskCheck("no_trace_mask_for_layer")
             _sds = {}
             _sd_kw = {"stay_down_check": _sdchk, "stay_down_stats": _sds}
-        if mask_ctx is None:
-            new_lines, conns, cl, lg = _route_low_lift(lines, conn_px, tgt, hard_cap_px, skip_info=_si, max_walk_segs=max_walk_segs, **_sd_kw)
+        if mask_ctx is None and _sd_this and len(lines) > ROUTE_WALK_MAX_SEGS_PLAIN:
+            # D1782: a layer above the plain cap has NO ordinary joins when OFF (the router is skipped). Lifting the cap
+            # for stay-down would introduce them UNCHECKED, so there they are checked by the SAME stay-down check (the
+            # only unchecked effect of the lifted cap is then travel order, which puts no ink down). At or below the
+            # cap OFF's ordinary joins are today's default and are kept exactly; stay-down only ADDS checked joins.
+            new_lines, conns, cl, lg = _route_low_lift(lines, conn_px, tgt, hard_cap_px, connector_check=_sdchk, check_stats={},
+                                                       skip_info=_si, max_walk_segs=_mws, **_sd_kw)
+        elif mask_ctx is None:
+            new_lines, conns, cl, lg = _route_low_lift(lines, conn_px, tgt, hard_cap_px, skip_info=_si, max_walk_segs=_mws, **_sd_kw)
         else:
             if lid in mask_ctx and lines:
                 chk = build_layer_check(mask_ctx[lid], np.concatenate([np.asarray(l) for l in lines]))
@@ -703,7 +717,7 @@ def _route_low_lift_doc(in_svg, out_svg, conn_dist_mm, target_z_moves, connector
                 chk = NoMaskCheck("no_trace_mask_for_layer")
             cs = {}
             new_lines, conns, cl, lg = _route_low_lift(lines, conn_px, tgt, hard_cap_px,
-                                                       connector_check=chk, check_stats=cs, skip_info=_si, max_walk_segs=max_walk_segs, **_sd_kw)
+                                                       connector_check=chk, check_stats=cs, skip_info=_si, max_walk_segs=_mws, **_sd_kw)
             mc_rejected.extend((lid,) + r for r in cs.pop("rejected_segments", []))
             info = chk.info()
             if not chk.available:
@@ -716,7 +730,10 @@ def _route_low_lift_doc(in_svg, out_svg, conn_dist_mm, target_z_moves, connector
                 if isinstance(v, (int, float)):
                     mc_tot[k] += v
             mc_layers[str(lid)] = {**info, **{k: (round(v, 3) if isinstance(v, float) else v) for k, v in cs.items()}}
-        if stay_down_ctx is not None:
+        if stay_down_ctx is not None and not _sd_this:
+            sd_layers[str(lid)] = {"not_applicable": "no trace mask exists for this item by construction (plotready / non-tracev3, zigzag or verbatim): routed exactly as with stay-down off"}
+        if _sd_this:
+            sd_elig += 1
             _e = {**_sdchk.info(), **{k: (round(v, 3) if isinstance(v, float) else v) for k, v in _sds.items()}}
             sd_layers[str(lid)] = _e
             if _sdchk.available:
@@ -758,13 +775,14 @@ def _route_low_lift_doc(in_svg, out_svg, conn_dist_mm, target_z_moves, connector
     if skipped:
         res["route_skipped_guard"] = True
         res["route_skipped_layers"] = skipped
-    if sd_tot is not None:
+    if sd_tot is not None and sd_elig:
         from ccplotter.stage_e_mask import DT_TOL_PX as _DT
         res["stay_down_over_ink"] = {
             "enabled": True,
             "rule": ("after routing, a pen-up travel becomes a pen-down connector, of any length, iff the straight "
                      "connector stays inside the layer's own ink mask (stage_e_mask predicate: every 0.5 trace px sample "
-                     "has dt >= 0.5*fill_px - dt_tol_px); a layer with no usable mask fails closed (no stay-down)"),
+                     "has dt >= 0.5*fill_px - dt_tol_px); on a layer above the plain stroke cap (where OFF has no joins) the short joins use the same check (D1782); "
+                     "a layer with no usable mask fails closed (no joins at all)"),
             "dt_tol_px": _DT,
             "totals": {k: (round(v, 3) if isinstance(v, float) else v) for k, v in sd_tot.items()},
             "layers": sd_layers,

@@ -869,6 +869,22 @@ def api_process():
             elif str(body.get("core_fill", "rings")).lower() == "outline_rows":
                 # core_fill="outline_rows" (opt-in): one outline ring, then rows over the whole interior
                 render_opts["core_fill"] = "outline_rows"
+            # row_angle_rule (2026-10-26; DEFAULT FLIP 2026-11-04, Kai knowingly waived the paper rule): explicit "zero" = 0 deg,
+            # nothing added to render_opts (cache keys and output byte-identical to before). ABSENT/empty + core_fill rows /
+            # outline_rows (plain tracev3 / bwphoto only; illustration pins rings) -> ROW_ANGLE_DEFAULT ("a135", "/" at item rot 0).
+            # Only meaningful for core_fill rows / outline_rows.
+            _rar = str(body.get("row_angle_rule") or "").lower()
+            if not _rar:
+                from ccplotter.core_fill import ROW_ANGLE_DEFAULT
+                _rar = (ROW_ANGLE_DEFAULT if (render_opts.get("core_fill") in ("rows", "outline_rows")
+                                              and style == "tracev3" and not _is_illustration) else "zero")
+            if _rar != "zero":
+                from ccplotter.core_fill import ROW_ANGLE_RULES
+                if _rar not in ROW_ANGLE_RULES:
+                    return jsonify({"error": f"row_angle_rule must be one of {list(ROW_ANGLE_RULES)}"}), 400
+                if render_opts.get("core_fill") not in ("rows", "outline_rows"):
+                    return jsonify({"error": "row_angle_rule needs core_fill=rows or core_fill=outline_rows"}), 400
+                render_opts["row_angle_rule"] = _rar
             try:
                 _inset_val = float(body.get("edge_inset_mm") or 0.0)
             except (TypeError, ValueError):
@@ -912,6 +928,13 @@ def api_process():
             except ValueError as _e:
                 return jsonify({"error": str(_e)}), 400
             render_opts["bw_xdog_side"] = _bw_side
+            # bw_structure_binary (M11 mode B; ccplotter/structure_binary.py): hands Trace V3 the structure-aware binary instead of the
+            # production raster. DEFAULT ON since 2026-11-04 (Kai sign-off on screen evidence, D1983-D1986; paper owed). bwphoto only (this block).
+            # Key absent -> ON. OFF only on a strict falsy value: False, 0, "0", "false", "False". Anything else (junk, null, "", "no") -> ON,
+            # so a typo can never silently change the trace. render_opts gains structure_binary only when ON (OFF adds nothing, so
+            # opt_hash and bytes of the OFF path equal the pre-flip bwphoto output).
+            if body.get("bw_structure_binary", True) not in (False, 0, "0", "false", "False"):
+                render_opts["structure_binary"] = True
         # Routing params are LAYOUT-stage, not raster-stage — keep them OUT of
         # render_opts so changing them reuses the cached vectorization.
         connector_distance = float(body.get("connector_distance", body.get("join_nearby", 0.0)))
@@ -923,12 +946,15 @@ def api_process():
         # of render_opts; composite asks trace_v3 for a mask sidecar under its own private key.
         # Only strict truthy values enable it; absent / false / junk passes nothing to _composite.
         connector_mask_check = body.get("connector_mask_check") in (True, 1, "1", "true", "True")
-        # stay_down_over_ink (opt-in "Stay down over ink (no stray lines)", default OFF): after routing, a
+        # stay_down_over_ink ("Stay down over ink (no stray lines)", default ON since 2026-10-25, Kai sign-off, D1782 scoping): after routing, a
         # pen-up travel becomes a pen-down connector of ANY length iff the straight connector stays inside the
-        # layer's own ink mask (the stage_e_mask predicate). LAYOUT-stage, so out of render_opts. Same
-        # strict-truthy parse as connector_mask_check; absent / false / junk passes nothing to _composite.
-        stay_down_over_ink = body.get("stay_down_over_ink") in (True, 1, "1", "true", "True")
-        # prelim_res_basis (experimental, no UI, default OFF): corrects the v2
+        # layer's own ink mask (the D928 stage_e_mask predicate). LAYOUT-stage, so out of render_opts. Key
+        # ABSENT = ON; a PRESENT key uses connector_mask_check's strict-truthy parse (false / null / junk = OFF).
+        stay_down_over_ink = body.get("stay_down_over_ink", True) in (True, 1, "1", "true", "True")
+        # ink_routed_connectors (opt-in, D1902b, default OFF, request key only -- no UI): after stay-down and the final linesort, hops become pen-down
+        # connectors along a path inside the layer's stay-down predicate region (ccplotter/ink_routing.py, prototype arm R2a). ABSENT = byte-identical to before.
+        ink_routed_connectors = body.get("ink_routed_connectors") in (True, 1, "1", "true", "True")
+        # prelim_res_basis (D1061/D1062, PRIVATE/experimental, no UI, default OFF): corrects the v2
         # resolution boost's base resolution (composite.py). Honoured ONLY when this request resolved to
         # scale_aware_v2; absent / "requested" passes nothing to _composite.
         # Layout-stage kwarg, deliberately NOT in render_opts, so no trace cache key moves.
@@ -941,7 +967,7 @@ def api_process():
         reach_default = active_reach_profile(load_cal())
         gcode_path = WORK_DIR / "layout.gcode"
         try:
-            preview_path, bboxes, stats = _composite(items, paper_w, paper_h, margin, gcode_path, float(body.get("z_up", 3.5)), float(body.get("z_down", -0.7)), int(body.get("draw_speed", 3000)), int(body.get("travel_speed", 8000)), int(body.get("plunge_speed", 500)), int(body.get("lift_speed", 2000)), float(body.get("offset_x", reach_default["bbox"][0])), float(body.get("offset_y", reach_default["bbox"][1])), render_opts, float(body.get("paper_rot", 0.0)), generate_gcode=(job_type=='gcode'), connector_distance=connector_distance, target_z_moves=target_z_moves, microlift=microlift, debug=debug, end_policy=str(body.get("end_policy", "release")), quiet_fans=bool(body.get("quiet_fans", True)), motion_smoothing=body.get("motion_smoothing", "off"), pen_profile=pen_profile, pen_id=_resolved_pen_id, paper_keepout=body.get("paper_keepout"), preview_reach_check=bool(body.get("registered_paper", False)), **({"connector_mask_check": True} if connector_mask_check else {}), **({"stay_down_over_ink": True} if stay_down_over_ink else {}), **_prb_kw)
+            preview_path, bboxes, stats = _composite(items, paper_w, paper_h, margin, gcode_path, float(body.get("z_up", 3.5)), float(body.get("z_down", -0.7)), int(body.get("draw_speed", 3000)), int(body.get("travel_speed", 8000)), int(body.get("plunge_speed", 500)), int(body.get("lift_speed", 2000)), float(body.get("offset_x", reach_default["bbox"][0])), float(body.get("offset_y", reach_default["bbox"][1])), render_opts, float(body.get("paper_rot", 0.0)), generate_gcode=(job_type=='gcode'), connector_distance=connector_distance, target_z_moves=target_z_moves, microlift=microlift, debug=debug, end_policy=str(body.get("end_policy", "release")), quiet_fans=bool(body.get("quiet_fans", True)), motion_smoothing=body.get("motion_smoothing", "off"), pen_profile=pen_profile, pen_id=_resolved_pen_id, paper_keepout=body.get("paper_keepout"), preview_reach_check=bool(body.get("registered_paper", False)), **({"connector_mask_check": True} if connector_mask_check else {}), **({"stay_down_over_ink": True} if stay_down_over_ink else {}), **({"ink_routed_connectors": True} if ink_routed_connectors else {}), **_prb_kw)
         except Exception as e: return jsonify({"error": f"Pipeline failed: {e}"}), 500
 
         # Surface settings the warning logic needs (plottability, small-detail note).

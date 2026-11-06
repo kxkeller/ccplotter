@@ -1,0 +1,1 @@
+D1837 golden (2026-10-27, Kai authorised `record --only`): the bwphoto-native-default request (dahlia, energel_05 pin) with core_fill=outline_rows and row_angle_rule=a45 (EXPERIMENTAL opt-in, not a default). Stay-down over ink ABSENT = the production default (ON). Positive control: its gcode differs from the same request with no row_angle_rule.

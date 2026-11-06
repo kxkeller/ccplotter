@@ -118,10 +118,10 @@ def _fan_probe_gcode(out_path: Path) -> Path:
     case fans ON and note which step (1-5) kills which fan; that table decides
     whether the gcode path or the websocket path is the fix."""
     # DISABLED in the UI. Kept only for reference. Uses FIRMWARE-VALID indices
-    # (M106 no-P=hotend, P2=part cooling, P3=chamber); P0/P1 are invalid and halt
-    # the Klipper firmware. Do NOT sideload bare M-code files to this printer; use
-    # the end-of-plot postamble instead.
-    L = ["; ccPlotter FAN PROBE — DISABLED. Reference only.",
+    # (M106 no-P=hotend, P2=part cooling, P3=chamber) — the old P0/P1 were invalid
+    # and halted the Klipper firmware. Still: do NOT sideload bare M-code files to
+    # this printer; use the end-of-plot postamble instead.
+    L = ["; ccPlotter FAN PROBE -- DISABLED. Reference only.",
          "; No motion. Each step waits ~10s. Note which step # stops which fan.",
          "G4 S10                 ; step 0: baseline (fans still ON)",
          "M106 S0                ; step 1: hotend fan off",
@@ -132,8 +132,12 @@ def _fan_probe_gcode(out_path: Path) -> Path:
          "G4 S10",
          "M107                   ; step 4: M107 (fan off)",
          "G4 S10",
-         "; DONE — report which step # killed which fan (or 'none of them')."]
-    atomic_write_text(out_path, "\n".join(L) + "\n")
+         "; DONE -- report which step # killed which fan (or 'none of them')."]
+    text = "\n".join(L) + "\n"
+    # D1906 hard rule: G-code is pure ASCII (a non-ASCII byte crashes the firmware parser). Explicit encoding: the bytes must not depend on the
+    # shell (PYTHONUTF8 vs cp1252 gave different bytes for the old em dashes). Newline translation is left at the platform default, as before.
+    assert text.isascii(), "fan-probe G-code must be pure ASCII"
+    atomic_write_text(out_path, text, encoding="ascii")
     return out_path
 
 

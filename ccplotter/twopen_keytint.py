@@ -137,6 +137,8 @@ def capture_plain_bwphoto(image_path, workdir: Path, *, paper_w, paper_h, margin
     calls = []
     body = dict(body_extra or {})
     body.update({"style": "bwphoto", "job_type": "preview", "paper": paper_spec, "margin": margin, "pen_id": pen_id,
+                 "stay_down_over_ink": False,    # the plain job is the separation reference only; two-pen applies stay-down per layer itself (default ON since 2026-10-25 must not reach this reference run)
+                 "bw_structure_binary": False,   # D1986: the plain job is the separation reference only; bw_structure_binary became the bwphoto default 2026-11-04 and must not reach it (two-pen output stays byte-identical)
                  "debug": True,    # debug skips the variant cache (vcache) so the trace always runs and the hook always fires
                  "items": [{"id": did, **it}]})
     try:
@@ -500,7 +502,8 @@ def write_debug_pngs(sep, layers_mm, geom, widths, outdir: Path):
 # ---------------------------------------------------------------- orchestration (called by the route)
 def generate_layers(prep, blue_amount, jobdir: Path, widths, strip_in_black=None, debug=False, blue_trap=False,
                     blue_fill_mm=None, stay_down_over_ink=False, hatched_blue=False):
-    """prep = capture_plain_bwphoto() result. Writes blue/black layer SVGs + preview PNG (+ debug PNGs) into jobdir.
+    """prep = capture_plain_bwphoto() result. NOTE: the ROUTE default for stay_down_over_ink is ON since 2026-10-25 (routes/twopen.py);
+    this library default stays False. Writes blue/black layer SVGs + preview PNG (+ debug PNGs) into jobdir.
     blue_trap (default False = byte-identical to before): the opt-in blue margin under black (T1 + X + F); its thresholds
     are multiples of blue_fill_mm (the active BLUE profile's fill_mm; falls back to the plain job's fill_mm).
     hatched_blue (default False = byte-identical to before): the opt-in "Hatched blue (lighter, fewer pen lifts)" (arm B3s, ccplotter/twopen_hatch.py).

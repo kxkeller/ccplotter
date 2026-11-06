@@ -1,0 +1,1 @@
+Pin (2026-11-04): the bwphoto-native-default request (dahlia, energel_05 pin) with core_fill=outline_rows and row_angle_rule=zero EXPLICIT, i.e. rows at 0 deg. After rows went to "/" by default, this pins today's 0-deg output (its gcode sha must not change across the flip)..

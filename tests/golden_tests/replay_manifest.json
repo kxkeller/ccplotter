@@ -6,6 +6,1516 @@
         "debug_metrics": {
           "accepted_counts": {},
           "candidate_counts": {},
+          "clean_lines": 1716,
+          "fused_lines": null,
+          "line_length_stats_mm": {
+            "max_mm": 44961.61,
+            "mean_mm": 76.2,
+            "median_mm": 3.88,
+            "min_mm": 0.09
+          },
+          "line_length_stats_px": {},
+          "lineart_quality": {},
+          "min_stroke_mm": 0.09,
+          "objective_score": null,
+          "pen_width_mm": 0.5,
+          "rejected_counts": {},
+          "routed_lines": 1716,
+          "small_detail": "off",
+          "weights": {}
+        },
+        "trace_info": {
+          "audit": {
+            "dropped_components": 0,
+            "dropped_ink_pct": 0.0,
+            "fallback_strokes": 394,
+            "fill_mm_resolved": 0.25,
+            "fill_px": 3.0,
+            "gap_guarantee_ridge_px": 0,
+            "gray_crush_fraction": 0.0,
+            "levels": 238,
+            "lifts": 1723,
+            "lifts_before_link": 4896,
+            "lifts_per_meter": 7.0,
+            "min_mark_mm2": 0.035,
+            "mm_per_px": 0.0833,
+            "passes": 4816,
+            "pen_id_resolved": "energel_05",
+            "pinch_runs_fired": 200,
+            "pinch_runs_rejected": 196,
+            "pinch_runs_rejected_junction": 0,
+            "pinch_runs_rejected_short": 196,
+            "pinch_runs_total": 396,
+            "speck_ink_pct": 0.015,
+            "speck_polys_dropped": 314,
+            "structure_binary": {
+              "K_ink_frac": 0.780329,
+              "R_ink_frac": 0.779152,
+              "R_sha16": "b7c774640aaeb02e",
+              "components_dropped": 127,
+              "ink_px_added": 486,
+              "ink_px_dropped": 10259,
+              "mm_per_px": 0.083337,
+              "params": {
+                "analysis_mm_per_px": 0.09,
+                "coh_int_mm": 2.0,
+                "coh_min": 0.55,
+                "diffuse_E_max": 0.3,
+                "diffuse_area_mm2": 3.0,
+                "diffuse_sharp_max": 0.35,
+                "g_edge_sat": 0.1,
+                "line_add_dist_mm": 2.5,
+                "line_min_len_mm": 8.0,
+                "line_width_mm": 0.3,
+                "min_component_mm2": 0.035,
+                "n_scales": 5,
+                "persist_dilate_mm": 0.72,
+                "sharp_win_mm": 2.0,
+                "sigma_f_mm": 0.12,
+                "zc3_grad_min": 0.035,
+                "zc_grad_min": 0.035
+              },
+              "shape": [
+                2359,
+                3536
+              ],
+              "version": "sab-3-modeB (ported from sab_lib3.mode_B, M11 pass 3)"
+            },
+            "texture_routing": "band_continuity_v1",
+            "tone": "off",
+            "total_polys": 1723,
+            "zero_pass_components": 25
+          },
+          "bilevel_source": false,
+          "downscaled": false,
+          "effective_res": 3536,
+          "front_end": {
+            "eps": 0.55,
+            "interpolated": false,
+            "k": 1.6,
+            "name": "bw_xdog",
+            "p": 20.0,
+            "phi": 2.0,
+            "side": 427,
+            "side_requested": "native",
+            "side_used": 427,
+            "sigma_px": 0.8,
+            "sigma_rescaled": false,
+            "src_short_side": 427
+          },
+          "mode": "tracev3",
+          "mode_cap": 3536,
+          "native_px": null,
+          "requested_res": 3536,
+          "texture_enabled": false,
+          "texture_sidecar_exists": false,
+          "texture_strokes": 0,
+          "upsampled": false
+        }
+      },
+      "audit_json_sha256": "c0f2c77cbb7d1f98fbb76af3e8d40ca778521f7805ccf91f47c5b157e626e8fd",
+      "gcode_file": "layout.gcode",
+      "gcode_sha256": "63cb5f70adaf57702347d40088debea72c2fd0837d9b59f723084a3d59cf2be2",
+      "http_status": 200,
+      "kind": "process",
+      "preview_file": "layout.preview.svg",
+      "preview_svg_sha256_stripped": "d5fff4f3ebce0ffb44c5bdf9c79b0dbc1f4056117f18b00fb8f79e2a58c37f68",
+      "request": {
+        "path": "tests/golden_tests/fixtures/bwphoto-native-default/request.json",
+        "sha256": "c096cc2e13b5f004c9aa46a5ca476e1e37de99c5502c1c79ccba6f275aa26ea1"
+      },
+      "response_metadata": {
+        "bbox_mm": [
+          19.0,
+          46.0,
+          181.0,
+          154.0
+        ],
+        "connector_count": 0,
+        "connector_distance_mm": 0.0,
+        "connector_draw_length_mm": 0.0,
+        "coverage_audit": null,
+        "debug_files": {},
+        "draw_length_mm": 130752.9,
+        "draw_moves": 1716,
+        "end_policy": "release",
+        "estimated_pen_lifts": 1716,
+        "estimated_plot_time_min": 63.3,
+        "estimated_plot_time_s": 3800.0,
+        "estimated_z_moves": 3432,
+        "file_size_kb": 6063.8,
+        "gcode_file": "layout.gcode",
+        "item_bboxes": [
+          [
+            19.0,
+            45.97,
+            181.0,
+            154.03
+          ]
+        ],
+        "item_geometry": [
+          {
+            "base_fit_scale": 0.173206,
+            "item_settings": {
+              "crop": null,
+              "dx": 0.0,
+              "dy": 0.0,
+              "id": "<upload-id, order-normalized>",
+              "rot": 0.0,
+              "scale": 1.0
+            },
+            "layout_center_mm": [
+              100.0,
+              100.0
+            ],
+            "scale_aware_equivalence_prelim_approx": {
+              "actual_placed_height_mm": 108.061103,
+              "actual_placed_width_mm": 162.0,
+              "analytic_base_fit": 0.236224,
+              "analytic_base_fit_prelim_raw": 0.278437,
+              "analytic_placed_height_mm": 108.0,
+              "analytic_placed_width_mm": 162.0,
+              "analytic_resolution_basis": "final (boost fired, corrected via actual_boost)",
+              "analytic_s": 0.236224,
+              "analytic_s_prelim_raw": 0.278437,
+              "divergence_height_mm": 0.061103,
+              "divergence_width_mm": 0.0,
+              "fill_px_real": 2.999872,
+              "final_fit": 0.173206,
+              "final_height_mm": 623.887837,
+              "final_s": 0.173206,
+              "final_width_mm": 935.302588,
+              "mm_per_px_real": 0.062501,
+              "mm_per_px_real_prelim_raw": 0.07367,
+              "prelim_bbox_mm": [
+                0.0,
+                0.0,
+                581.819064,
+                387.879376
+              ],
+              "prelim_height_mm": 387.879376,
+              "prelim_width_mm": 581.819064,
+              "scale_aware_v2": true,
+              "v2_res_boost": {
+                "actual_boost": 1.1787,
+                "base_res": 3000,
+                "boosted_res": 3536,
+                "fill_px_real_pre_boost": 2.54514,
+                "needed_boost": 1.1787
+              }
+            },
+            "source_bbox_mm": [
+              0.0,
+              0.0,
+              935.302588,
+              623.887837
+            ],
+            "source_center_mm": [
+              467.651294,
+              311.943918
+            ],
+            "source_height_mm": 623.887837,
+            "source_width_mm": 935.302588
+          }
+        ],
+        "job_type": "gcode",
+        "lazy_preview_pen_mm": 0.25,
+        "line_length_stats_mm": {
+          "max_mm": 44961.61,
+          "mean_mm": 76.2,
+          "median_mm": 3.88,
+          "min_mm": 0.09
+        },
+        "longest_connector_mm": 0.0,
+        "machine_bbox": {
+          "bbox": [
+            33.5,
+            105.5,
+            195.5,
+            213.5
+          ],
+          "reach_bbox": [
+            3.0,
+            42.5,
+            255.0,
+            254.5
+          ],
+          "reach_label": "Plotter V3.2 (confirmed rectangular reach)",
+          "reach_polygon": [
+            [
+              3.0,
+              42.5
+            ],
+            [
+              255.0,
+              42.5
+            ],
+            [
+              255.0,
+              254.5
+            ],
+            [
+              3.0,
+              254.5
+            ]
+          ],
+          "reach_profile": "plotter_2003_v32",
+          "reach_validated": true,
+          "xy_moves_checked": 223122
+        },
+        "microlift": {
+          "lifts": 1716,
+          "mega_added_mm": 31.0,
+          "mega_lift_mm": 31.05,
+          "mega_lifts": 1,
+          "micro_hop_mm": 8.0,
+          "short_lift_mm": 0.6,
+          "short_lift_source": "profile:Pentel EnerGel 0.5 (Blue)",
+          "short_lifts": 1663,
+          "z_travel_saved_mm": 9645.4
+        },
+        "min_stroke_mm": 0.09,
+        "paper": "200x200mm",
+        "pen_lifts": 1716,
+        "pen_width_mm": 0.5,
+        "preview_clean_available": true,
+        "preview_file": "layout.preview.svg",
+        "preview_xray_available": false,
+        "quiet_fans": true,
+        "realised_pitch": {
+          "basis": "fill_px_final x (final placed scale x PX2MM); not the preliminary scale, not the fill_mm/fill_px back-solve",
+          "items": [
+            {
+              "fill_mm_target": 0.25,
+              "fill_px_audit": 3.0,
+              "fill_px_final": 2.9999,
+              "fill_px_source": "composite item_opts.fill_px (analytic path), floored at 1.2",
+              "final_scale": 0.173206,
+              "floor_binds": false,
+              "id": "5476456a",
+              "mm_per_px_final": 0.045827,
+              "realised_pitch_mm": 0.1375,
+              "scale_source": "composite._composite placement s = fit*item.scale (final traced SVG bbox); x PX2MM"
+            }
+          ],
+          "max_mm": 0.1375,
+          "min_mm": 0.1375
+        },
+        "small_detail": "off",
+        "stroke_count": 1716,
+        "strokes_after": 1716,
+        "strokes_before": 1716,
+        "target_z_moves": 0,
+        "travel_length_mm": 3555.9,
+        "z_moves": 3432,
+        "z_moves_after": 3432,
+        "z_moves_before": 3432
+      },
+      "source_native_px_wh": [
+        [
+          640,
+          427
+        ]
+      ],
+      "warnings": [
+        {
+          "level": "warning",
+          "msg": "Pen-physics ceiling: smallest strokes ~0.09mm \u2014 below the ~0.5mm / 2\u00d7 pen-width line, readability may be physically limited. Plot larger, use a finer pen, or accept symbolic marks.",
+          "tier": "primary"
+        },
+        {
+          "level": "warning",
+          "msg": "Dense: 1716 strokes. Raise Connect Strokes first (keeps detail); Smoothness / Min Stroke Length reduce strokes by deleting detail.",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "Estimated 3,432 Z-moves \u2014 high. Raise Connect Strokes or set Target Z-moves (keeps detail).",
+          "tier": "secondary"
+        }
+      ]
+    },
+    "bwphoto-native-default-ink-routed": {
+      "audit": {
+        "debug_metrics": {
+          "accepted_counts": {},
+          "candidate_counts": {},
+          "clean_lines": 1716,
+          "fused_lines": null,
+          "line_length_stats_mm": {
+            "max_mm": 45412.59,
+            "mean_mm": 218.91,
+            "median_mm": 4.47,
+            "min_mm": 0.09
+          },
+          "line_length_stats_px": {},
+          "lineart_quality": {},
+          "min_stroke_mm": 0.09,
+          "objective_score": null,
+          "pen_width_mm": 0.5,
+          "rejected_counts": {},
+          "routed_lines": 980,
+          "small_detail": "off",
+          "weights": {}
+        },
+        "trace_info": {
+          "audit": {
+            "dropped_components": 0,
+            "dropped_ink_pct": 0.0,
+            "fallback_strokes": 394,
+            "fill_mm_resolved": 0.25,
+            "fill_px": 3.0,
+            "gap_guarantee_ridge_px": 0,
+            "gray_crush_fraction": 0.0,
+            "levels": 238,
+            "lifts": 1723,
+            "lifts_before_link": 4896,
+            "lifts_per_meter": 7.0,
+            "min_mark_mm2": 0.035,
+            "mm_per_px": 0.0833,
+            "passes": 4816,
+            "pen_id_resolved": "energel_05",
+            "pinch_runs_fired": 200,
+            "pinch_runs_rejected": 196,
+            "pinch_runs_rejected_junction": 0,
+            "pinch_runs_rejected_short": 196,
+            "pinch_runs_total": 396,
+            "speck_ink_pct": 0.015,
+            "speck_polys_dropped": 314,
+            "structure_binary": {
+              "K_ink_frac": 0.780329,
+              "R_ink_frac": 0.779152,
+              "R_sha16": "b7c774640aaeb02e",
+              "components_dropped": 127,
+              "ink_px_added": 486,
+              "ink_px_dropped": 10259,
+              "mm_per_px": 0.083337,
+              "params": {
+                "analysis_mm_per_px": 0.09,
+                "coh_int_mm": 2.0,
+                "coh_min": 0.55,
+                "diffuse_E_max": 0.3,
+                "diffuse_area_mm2": 3.0,
+                "diffuse_sharp_max": 0.35,
+                "g_edge_sat": 0.1,
+                "line_add_dist_mm": 2.5,
+                "line_min_len_mm": 8.0,
+                "line_width_mm": 0.3,
+                "min_component_mm2": 0.035,
+                "n_scales": 5,
+                "persist_dilate_mm": 0.72,
+                "sharp_win_mm": 2.0,
+                "sigma_f_mm": 0.12,
+                "zc3_grad_min": 0.035,
+                "zc_grad_min": 0.035
+              },
+              "shape": [
+                2359,
+                3536
+              ],
+              "version": "sab-3-modeB (ported from sab_lib3.mode_B, M11 pass 3)"
+            },
+            "texture_routing": "band_continuity_v1",
+            "tone": "off",
+            "total_polys": 1723,
+            "zero_pass_components": 25
+          },
+          "bilevel_source": false,
+          "downscaled": false,
+          "effective_res": 3536,
+          "front_end": {
+            "eps": 0.55,
+            "interpolated": false,
+            "k": 1.6,
+            "name": "bw_xdog",
+            "p": 20.0,
+            "phi": 2.0,
+            "side": 427,
+            "side_requested": "native",
+            "side_used": 427,
+            "sigma_px": 0.8,
+            "sigma_rescaled": false,
+            "src_short_side": 427
+          },
+          "mode": "tracev3",
+          "mode_cap": 3536,
+          "native_px": null,
+          "requested_res": 3536,
+          "texture_enabled": false,
+          "texture_sidecar_exists": false,
+          "texture_strokes": 0,
+          "upsampled": false
+        }
+      },
+      "audit_json_sha256": "9e66e1c1456e9beaf166159a734f7662ef4b99eac4407333203ae536e4a8431a",
+      "gcode_file": "layout.gcode",
+      "gcode_sha256": "9de855a18d1857e23f134a476f00cca84603df93938abb730e3b663b8a4eddc7",
+      "http_status": 200,
+      "kind": "process",
+      "preview_file": "layout.preview.svg",
+      "preview_svg_sha256_stripped": "a9522a6fea57e787739a927126cf1ffd2d34cde7998298e2a64d8bd325288c14",
+      "request": {
+        "path": "tests/golden_tests/fixtures/bwphoto-native-default-ink-routed/request.json",
+        "sha256": "9b50e14aee4e75394c602acca86cad69f8d991b4997a97b63bbaa5db9e6e3f3c"
+      },
+      "response_metadata": {
+        "bbox_mm": [
+          19.0,
+          46.0,
+          181.0,
+          154.0
+        ],
+        "connector_count": 736,
+        "connector_distance_mm": 0.0,
+        "connector_draw_length_mm": 1091.2,
+        "coverage_audit": null,
+        "debug_files": {},
+        "draw_length_mm": 132440.4,
+        "draw_moves": 605,
+        "end_policy": "release",
+        "estimated_pen_lifts": 605,
+        "estimated_plot_time_min": 51.2,
+        "estimated_plot_time_s": 3071.8,
+        "estimated_z_moves": 1210,
+        "file_size_kb": 6085.7,
+        "gcode_file": "layout.gcode",
+        "ink_routed_connectors": {
+          "arm": "R2a (route only, predicate-region map)",
+          "cap": {
+            "abs_mm": 3.0,
+            "ratio": 4.0
+          },
+          "dp_eps_mm": 0.01,
+          "enabled": true,
+          "layers": {
+            "1": {
+              "connector_mm": 596.2,
+              "connectors": 375,
+              "dijkstra_calls": 704,
+              "layer": "1",
+              "lifts_removed": 375,
+              "longest_connector_mm": 2.951,
+              "snap_fail": 107,
+              "strokes_after": 605,
+              "strokes_before": 980,
+              "vertices_raw_vs_emitted": [
+                26034,
+                2894
+              ]
+            }
+          },
+          "raster_mm_per_px": 0.02,
+          "rule": "after stay-down and the final linesort, a pen-up hop becomes a pen-down connector iff a path exists whose centreline lies in the layer's stay-down predicate region and whose length <= min(4 x hop, 3.0 mm); connectors are drawn into a separate layer SVG (layout.ink_connectors.svg)",
+          "totals": {
+            "connector_mm": 596.2,
+            "connectors": 375,
+            "layers_routed": 1,
+            "layers_untouched": 0,
+            "strokes_after": 605,
+            "strokes_before": 980
+          }
+        },
+        "item_bboxes": [
+          [
+            19.0,
+            45.97,
+            181.0,
+            154.03
+          ]
+        ],
+        "item_geometry": [
+          {
+            "base_fit_scale": 0.173206,
+            "item_settings": {
+              "crop": null,
+              "dx": 0.0,
+              "dy": 0.0,
+              "id": "<upload-id, order-normalized>",
+              "rot": 0.0,
+              "scale": 1.0
+            },
+            "layout_center_mm": [
+              100.0,
+              100.0
+            ],
+            "scale_aware_equivalence_prelim_approx": {
+              "actual_placed_height_mm": 108.061103,
+              "actual_placed_width_mm": 162.0,
+              "analytic_base_fit": 0.236224,
+              "analytic_base_fit_prelim_raw": 0.278437,
+              "analytic_placed_height_mm": 108.0,
+              "analytic_placed_width_mm": 162.0,
+              "analytic_resolution_basis": "final (boost fired, corrected via actual_boost)",
+              "analytic_s": 0.236224,
+              "analytic_s_prelim_raw": 0.278437,
+              "divergence_height_mm": 0.061103,
+              "divergence_width_mm": 0.0,
+              "fill_px_real": 2.999872,
+              "final_fit": 0.173206,
+              "final_height_mm": 623.887837,
+              "final_s": 0.173206,
+              "final_width_mm": 935.302588,
+              "mm_per_px_real": 0.062501,
+              "mm_per_px_real_prelim_raw": 0.07367,
+              "prelim_bbox_mm": [
+                0.0,
+                0.0,
+                581.819064,
+                387.879376
+              ],
+              "prelim_height_mm": 387.879376,
+              "prelim_width_mm": 581.819064,
+              "scale_aware_v2": true,
+              "v2_res_boost": {
+                "actual_boost": 1.1787,
+                "base_res": 3000,
+                "boosted_res": 3536,
+                "fill_px_real_pre_boost": 2.54514,
+                "needed_boost": 1.1787
+              }
+            },
+            "source_bbox_mm": [
+              0.0,
+              0.0,
+              935.302588,
+              623.887837
+            ],
+            "source_center_mm": [
+              467.651294,
+              311.943918
+            ],
+            "source_height_mm": 623.887837,
+            "source_width_mm": 935.302588
+          }
+        ],
+        "job_type": "gcode",
+        "lazy_preview_pen_mm": 0.25,
+        "line_length_stats_mm": {
+          "max_mm": 45412.59,
+          "mean_mm": 218.91,
+          "median_mm": 4.47,
+          "min_mm": 0.09
+        },
+        "longest_connector_mm": 26.58,
+        "machine_bbox": {
+          "bbox": [
+            33.5,
+            105.5,
+            195.5,
+            213.5
+          ],
+          "reach_bbox": [
+            3.0,
+            42.5,
+            255.0,
+            254.5
+          ],
+          "reach_label": "Plotter V3.2 (confirmed rectangular reach)",
+          "reach_polygon": [
+            [
+              3.0,
+              42.5
+            ],
+            [
+              255.0,
+              42.5
+            ],
+            [
+              255.0,
+              254.5
+            ],
+            [
+              3.0,
+              254.5
+            ]
+          ],
+          "reach_profile": "plotter_2003_v32",
+          "reach_validated": true,
+          "xy_moves_checked": 225266
+        },
+        "microlift": {
+          "lifts": 605,
+          "mega_added_mm": 31.0,
+          "mega_lift_mm": 31.05,
+          "mega_lifts": 1,
+          "micro_hop_mm": 8.0,
+          "short_lift_mm": 0.6,
+          "short_lift_source": "profile:Pentel EnerGel 0.5 (Blue)",
+          "short_lifts": 565,
+          "z_travel_saved_mm": 3277.0
+        },
+        "min_stroke_mm": 0.09,
+        "paper": "200x200mm",
+        "pen_lifts": 605,
+        "pen_width_mm": 0.5,
+        "preview_clean_available": true,
+        "preview_file": "layout.preview.svg",
+        "preview_xray_available": true,
+        "quiet_fans": true,
+        "realised_pitch": {
+          "basis": "fill_px_final x (final placed scale x PX2MM); not the preliminary scale, not the fill_mm/fill_px back-solve",
+          "items": [
+            {
+              "fill_mm_target": 0.25,
+              "fill_px_audit": 3.0,
+              "fill_px_final": 2.9999,
+              "fill_px_source": "composite item_opts.fill_px (analytic path), floored at 1.2",
+              "final_scale": 0.173206,
+              "floor_binds": false,
+              "id": "ae00f5cb",
+              "mm_per_px_final": 0.045827,
+              "realised_pitch_mm": 0.1375,
+              "scale_source": "composite._composite placement s = fit*item.scale (final traced SVG bbox); x PX2MM"
+            }
+          ],
+          "max_mm": 0.1375,
+          "min_mm": 0.1375
+        },
+        "small_detail": "off",
+        "stay_down_over_ink": {
+          "dt_tol_px": 0.05,
+          "enabled": true,
+          "layers": {
+            "1": {
+              "available": true,
+              "candidates": 1715,
+              "dt_tol_px": 0.05,
+              "fill_px": 2.9999,
+              "fused": 736,
+              "fused_mm": 1091.244,
+              "lifts_after": 980,
+              "lifts_before": 1716,
+              "longest_fused_mm": 26.58,
+              "mask_shape": [
+                2359,
+                3536
+              ],
+              "placed_mm_per_trace_px": 0.045827,
+              "rejected": 979,
+              "sample_step_trace_px": 0.5,
+              "self_check_frac": 1.0,
+              "threshold_px": 1.4999
+            }
+          },
+          "rule": "after routing, a pen-up travel becomes a pen-down connector, of any length, iff the straight connector stays inside the layer's own ink mask (stage_e_mask predicate: every 0.5 trace px sample has dt >= 0.5*fill_px - dt_tol_px); on a layer above the plain stroke cap (where OFF has no joins) the short joins use the same check (D1782); a layer with no usable mask fails closed (no joins at all)",
+          "totals": {
+            "candidates": 1715,
+            "fused": 736,
+            "fused_mm": 1091.244,
+            "layers_checked": 1,
+            "layers_failed_closed": 0,
+            "layers_failed_closed_detail": {},
+            "rejected": 979
+          }
+        },
+        "stroke_count": 605,
+        "strokes_after": 980,
+        "strokes_before": 1716,
+        "target_z_moves": 0,
+        "travel_length_mm": 1950.2,
+        "z_moves": 1210,
+        "z_moves_after": 1960,
+        "z_moves_before": 3432
+      },
+      "source_native_px_wh": [
+        [
+          640,
+          427
+        ]
+      ],
+      "warnings": [
+        {
+          "level": "warning",
+          "msg": "Pen-physics ceiling: smallest strokes ~0.09mm \u2014 below the ~0.5mm / 2\u00d7 pen-width line, readability may be physically limited. Plot larger, use a finer pen, or accept symbolic marks.",
+          "tier": "primary"
+        },
+        {
+          "level": "okay",
+          "msg": "605 strokes \u2014 okay.",
+          "tier": "secondary"
+        },
+        {
+          "level": "okay",
+          "msg": "Estimated 1,210 Z-moves \u2014 moderate.",
+          "tier": "secondary"
+        },
+        {
+          "level": "okay",
+          "msg": "Low-lift routing: 1716\u2192980 strokes, 3,432\u21921,960 Z-moves \u00b7 736 connectors, +1091.2mm drawn.",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "Aggressive routing: connectors up to 26.58mm drawn to hit the Z-move target \u2014 expect visible joining marks across the artwork. Raise the target or it draws longer bridges.",
+          "tier": "primary"
+        }
+      ]
+    },
+    "bwphoto-native-default-stay-down-on": {
+      "audit": {
+        "debug_metrics": {
+          "accepted_counts": {},
+          "candidate_counts": {},
+          "clean_lines": 1716,
+          "fused_lines": null,
+          "line_length_stats_mm": {
+            "max_mm": 45382.62,
+            "mean_mm": 134.53,
+            "median_mm": 5.08,
+            "min_mm": 0.09
+          },
+          "line_length_stats_px": {},
+          "lineart_quality": {},
+          "min_stroke_mm": 0.09,
+          "objective_score": null,
+          "pen_width_mm": 0.5,
+          "rejected_counts": {},
+          "routed_lines": 980,
+          "small_detail": "off",
+          "weights": {}
+        },
+        "trace_info": {
+          "audit": {
+            "dropped_components": 0,
+            "dropped_ink_pct": 0.0,
+            "fallback_strokes": 394,
+            "fill_mm_resolved": 0.25,
+            "fill_px": 3.0,
+            "gap_guarantee_ridge_px": 0,
+            "gray_crush_fraction": 0.0,
+            "levels": 238,
+            "lifts": 1723,
+            "lifts_before_link": 4896,
+            "lifts_per_meter": 7.0,
+            "min_mark_mm2": 0.035,
+            "mm_per_px": 0.0833,
+            "passes": 4816,
+            "pen_id_resolved": "energel_05",
+            "pinch_runs_fired": 200,
+            "pinch_runs_rejected": 196,
+            "pinch_runs_rejected_junction": 0,
+            "pinch_runs_rejected_short": 196,
+            "pinch_runs_total": 396,
+            "speck_ink_pct": 0.015,
+            "speck_polys_dropped": 314,
+            "structure_binary": {
+              "K_ink_frac": 0.780329,
+              "R_ink_frac": 0.779152,
+              "R_sha16": "b7c774640aaeb02e",
+              "components_dropped": 127,
+              "ink_px_added": 486,
+              "ink_px_dropped": 10259,
+              "mm_per_px": 0.083337,
+              "params": {
+                "analysis_mm_per_px": 0.09,
+                "coh_int_mm": 2.0,
+                "coh_min": 0.55,
+                "diffuse_E_max": 0.3,
+                "diffuse_area_mm2": 3.0,
+                "diffuse_sharp_max": 0.35,
+                "g_edge_sat": 0.1,
+                "line_add_dist_mm": 2.5,
+                "line_min_len_mm": 8.0,
+                "line_width_mm": 0.3,
+                "min_component_mm2": 0.035,
+                "n_scales": 5,
+                "persist_dilate_mm": 0.72,
+                "sharp_win_mm": 2.0,
+                "sigma_f_mm": 0.12,
+                "zc3_grad_min": 0.035,
+                "zc_grad_min": 0.035
+              },
+              "shape": [
+                2359,
+                3536
+              ],
+              "version": "sab-3-modeB (ported from sab_lib3.mode_B, M11 pass 3)"
+            },
+            "texture_routing": "band_continuity_v1",
+            "tone": "off",
+            "total_polys": 1723,
+            "zero_pass_components": 25
+          },
+          "bilevel_source": false,
+          "downscaled": false,
+          "effective_res": 3536,
+          "front_end": {
+            "eps": 0.55,
+            "interpolated": false,
+            "k": 1.6,
+            "name": "bw_xdog",
+            "p": 20.0,
+            "phi": 2.0,
+            "side": 427,
+            "side_requested": "native",
+            "side_used": 427,
+            "sigma_px": 0.8,
+            "sigma_rescaled": false,
+            "src_short_side": 427
+          },
+          "mode": "tracev3",
+          "mode_cap": 3536,
+          "native_px": null,
+          "requested_res": 3536,
+          "texture_enabled": false,
+          "texture_sidecar_exists": false,
+          "texture_strokes": 0,
+          "upsampled": false
+        }
+      },
+      "audit_json_sha256": "dac59e1a0d7b52a2e082413de1592828ee14b1df3e69e76362fc0ec2328341bd",
+      "gcode_file": "layout.gcode",
+      "gcode_sha256": "bb4bfdeb67002bdc070c7813e2966154795a2ad9d7addee8a5509d7987ff62c1",
+      "http_status": 200,
+      "kind": "process",
+      "preview_file": "layout.preview.svg",
+      "preview_svg_sha256_stripped": "4dc0d9c32b4016954a60e48b15b07235ee077fe581c9e31e73ea69e5feefa2d9",
+      "request": {
+        "path": "tests/golden_tests/fixtures/bwphoto-native-default/request.json",
+        "sha256": "c096cc2e13b5f004c9aa46a5ca476e1e37de99c5502c1c79ccba6f275aa26ea1"
+      },
+      "response_metadata": {
+        "bbox_mm": [
+          19.0,
+          46.0,
+          181.0,
+          154.0
+        ],
+        "connector_count": 736,
+        "connector_distance_mm": 0.0,
+        "connector_draw_length_mm": 1091.2,
+        "coverage_audit": null,
+        "debug_files": {},
+        "draw_length_mm": 131844.2,
+        "draw_moves": 980,
+        "end_policy": "release",
+        "estimated_pen_lifts": 980,
+        "estimated_plot_time_min": 55.3,
+        "estimated_plot_time_s": 3316.9,
+        "estimated_z_moves": 1960,
+        "file_size_kb": 6040.1,
+        "gcode_file": "layout.gcode",
+        "item_bboxes": [
+          [
+            19.0,
+            45.97,
+            181.0,
+            154.03
+          ]
+        ],
+        "item_geometry": [
+          {
+            "base_fit_scale": 0.173206,
+            "item_settings": {
+              "crop": null,
+              "dx": 0.0,
+              "dy": 0.0,
+              "id": "<upload-id, order-normalized>",
+              "rot": 0.0,
+              "scale": 1.0
+            },
+            "layout_center_mm": [
+              100.0,
+              100.0
+            ],
+            "scale_aware_equivalence_prelim_approx": {
+              "actual_placed_height_mm": 108.061103,
+              "actual_placed_width_mm": 162.0,
+              "analytic_base_fit": 0.236224,
+              "analytic_base_fit_prelim_raw": 0.278437,
+              "analytic_placed_height_mm": 108.0,
+              "analytic_placed_width_mm": 162.0,
+              "analytic_resolution_basis": "final (boost fired, corrected via actual_boost)",
+              "analytic_s": 0.236224,
+              "analytic_s_prelim_raw": 0.278437,
+              "divergence_height_mm": 0.061103,
+              "divergence_width_mm": 0.0,
+              "fill_px_real": 2.999872,
+              "final_fit": 0.173206,
+              "final_height_mm": 623.887837,
+              "final_s": 0.173206,
+              "final_width_mm": 935.302588,
+              "mm_per_px_real": 0.062501,
+              "mm_per_px_real_prelim_raw": 0.07367,
+              "prelim_bbox_mm": [
+                0.0,
+                0.0,
+                581.819064,
+                387.879376
+              ],
+              "prelim_height_mm": 387.879376,
+              "prelim_width_mm": 581.819064,
+              "scale_aware_v2": true,
+              "v2_res_boost": {
+                "actual_boost": 1.1787,
+                "base_res": 3000,
+                "boosted_res": 3536,
+                "fill_px_real_pre_boost": 2.54514,
+                "needed_boost": 1.1787
+              }
+            },
+            "source_bbox_mm": [
+              0.0,
+              0.0,
+              935.302588,
+              623.887837
+            ],
+            "source_center_mm": [
+              467.651294,
+              311.943918
+            ],
+            "source_height_mm": 623.887837,
+            "source_width_mm": 935.302588
+          }
+        ],
+        "job_type": "gcode",
+        "lazy_preview_pen_mm": 0.25,
+        "line_length_stats_mm": {
+          "max_mm": 45382.62,
+          "mean_mm": 134.53,
+          "median_mm": 5.08,
+          "min_mm": 0.09
+        },
+        "longest_connector_mm": 26.58,
+        "machine_bbox": {
+          "bbox": [
+            33.5,
+            105.5,
+            195.5,
+            213.5
+          ],
+          "reach_bbox": [
+            3.0,
+            42.5,
+            255.0,
+            254.5
+          ],
+          "reach_label": "Plotter V3.2 (confirmed rectangular reach)",
+          "reach_polygon": [
+            [
+              3.0,
+              42.5
+            ],
+            [
+              255.0,
+              42.5
+            ],
+            [
+              255.0,
+              254.5
+            ],
+            [
+              3.0,
+              254.5
+            ]
+          ],
+          "reach_profile": "plotter_2003_v32",
+          "reach_validated": true,
+          "xy_moves_checked": 223122
+        },
+        "microlift": {
+          "lifts": 980,
+          "mega_added_mm": 31.0,
+          "mega_lift_mm": 31.05,
+          "mega_lifts": 1,
+          "micro_hop_mm": 8.0,
+          "short_lift_mm": 0.6,
+          "short_lift_source": "profile:Pentel EnerGel 0.5 (Blue)",
+          "short_lifts": 940,
+          "z_travel_saved_mm": 5452.0
+        },
+        "min_stroke_mm": 0.09,
+        "paper": "200x200mm",
+        "pen_lifts": 980,
+        "pen_width_mm": 0.5,
+        "preview_clean_available": true,
+        "preview_file": "layout.preview.svg",
+        "preview_xray_available": true,
+        "quiet_fans": true,
+        "realised_pitch": {
+          "basis": "fill_px_final x (final placed scale x PX2MM); not the preliminary scale, not the fill_mm/fill_px back-solve",
+          "items": [
+            {
+              "fill_mm_target": 0.25,
+              "fill_px_audit": 3.0,
+              "fill_px_final": 2.9999,
+              "fill_px_source": "composite item_opts.fill_px (analytic path), floored at 1.2",
+              "final_scale": 0.173206,
+              "floor_binds": false,
+              "id": "a2777d00",
+              "mm_per_px_final": 0.045827,
+              "realised_pitch_mm": 0.1375,
+              "scale_source": "composite._composite placement s = fit*item.scale (final traced SVG bbox); x PX2MM"
+            }
+          ],
+          "max_mm": 0.1375,
+          "min_mm": 0.1375
+        },
+        "small_detail": "off",
+        "stay_down_over_ink": {
+          "dt_tol_px": 0.05,
+          "enabled": true,
+          "layers": {
+            "1": {
+              "available": true,
+              "candidates": 1715,
+              "dt_tol_px": 0.05,
+              "fill_px": 2.9999,
+              "fused": 736,
+              "fused_mm": 1091.244,
+              "lifts_after": 980,
+              "lifts_before": 1716,
+              "longest_fused_mm": 26.58,
+              "mask_shape": [
+                2359,
+                3536
+              ],
+              "placed_mm_per_trace_px": 0.045827,
+              "rejected": 979,
+              "sample_step_trace_px": 0.5,
+              "self_check_frac": 1.0,
+              "threshold_px": 1.4999
+            }
+          },
+          "rule": "after routing, a pen-up travel becomes a pen-down connector, of any length, iff the straight connector stays inside the layer's own ink mask (stage_e_mask predicate: every 0.5 trace px sample has dt >= 0.5*fill_px - dt_tol_px); on a layer above the plain stroke cap (where OFF has no joins) the short joins use the same check (D1782); a layer with no usable mask fails closed (no joins at all)",
+          "totals": {
+            "candidates": 1715,
+            "fused": 736,
+            "fused_mm": 1091.244,
+            "layers_checked": 1,
+            "layers_failed_closed": 0,
+            "layers_failed_closed_detail": {},
+            "rejected": 979
+          }
+        },
+        "stroke_count": 980,
+        "strokes_after": 980,
+        "strokes_before": 1716,
+        "target_z_moves": 0,
+        "travel_length_mm": 2464.6,
+        "z_moves": 1960,
+        "z_moves_after": 1960,
+        "z_moves_before": 3432
+      },
+      "source_native_px_wh": [
+        [
+          640,
+          427
+        ]
+      ],
+      "warnings": [
+        {
+          "level": "warning",
+          "msg": "Pen-physics ceiling: smallest strokes ~0.09mm \u2014 below the ~0.5mm / 2\u00d7 pen-width line, readability may be physically limited. Plot larger, use a finer pen, or accept symbolic marks.",
+          "tier": "primary"
+        },
+        {
+          "level": "okay",
+          "msg": "980 strokes \u2014 okay.",
+          "tier": "secondary"
+        },
+        {
+          "level": "okay",
+          "msg": "Estimated 1,960 Z-moves \u2014 moderate.",
+          "tier": "secondary"
+        },
+        {
+          "level": "okay",
+          "msg": "Low-lift routing: 1716\u2192980 strokes, 3,432\u21921,960 Z-moves \u00b7 736 connectors, +1091.2mm drawn.",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "Aggressive routing: connectors up to 26.58mm drawn to hit the Z-move target \u2014 expect visible joining marks across the artwork. Raise the target or it draws longer bridges.",
+          "tier": "primary"
+        }
+      ]
+    },
+    "bwphoto-native-default-structure-binary": {
+      "audit": {
+        "debug_metrics": {
+          "accepted_counts": {},
+          "candidate_counts": {},
+          "clean_lines": 1716,
+          "fused_lines": null,
+          "line_length_stats_mm": {
+            "max_mm": 45382.62,
+            "mean_mm": 134.53,
+            "median_mm": 5.08,
+            "min_mm": 0.09
+          },
+          "line_length_stats_px": {},
+          "lineart_quality": {},
+          "min_stroke_mm": 0.09,
+          "objective_score": null,
+          "pen_width_mm": 0.5,
+          "rejected_counts": {},
+          "routed_lines": 980,
+          "small_detail": "off",
+          "weights": {}
+        },
+        "trace_info": {
+          "audit": {
+            "dropped_components": 0,
+            "dropped_ink_pct": 0.0,
+            "fallback_strokes": 394,
+            "fill_mm_resolved": 0.25,
+            "fill_px": 3.0,
+            "gap_guarantee_ridge_px": 0,
+            "gray_crush_fraction": 0.0,
+            "levels": 238,
+            "lifts": 1723,
+            "lifts_before_link": 4896,
+            "lifts_per_meter": 7.0,
+            "min_mark_mm2": 0.035,
+            "mm_per_px": 0.0833,
+            "passes": 4816,
+            "pen_id_resolved": "energel_05",
+            "pinch_runs_fired": 200,
+            "pinch_runs_rejected": 196,
+            "pinch_runs_rejected_junction": 0,
+            "pinch_runs_rejected_short": 196,
+            "pinch_runs_total": 396,
+            "speck_ink_pct": 0.015,
+            "speck_polys_dropped": 314,
+            "structure_binary": {
+              "K_ink_frac": 0.780329,
+              "R_ink_frac": 0.779152,
+              "R_sha16": "b7c774640aaeb02e",
+              "components_dropped": 127,
+              "ink_px_added": 486,
+              "ink_px_dropped": 10259,
+              "mm_per_px": 0.083337,
+              "params": {
+                "analysis_mm_per_px": 0.09,
+                "coh_int_mm": 2.0,
+                "coh_min": 0.55,
+                "diffuse_E_max": 0.3,
+                "diffuse_area_mm2": 3.0,
+                "diffuse_sharp_max": 0.35,
+                "g_edge_sat": 0.1,
+                "line_add_dist_mm": 2.5,
+                "line_min_len_mm": 8.0,
+                "line_width_mm": 0.3,
+                "min_component_mm2": 0.035,
+                "n_scales": 5,
+                "persist_dilate_mm": 0.72,
+                "sharp_win_mm": 2.0,
+                "sigma_f_mm": 0.12,
+                "zc3_grad_min": 0.035,
+                "zc_grad_min": 0.035
+              },
+              "shape": [
+                2359,
+                3536
+              ],
+              "version": "sab-3-modeB (ported from sab_lib3.mode_B, M11 pass 3)"
+            },
+            "texture_routing": "band_continuity_v1",
+            "tone": "off",
+            "total_polys": 1723,
+            "zero_pass_components": 25
+          },
+          "bilevel_source": false,
+          "downscaled": false,
+          "effective_res": 3536,
+          "front_end": {
+            "eps": 0.55,
+            "interpolated": false,
+            "k": 1.6,
+            "name": "bw_xdog",
+            "p": 20.0,
+            "phi": 2.0,
+            "side": 427,
+            "side_requested": "native",
+            "side_used": 427,
+            "sigma_px": 0.8,
+            "sigma_rescaled": false,
+            "src_short_side": 427
+          },
+          "mode": "tracev3",
+          "mode_cap": 3536,
+          "native_px": null,
+          "requested_res": 3536,
+          "texture_enabled": false,
+          "texture_sidecar_exists": false,
+          "texture_strokes": 0,
+          "upsampled": false
+        }
+      },
+      "audit_json_sha256": "dac59e1a0d7b52a2e082413de1592828ee14b1df3e69e76362fc0ec2328341bd",
+      "gcode_file": "layout.gcode",
+      "gcode_sha256": "bb4bfdeb67002bdc070c7813e2966154795a2ad9d7addee8a5509d7987ff62c1",
+      "http_status": 200,
+      "kind": "process",
+      "preview_file": "layout.preview.svg",
+      "preview_svg_sha256_stripped": "4dc0d9c32b4016954a60e48b15b07235ee077fe581c9e31e73ea69e5feefa2d9",
+      "request": {
+        "path": "tests/golden_tests/fixtures/bwphoto-native-default-structure-binary/request.json",
+        "sha256": "ad3044ddad69ca8e78be766ce4cadbd3328ddcf35e378fa7403da3b2653d9c6c"
+      },
+      "response_metadata": {
+        "bbox_mm": [
+          19.0,
+          46.0,
+          181.0,
+          154.0
+        ],
+        "connector_count": 736,
+        "connector_distance_mm": 0.0,
+        "connector_draw_length_mm": 1091.2,
+        "coverage_audit": null,
+        "debug_files": {},
+        "draw_length_mm": 131844.2,
+        "draw_moves": 980,
+        "end_policy": "release",
+        "estimated_pen_lifts": 980,
+        "estimated_plot_time_min": 55.3,
+        "estimated_plot_time_s": 3316.9,
+        "estimated_z_moves": 1960,
+        "file_size_kb": 6040.1,
+        "gcode_file": "layout.gcode",
+        "item_bboxes": [
+          [
+            19.0,
+            45.97,
+            181.0,
+            154.03
+          ]
+        ],
+        "item_geometry": [
+          {
+            "base_fit_scale": 0.173206,
+            "item_settings": {
+              "crop": null,
+              "dx": 0.0,
+              "dy": 0.0,
+              "id": "<upload-id, order-normalized>",
+              "rot": 0.0,
+              "scale": 1.0
+            },
+            "layout_center_mm": [
+              100.0,
+              100.0
+            ],
+            "scale_aware_equivalence_prelim_approx": {
+              "actual_placed_height_mm": 108.061103,
+              "actual_placed_width_mm": 162.0,
+              "analytic_base_fit": 0.236224,
+              "analytic_base_fit_prelim_raw": 0.278437,
+              "analytic_placed_height_mm": 108.0,
+              "analytic_placed_width_mm": 162.0,
+              "analytic_resolution_basis": "final (boost fired, corrected via actual_boost)",
+              "analytic_s": 0.236224,
+              "analytic_s_prelim_raw": 0.278437,
+              "divergence_height_mm": 0.061103,
+              "divergence_width_mm": 0.0,
+              "fill_px_real": 2.999872,
+              "final_fit": 0.173206,
+              "final_height_mm": 623.887837,
+              "final_s": 0.173206,
+              "final_width_mm": 935.302588,
+              "mm_per_px_real": 0.062501,
+              "mm_per_px_real_prelim_raw": 0.07367,
+              "prelim_bbox_mm": [
+                0.0,
+                0.0,
+                581.819064,
+                387.879376
+              ],
+              "prelim_height_mm": 387.879376,
+              "prelim_width_mm": 581.819064,
+              "scale_aware_v2": true,
+              "v2_res_boost": {
+                "actual_boost": 1.1787,
+                "base_res": 3000,
+                "boosted_res": 3536,
+                "fill_px_real_pre_boost": 2.54514,
+                "needed_boost": 1.1787
+              }
+            },
+            "source_bbox_mm": [
+              0.0,
+              0.0,
+              935.302588,
+              623.887837
+            ],
+            "source_center_mm": [
+              467.651294,
+              311.943918
+            ],
+            "source_height_mm": 623.887837,
+            "source_width_mm": 935.302588
+          }
+        ],
+        "job_type": "gcode",
+        "lazy_preview_pen_mm": 0.25,
+        "line_length_stats_mm": {
+          "max_mm": 45382.62,
+          "mean_mm": 134.53,
+          "median_mm": 5.08,
+          "min_mm": 0.09
+        },
+        "longest_connector_mm": 26.58,
+        "machine_bbox": {
+          "bbox": [
+            33.5,
+            105.5,
+            195.5,
+            213.5
+          ],
+          "reach_bbox": [
+            3.0,
+            42.5,
+            255.0,
+            254.5
+          ],
+          "reach_label": "Plotter V3.2 (confirmed rectangular reach)",
+          "reach_polygon": [
+            [
+              3.0,
+              42.5
+            ],
+            [
+              255.0,
+              42.5
+            ],
+            [
+              255.0,
+              254.5
+            ],
+            [
+              3.0,
+              254.5
+            ]
+          ],
+          "reach_profile": "plotter_2003_v32",
+          "reach_validated": true,
+          "xy_moves_checked": 223122
+        },
+        "microlift": {
+          "lifts": 980,
+          "mega_added_mm": 31.0,
+          "mega_lift_mm": 31.05,
+          "mega_lifts": 1,
+          "micro_hop_mm": 8.0,
+          "short_lift_mm": 0.6,
+          "short_lift_source": "profile:Pentel EnerGel 0.5 (Blue)",
+          "short_lifts": 940,
+          "z_travel_saved_mm": 5452.0
+        },
+        "min_stroke_mm": 0.09,
+        "paper": "200x200mm",
+        "pen_lifts": 980,
+        "pen_width_mm": 0.5,
+        "preview_clean_available": true,
+        "preview_file": "layout.preview.svg",
+        "preview_xray_available": true,
+        "quiet_fans": true,
+        "realised_pitch": {
+          "basis": "fill_px_final x (final placed scale x PX2MM); not the preliminary scale, not the fill_mm/fill_px back-solve",
+          "items": [
+            {
+              "fill_mm_target": 0.25,
+              "fill_px_audit": 3.0,
+              "fill_px_final": 2.9999,
+              "fill_px_source": "composite item_opts.fill_px (analytic path), floored at 1.2",
+              "final_scale": 0.173206,
+              "floor_binds": false,
+              "id": "f883ab7f",
+              "mm_per_px_final": 0.045827,
+              "realised_pitch_mm": 0.1375,
+              "scale_source": "composite._composite placement s = fit*item.scale (final traced SVG bbox); x PX2MM"
+            }
+          ],
+          "max_mm": 0.1375,
+          "min_mm": 0.1375
+        },
+        "small_detail": "off",
+        "stay_down_over_ink": {
+          "dt_tol_px": 0.05,
+          "enabled": true,
+          "layers": {
+            "1": {
+              "available": true,
+              "candidates": 1715,
+              "dt_tol_px": 0.05,
+              "fill_px": 2.9999,
+              "fused": 736,
+              "fused_mm": 1091.244,
+              "lifts_after": 980,
+              "lifts_before": 1716,
+              "longest_fused_mm": 26.58,
+              "mask_shape": [
+                2359,
+                3536
+              ],
+              "placed_mm_per_trace_px": 0.045827,
+              "rejected": 979,
+              "sample_step_trace_px": 0.5,
+              "self_check_frac": 1.0,
+              "threshold_px": 1.4999
+            }
+          },
+          "rule": "after routing, a pen-up travel becomes a pen-down connector, of any length, iff the straight connector stays inside the layer's own ink mask (stage_e_mask predicate: every 0.5 trace px sample has dt >= 0.5*fill_px - dt_tol_px); on a layer above the plain stroke cap (where OFF has no joins) the short joins use the same check (D1782); a layer with no usable mask fails closed (no joins at all)",
+          "totals": {
+            "candidates": 1715,
+            "fused": 736,
+            "fused_mm": 1091.244,
+            "layers_checked": 1,
+            "layers_failed_closed": 0,
+            "layers_failed_closed_detail": {},
+            "rejected": 979
+          }
+        },
+        "stroke_count": 980,
+        "strokes_after": 980,
+        "strokes_before": 1716,
+        "target_z_moves": 0,
+        "travel_length_mm": 2464.6,
+        "z_moves": 1960,
+        "z_moves_after": 1960,
+        "z_moves_before": 3432
+      },
+      "source_native_px_wh": [
+        [
+          640,
+          427
+        ]
+      ],
+      "warnings": [
+        {
+          "level": "warning",
+          "msg": "Pen-physics ceiling: smallest strokes ~0.09mm \u2014 below the ~0.5mm / 2\u00d7 pen-width line, readability may be physically limited. Plot larger, use a finer pen, or accept symbolic marks.",
+          "tier": "primary"
+        },
+        {
+          "level": "okay",
+          "msg": "980 strokes \u2014 okay.",
+          "tier": "secondary"
+        },
+        {
+          "level": "okay",
+          "msg": "Estimated 1,960 Z-moves \u2014 moderate.",
+          "tier": "secondary"
+        },
+        {
+          "level": "okay",
+          "msg": "Low-lift routing: 1716\u2192980 strokes, 3,432\u21921,960 Z-moves \u00b7 736 connectors, +1091.2mm drawn.",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "Aggressive routing: connectors up to 26.58mm drawn to hit the Z-move target \u2014 expect visible joining marks across the artwork. Raise the target or it draws longer bridges.",
+          "tier": "primary"
+        }
+      ]
+    },
+    "bwphoto-native-default-structure-binary-off": {
+      "audit": {
+        "debug_metrics": {
+          "accepted_counts": {},
+          "candidate_counts": {},
           "clean_lines": 1808,
           "fused_lines": null,
           "line_length_stats_mm": {
@@ -88,8 +1598,8 @@
       "preview_file": "layout.preview.svg",
       "preview_svg_sha256_stripped": "fc18e5c1a6e9149b84c8b9b2e10c64029de42767face4144a0312207d523bf73",
       "request": {
-        "path": "tests/golden_tests/fixtures/bwphoto-native-default/request.json",
-        "sha256": "c096cc2e13b5f004c9aa46a5ca476e1e37de99c5502c1c79ccba6f275aa26ea1"
+        "path": "tests/golden_tests/fixtures/bwphoto-native-default-structure-binary-off/request.json",
+        "sha256": "9553b22e22cfc7fdc2fbeaefeece0badc62d7aa2c695bc9fb0d9c920f9cf2837"
       },
       "response_metadata": {
         "bbox_mm": [
@@ -259,7 +1769,7 @@
               "fill_px_source": "composite item_opts.fill_px (analytic path), floored at 1.2",
               "final_scale": 0.173206,
               "floor_binds": false,
-              "id": "e1b0df9d",
+              "id": "b0c60654",
               "mm_per_px_final": 0.045827,
               "realised_pitch_mm": 0.1375,
               "scale_source": "composite._composite placement s = fit*item.scale (final traced SVG bbox); x PX2MM"
@@ -304,6 +1814,1982 @@
           "level": "warning",
           "msg": "Estimated 3,616 Z-moves \u2014 high. Raise Connect Strokes or set Target Z-moves (keeps detail).",
           "tier": "secondary"
+        }
+      ]
+    },
+    "bwphoto-outline-rows-a135": {
+      "audit": {
+        "debug_metrics": {
+          "accepted_counts": {},
+          "candidate_counts": {},
+          "clean_lines": 2293,
+          "fused_lines": null,
+          "line_length_stats_mm": {
+            "max_mm": 5179.89,
+            "mean_mm": 43.57,
+            "median_mm": 3.69,
+            "min_mm": 0.01
+          },
+          "line_length_stats_px": {},
+          "lineart_quality": {},
+          "min_stroke_mm": 0.01,
+          "objective_score": null,
+          "pen_width_mm": 0.5,
+          "rejected_counts": {},
+          "routed_lines": 2293,
+          "small_detail": "off",
+          "weights": {}
+        },
+        "trace_info": {
+          "audit": {
+            "core_fill": "outline_rows",
+            "core_r_mm": null,
+            "core_r_px": null,
+            "dropped_components": 0,
+            "dropped_ink_pct": 0.0,
+            "fallback_strokes": 305,
+            "fill_mm_resolved": 0.25,
+            "fill_px": 3.0,
+            "flag_mm_per_px": 0.045827,
+            "flag_mm_per_px_source": "placed_fit_from_mask_bbox",
+            "gap_guarantee_ridge_px": 0,
+            "gray_crush_fraction": 0.0,
+            "levels": 2,
+            "lifts": 3404,
+            "lifts_before_link": 3745,
+            "lifts_per_meter": 19.0,
+            "min_mark_mm2": 0.035,
+            "mm_per_px": 0.0833,
+            "n_core_axis_lines": 5,
+            "n_core_curved_ring_levels": 0,
+            "n_core_curved_unique": 0,
+            "n_core_passes": 2321,
+            "n_core_regions": 492,
+            "n_core_rows": 5271,
+            "n_core_skipped": 0,
+            "n_core_small_ring_levels": 0,
+            "n_outline_rings": 1153,
+            "outline_rings": 1,
+            "passes": 3474,
+            "pen_id_resolved": "energel_05",
+            "pinch_runs_fired": 202,
+            "pinch_runs_rejected": 178,
+            "pinch_runs_rejected_junction": 0,
+            "pinch_runs_rejected_short": 178,
+            "pinch_runs_total": 380,
+            "row_angle_fallback_regions": 0,
+            "row_angle_hist": {
+              "0": 0,
+              "135": 492,
+              "45": 0,
+              "90": 0
+            },
+            "row_angle_rule": "a135",
+            "rows_angle_deg": 0.0,
+            "speck_ink_pct": 0.125,
+            "speck_polys_dropped": 34,
+            "structure_binary": {
+              "K_ink_frac": 0.78031,
+              "R_ink_frac": 0.779178,
+              "R_sha16": "30dd4f914f8ed4f0",
+              "components_dropped": 125,
+              "ink_px_added": 484,
+              "ink_px_dropped": 9877,
+              "mm_per_px": 0.083323,
+              "params": {
+                "analysis_mm_per_px": 0.09,
+                "coh_int_mm": 2.0,
+                "coh_min": 0.55,
+                "diffuse_E_max": 0.3,
+                "diffuse_area_mm2": 3.0,
+                "diffuse_sharp_max": 0.35,
+                "g_edge_sat": 0.1,
+                "line_add_dist_mm": 2.5,
+                "line_min_len_mm": 8.0,
+                "line_width_mm": 0.3,
+                "min_component_mm2": 0.035,
+                "n_scales": 5,
+                "persist_dilate_mm": 0.72,
+                "sharp_win_mm": 2.0,
+                "sigma_f_mm": 0.12,
+                "zc3_grad_min": 0.035,
+                "zc_grad_min": 0.035
+              },
+              "shape": [
+                2358,
+                3535
+              ],
+              "version": "sab-3-modeB (ported from sab_lib3.mode_B, M11 pass 3)"
+            },
+            "texture_routing": "band_continuity_v1",
+            "tone": "off",
+            "total_polys": 3404,
+            "zero_pass_components": 26
+          },
+          "bilevel_source": false,
+          "downscaled": false,
+          "effective_res": 3535,
+          "front_end": {
+            "eps": 0.55,
+            "interpolated": false,
+            "k": 1.6,
+            "name": "bw_xdog",
+            "p": 20.0,
+            "phi": 2.0,
+            "side": 427,
+            "side_requested": "native",
+            "side_used": 427,
+            "sigma_px": 0.8,
+            "sigma_rescaled": false,
+            "src_short_side": 427
+          },
+          "mode": "tracev3",
+          "mode_cap": 3535,
+          "native_px": null,
+          "requested_res": 3535,
+          "texture_enabled": false,
+          "texture_sidecar_exists": false,
+          "texture_strokes": 0,
+          "upsampled": false
+        }
+      },
+      "audit_json_sha256": "d26911b4744fdf1336eabb48370b32c00521d911170472cbad5aa5e432e9a4b7",
+      "gcode_file": "layout.gcode",
+      "gcode_sha256": "27f8f03e28190a7698e78253327606f461599b52cafae04cfe6335da222ead55",
+      "http_status": 200,
+      "kind": "process",
+      "preview_file": "layout.preview.svg",
+      "preview_svg_sha256_stripped": "2402f1177e473fe84f68ccb007b25c11004dd4b3bbfc6d61df0be4d551d57085",
+      "request": {
+        "path": "tests/golden_tests/fixtures/bwphoto-outline-rows-a135/request.json",
+        "sha256": "3cb3aee98cb7950e1c40af010905c2b6203dc159e6c4743c780fd456885d7a1e"
+      },
+      "response_metadata": {
+        "bbox_mm": [
+          19.0,
+          46.0,
+          181.0,
+          154.0
+        ],
+        "connector_count": 0,
+        "connector_distance_mm": 0.0,
+        "connector_draw_length_mm": 0.0,
+        "coverage_audit": null,
+        "debug_files": {},
+        "draw_length_mm": 99916.3,
+        "draw_moves": 2293,
+        "end_policy": "release",
+        "estimated_pen_lifts": 2293,
+        "estimated_plot_time_min": 59.5,
+        "estimated_plot_time_s": 3572.0,
+        "estimated_z_moves": 4586,
+        "file_size_kb": 1512.6,
+        "gcode_file": "layout.gcode",
+        "item_bboxes": [
+          [
+            19.0,
+            45.97,
+            181.0,
+            154.03
+          ]
+        ],
+        "item_geometry": [
+          {
+            "base_fit_scale": 0.173206,
+            "item_settings": {
+              "crop": null,
+              "dx": 0.0,
+              "dy": 0.0,
+              "id": "<upload-id, order-normalized>",
+              "rot": 0.0,
+              "scale": 1.0
+            },
+            "layout_center_mm": [
+              100.0,
+              100.0
+            ],
+            "scale_aware_equivalence_prelim_approx": {
+              "actual_placed_height_mm": 108.060951,
+              "actual_placed_width_mm": 162.0,
+              "analytic_base_fit": 0.236199,
+              "analytic_base_fit_prelim_raw": 0.278313,
+              "analytic_placed_height_mm": 108.024791,
+              "analytic_placed_width_mm": 162.0,
+              "analytic_resolution_basis": "final (boost fired, corrected via actual_boost)",
+              "analytic_s": 0.236199,
+              "analytic_s_prelim_raw": 0.278313,
+              "divergence_height_mm": 0.03616,
+              "divergence_width_mm": 0.0,
+              "fill_px_real": 3.00036,
+              "final_fit": 0.173206,
+              "final_height_mm": 623.885191,
+              "final_s": 0.173206,
+              "final_width_mm": 935.299943,
+              "mm_per_px_real": 0.062494,
+              "mm_per_px_real_prelim_raw": 0.073637,
+              "prelim_bbox_mm": [
+                0.0,
+                0.0,
+                582.078356,
+                388.141314
+              ],
+              "prelim_height_mm": 388.141314,
+              "prelim_width_mm": 582.078356,
+              "scale_aware_v2": true,
+              "v2_res_boost": {
+                "actual_boost": 1.1783,
+                "base_res": 3000,
+                "boosted_res": 3535,
+                "fill_px_real_pre_boost": 2.546275,
+                "needed_boost": 1.1782
+              }
+            },
+            "source_bbox_mm": [
+              0.0,
+              0.0,
+              935.299943,
+              623.885191
+            ],
+            "source_center_mm": [
+              467.649971,
+              311.942596
+            ],
+            "source_height_mm": 623.885191,
+            "source_width_mm": 935.299943
+          }
+        ],
+        "job_type": "gcode",
+        "lazy_preview_pen_mm": 0.25,
+        "line_length_stats_mm": {
+          "max_mm": 5179.89,
+          "mean_mm": 43.57,
+          "median_mm": 3.69,
+          "min_mm": 0.01
+        },
+        "longest_connector_mm": 0.0,
+        "machine_bbox": {
+          "bbox": [
+            33.5,
+            105.5,
+            195.5,
+            213.5
+          ],
+          "reach_bbox": [
+            3.0,
+            42.5,
+            255.0,
+            254.5
+          ],
+          "reach_label": "Plotter V3.2 (confirmed rectangular reach)",
+          "reach_polygon": [
+            [
+              3.0,
+              42.5
+            ],
+            [
+              255.0,
+              42.5
+            ],
+            [
+              255.0,
+              254.5
+            ],
+            [
+              3.0,
+              254.5
+            ]
+          ],
+          "reach_profile": "plotter_2003_v32",
+          "reach_validated": true,
+          "xy_moves_checked": 53357
+        },
+        "microlift": {
+          "lifts": 2293,
+          "mega_added_mm": 31.0,
+          "mega_lift_mm": 31.05,
+          "mega_lifts": 1,
+          "micro_hop_mm": 8.0,
+          "short_lift_mm": 0.6,
+          "short_lift_source": "profile:Pentel EnerGel 0.5 (Blue)",
+          "short_lifts": 2249,
+          "z_travel_saved_mm": 13044.2
+        },
+        "min_stroke_mm": 0.01,
+        "paper": "200x200mm",
+        "pen_lifts": 2293,
+        "pen_width_mm": 0.5,
+        "preview_clean_available": true,
+        "preview_file": "layout.preview.svg",
+        "preview_xray_available": false,
+        "quiet_fans": true,
+        "realised_pitch": {
+          "basis": "fill_px_final x (final placed scale x PX2MM); not the preliminary scale, not the fill_mm/fill_px back-solve",
+          "items": [
+            {
+              "fill_mm_target": 0.25,
+              "fill_px_audit": 3.0,
+              "fill_px_final": 3.0004,
+              "fill_px_source": "composite item_opts.fill_px (analytic path), floored at 1.2",
+              "final_scale": 0.173206,
+              "floor_binds": false,
+              "id": "ac2c0cdb",
+              "mm_per_px_final": 0.045828,
+              "realised_pitch_mm": 0.1375,
+              "scale_source": "composite._composite placement s = fit*item.scale (final traced SVG bbox); x PX2MM"
+            }
+          ],
+          "max_mm": 0.1375,
+          "min_mm": 0.1375
+        },
+        "small_detail": "off",
+        "stay_down_over_ink": {
+          "dt_tol_px": 0.05,
+          "enabled": true,
+          "layers": {
+            "1": {
+              "available": false,
+              "candidates": 2292,
+              "fused": 0,
+              "fused_mm": 0.0,
+              "lifts_after": 2293,
+              "lifts_before": 2293,
+              "longest_fused_mm": 0.0,
+              "reason": "placement_self_check_failed(frac=0.9794)",
+              "rejected": 2292
+            }
+          },
+          "rule": "after routing, a pen-up travel becomes a pen-down connector, of any length, iff the straight connector stays inside the layer's own ink mask (stage_e_mask predicate: every 0.5 trace px sample has dt >= 0.5*fill_px - dt_tol_px); on a layer above the plain stroke cap (where OFF has no joins) the short joins use the same check (D1782); a layer with no usable mask fails closed (no joins at all)",
+          "totals": {
+            "candidates": 2292,
+            "fused": 0,
+            "fused_mm": 0.0,
+            "layers_checked": 0,
+            "layers_failed_closed": 1,
+            "layers_failed_closed_detail": {
+              "1": "placement_self_check_failed(frac=0.9794)"
+            },
+            "rejected": 2292
+          }
+        },
+        "stroke_count": 2293,
+        "strokes_after": 2293,
+        "strokes_before": 2293,
+        "target_z_moves": 0,
+        "travel_length_mm": 3457.0,
+        "z_moves": 4586,
+        "z_moves_after": 4586,
+        "z_moves_before": 4586
+      },
+      "source_native_px_wh": [
+        [
+          640,
+          427
+        ]
+      ],
+      "warnings": [
+        {
+          "level": "warning",
+          "msg": "stay-down mask unavailable for layer 1 -- lifts not reduced there (placement_self_check_failed(frac=0.9794))",
+          "tier": "primary"
+        },
+        {
+          "level": "warning",
+          "msg": "Pen-physics ceiling: smallest strokes ~0.01mm \u2014 below the ~0.5mm / 2\u00d7 pen-width line, readability may be physically limited. Plot larger, use a finer pen, or accept symbolic marks.",
+          "tier": "primary"
+        },
+        {
+          "level": "warning",
+          "msg": "Dense: 2293 strokes. Raise Connect Strokes first (keeps detail); Smoothness / Min Stroke Length reduce strokes by deleting detail.",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "Estimated 4,586 Z-moves \u2014 very hard on the Z stepper. Raise Connect Strokes / set Target Z-moves before sending (detail-preserving); Min Stroke Length helps but deletes small detail.",
+          "tier": "secondary"
+        }
+      ]
+    },
+    "bwphoto-outline-rows-a45": {
+      "audit": {
+        "debug_metrics": {
+          "accepted_counts": {},
+          "candidate_counts": {},
+          "clean_lines": 2566,
+          "fused_lines": null,
+          "line_length_stats_mm": {
+            "max_mm": 4328.82,
+            "mean_mm": 38.91,
+            "median_mm": 2.89,
+            "min_mm": 0.02
+          },
+          "line_length_stats_px": {},
+          "lineart_quality": {},
+          "min_stroke_mm": 0.02,
+          "objective_score": null,
+          "pen_width_mm": 0.5,
+          "rejected_counts": {},
+          "routed_lines": 2566,
+          "small_detail": "off",
+          "weights": {}
+        },
+        "trace_info": {
+          "audit": {
+            "core_fill": "outline_rows",
+            "core_r_mm": null,
+            "core_r_px": null,
+            "dropped_components": 0,
+            "dropped_ink_pct": 0.0,
+            "fallback_strokes": 305,
+            "fill_mm_resolved": 0.25,
+            "fill_px": 3.0,
+            "flag_mm_per_px": 0.045827,
+            "flag_mm_per_px_source": "placed_fit_from_mask_bbox",
+            "gap_guarantee_ridge_px": 0,
+            "gray_crush_fraction": 0.0,
+            "levels": 2,
+            "lifts": 3433,
+            "lifts_before_link": 3774,
+            "lifts_per_meter": 19.0,
+            "min_mark_mm2": 0.035,
+            "mm_per_px": 0.0833,
+            "n_core_axis_lines": 7,
+            "n_core_curved_ring_levels": 0,
+            "n_core_curved_unique": 0,
+            "n_core_passes": 2350,
+            "n_core_regions": 492,
+            "n_core_rows": 5202,
+            "n_core_skipped": 0,
+            "n_core_small_ring_levels": 0,
+            "n_outline_rings": 1153,
+            "outline_rings": 1,
+            "passes": 3503,
+            "pen_id_resolved": "energel_05",
+            "pinch_runs_fired": 202,
+            "pinch_runs_rejected": 178,
+            "pinch_runs_rejected_junction": 0,
+            "pinch_runs_rejected_short": 178,
+            "pinch_runs_total": 380,
+            "row_angle_fallback_regions": 0,
+            "row_angle_hist": {
+              "0": 0,
+              "135": 0,
+              "45": 492,
+              "90": 0
+            },
+            "row_angle_rule": "a45",
+            "rows_angle_deg": 0.0,
+            "speck_ink_pct": 0.125,
+            "speck_polys_dropped": 34,
+            "structure_binary": {
+              "K_ink_frac": 0.78031,
+              "R_ink_frac": 0.779178,
+              "R_sha16": "30dd4f914f8ed4f0",
+              "components_dropped": 125,
+              "ink_px_added": 484,
+              "ink_px_dropped": 9877,
+              "mm_per_px": 0.083323,
+              "params": {
+                "analysis_mm_per_px": 0.09,
+                "coh_int_mm": 2.0,
+                "coh_min": 0.55,
+                "diffuse_E_max": 0.3,
+                "diffuse_area_mm2": 3.0,
+                "diffuse_sharp_max": 0.35,
+                "g_edge_sat": 0.1,
+                "line_add_dist_mm": 2.5,
+                "line_min_len_mm": 8.0,
+                "line_width_mm": 0.3,
+                "min_component_mm2": 0.035,
+                "n_scales": 5,
+                "persist_dilate_mm": 0.72,
+                "sharp_win_mm": 2.0,
+                "sigma_f_mm": 0.12,
+                "zc3_grad_min": 0.035,
+                "zc_grad_min": 0.035
+              },
+              "shape": [
+                2358,
+                3535
+              ],
+              "version": "sab-3-modeB (ported from sab_lib3.mode_B, M11 pass 3)"
+            },
+            "texture_routing": "band_continuity_v1",
+            "tone": "off",
+            "total_polys": 3433,
+            "zero_pass_components": 26
+          },
+          "bilevel_source": false,
+          "downscaled": false,
+          "effective_res": 3535,
+          "front_end": {
+            "eps": 0.55,
+            "interpolated": false,
+            "k": 1.6,
+            "name": "bw_xdog",
+            "p": 20.0,
+            "phi": 2.0,
+            "side": 427,
+            "side_requested": "native",
+            "side_used": 427,
+            "sigma_px": 0.8,
+            "sigma_rescaled": false,
+            "src_short_side": 427
+          },
+          "mode": "tracev3",
+          "mode_cap": 3535,
+          "native_px": null,
+          "requested_res": 3535,
+          "texture_enabled": false,
+          "texture_sidecar_exists": false,
+          "texture_strokes": 0,
+          "upsampled": false
+        }
+      },
+      "audit_json_sha256": "5345f4779ddaf5dff38b589853a09c7976acb97724214ad8e493c20b78573e41",
+      "gcode_file": "layout.gcode",
+      "gcode_sha256": "57629ac1375e48915b691c68fad0ba85b9145dfe0b020bb9e254cd304d772660",
+      "http_status": 200,
+      "kind": "process",
+      "preview_file": "layout.preview.svg",
+      "preview_svg_sha256_stripped": "54cf806b0626874bfc59170d6446f2da8630539d3e217f0969e5c89475467b1e",
+      "request": {
+        "path": "tests/golden_tests/fixtures/bwphoto-outline-rows-a45/request.json",
+        "sha256": "5e36eb79e96313a0a61f8c37b6d9e30b53ec135283112d2ee31e3cbf1eac4f98"
+      },
+      "response_metadata": {
+        "bbox_mm": [
+          19.0,
+          46.0,
+          181.0,
+          154.0
+        ],
+        "connector_count": 0,
+        "connector_distance_mm": 0.0,
+        "connector_draw_length_mm": 0.0,
+        "coverage_audit": null,
+        "debug_files": {},
+        "draw_length_mm": 99855.5,
+        "draw_moves": 2566,
+        "end_policy": "release",
+        "estimated_pen_lifts": 2566,
+        "estimated_plot_time_min": 62.6,
+        "estimated_plot_time_s": 3756.7,
+        "estimated_z_moves": 5132,
+        "file_size_kb": 1515.4,
+        "gcode_file": "layout.gcode",
+        "item_bboxes": [
+          [
+            19.0,
+            45.97,
+            181.0,
+            154.03
+          ]
+        ],
+        "item_geometry": [
+          {
+            "base_fit_scale": 0.173206,
+            "item_settings": {
+              "crop": null,
+              "dx": 0.0,
+              "dy": 0.0,
+              "id": "<upload-id, order-normalized>",
+              "rot": 0.0,
+              "scale": 1.0
+            },
+            "layout_center_mm": [
+              100.0,
+              100.0
+            ],
+            "scale_aware_equivalence_prelim_approx": {
+              "actual_placed_height_mm": 108.060951,
+              "actual_placed_width_mm": 162.0,
+              "analytic_base_fit": 0.236199,
+              "analytic_base_fit_prelim_raw": 0.278313,
+              "analytic_placed_height_mm": 108.024791,
+              "analytic_placed_width_mm": 162.0,
+              "analytic_resolution_basis": "final (boost fired, corrected via actual_boost)",
+              "analytic_s": 0.236199,
+              "analytic_s_prelim_raw": 0.278313,
+              "divergence_height_mm": 0.03616,
+              "divergence_width_mm": 0.0,
+              "fill_px_real": 3.00036,
+              "final_fit": 0.173206,
+              "final_height_mm": 623.885191,
+              "final_s": 0.173206,
+              "final_width_mm": 935.299943,
+              "mm_per_px_real": 0.062494,
+              "mm_per_px_real_prelim_raw": 0.073637,
+              "prelim_bbox_mm": [
+                0.0,
+                0.0,
+                582.078356,
+                388.141314
+              ],
+              "prelim_height_mm": 388.141314,
+              "prelim_width_mm": 582.078356,
+              "scale_aware_v2": true,
+              "v2_res_boost": {
+                "actual_boost": 1.1783,
+                "base_res": 3000,
+                "boosted_res": 3535,
+                "fill_px_real_pre_boost": 2.546275,
+                "needed_boost": 1.1782
+              }
+            },
+            "source_bbox_mm": [
+              0.0,
+              0.0,
+              935.299943,
+              623.885191
+            ],
+            "source_center_mm": [
+              467.649971,
+              311.942596
+            ],
+            "source_height_mm": 623.885191,
+            "source_width_mm": 935.299943
+          }
+        ],
+        "job_type": "gcode",
+        "lazy_preview_pen_mm": 0.25,
+        "line_length_stats_mm": {
+          "max_mm": 4328.82,
+          "mean_mm": 38.91,
+          "median_mm": 2.89,
+          "min_mm": 0.02
+        },
+        "longest_connector_mm": 0.0,
+        "machine_bbox": {
+          "bbox": [
+            33.5,
+            105.5,
+            195.5,
+            213.5
+          ],
+          "reach_bbox": [
+            3.0,
+            42.5,
+            255.0,
+            254.5
+          ],
+          "reach_label": "Plotter V3.2 (confirmed rectangular reach)",
+          "reach_polygon": [
+            [
+              3.0,
+              42.5
+            ],
+            [
+              255.0,
+              42.5
+            ],
+            [
+              255.0,
+              254.5
+            ],
+            [
+              3.0,
+              254.5
+            ]
+          ],
+          "reach_profile": "plotter_2003_v32",
+          "reach_validated": true,
+          "xy_moves_checked": 53141
+        },
+        "microlift": {
+          "lifts": 2566,
+          "mega_added_mm": 31.0,
+          "mega_lift_mm": 31.05,
+          "mega_lifts": 1,
+          "micro_hop_mm": 8.0,
+          "short_lift_mm": 0.6,
+          "short_lift_source": "profile:Pentel EnerGel 0.5 (Blue)",
+          "short_lifts": 2520,
+          "z_travel_saved_mm": 14616.0
+        },
+        "min_stroke_mm": 0.02,
+        "paper": "200x200mm",
+        "pen_lifts": 2566,
+        "pen_width_mm": 0.5,
+        "preview_clean_available": true,
+        "preview_file": "layout.preview.svg",
+        "preview_xray_available": false,
+        "quiet_fans": true,
+        "realised_pitch": {
+          "basis": "fill_px_final x (final placed scale x PX2MM); not the preliminary scale, not the fill_mm/fill_px back-solve",
+          "items": [
+            {
+              "fill_mm_target": 0.25,
+              "fill_px_audit": 3.0,
+              "fill_px_final": 3.0004,
+              "fill_px_source": "composite item_opts.fill_px (analytic path), floored at 1.2",
+              "final_scale": 0.173206,
+              "floor_binds": false,
+              "id": "90c36392",
+              "mm_per_px_final": 0.045828,
+              "realised_pitch_mm": 0.1375,
+              "scale_source": "composite._composite placement s = fit*item.scale (final traced SVG bbox); x PX2MM"
+            }
+          ],
+          "max_mm": 0.1375,
+          "min_mm": 0.1375
+        },
+        "small_detail": "off",
+        "stay_down_over_ink": {
+          "dt_tol_px": 0.05,
+          "enabled": true,
+          "layers": {
+            "1": {
+              "available": false,
+              "candidates": 2565,
+              "fused": 0,
+              "fused_mm": 0.0,
+              "lifts_after": 2566,
+              "lifts_before": 2566,
+              "longest_fused_mm": 0.0,
+              "reason": "placement_self_check_failed(frac=0.9793)",
+              "rejected": 2565
+            }
+          },
+          "rule": "after routing, a pen-up travel becomes a pen-down connector, of any length, iff the straight connector stays inside the layer's own ink mask (stage_e_mask predicate: every 0.5 trace px sample has dt >= 0.5*fill_px - dt_tol_px); on a layer above the plain stroke cap (where OFF has no joins) the short joins use the same check (D1782); a layer with no usable mask fails closed (no joins at all)",
+          "totals": {
+            "candidates": 2565,
+            "fused": 0,
+            "fused_mm": 0.0,
+            "layers_checked": 0,
+            "layers_failed_closed": 1,
+            "layers_failed_closed_detail": {
+              "1": "placement_self_check_failed(frac=0.9793)"
+            },
+            "rejected": 2565
+          }
+        },
+        "stroke_count": 2566,
+        "strokes_after": 2566,
+        "strokes_before": 2566,
+        "target_z_moves": 0,
+        "travel_length_mm": 3678.3,
+        "z_moves": 5132,
+        "z_moves_after": 5132,
+        "z_moves_before": 5132
+      },
+      "source_native_px_wh": [
+        [
+          640,
+          427
+        ]
+      ],
+      "warnings": [
+        {
+          "level": "warning",
+          "msg": "stay-down mask unavailable for layer 1 -- lifts not reduced there (placement_self_check_failed(frac=0.9793))",
+          "tier": "primary"
+        },
+        {
+          "level": "warning",
+          "msg": "Pen-physics ceiling: smallest strokes ~0.02mm \u2014 below the ~0.5mm / 2\u00d7 pen-width line, readability may be physically limited. Plot larger, use a finer pen, or accept symbolic marks.",
+          "tier": "primary"
+        },
+        {
+          "level": "warning",
+          "msg": "Very dense: 2566 strokes. Prefer Connect Strokes / Target Z-moves (keeps detail); Min Stroke Length / Noise Cull also reduce strokes but DELETE small detail (text, ticks).",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "Estimated 5,132 Z-moves \u2014 very hard on the Z stepper. Raise Connect Strokes / set Target Z-moves before sending (detail-preserving); Min Stroke Length helps but deletes small detail.",
+          "tier": "secondary"
+        }
+      ]
+    },
+    "bwphoto-outline-rows-across": {
+      "audit": {
+        "debug_metrics": {
+          "accepted_counts": {},
+          "candidate_counts": {},
+          "clean_lines": 2309,
+          "fused_lines": null,
+          "line_length_stats_mm": {
+            "max_mm": 7244.85,
+            "mean_mm": 80.03,
+            "median_mm": 6.56,
+            "min_mm": 0.02
+          },
+          "line_length_stats_px": {},
+          "lineart_quality": {},
+          "min_stroke_mm": 0.02,
+          "objective_score": null,
+          "pen_width_mm": 0.5,
+          "rejected_counts": {},
+          "routed_lines": 1260,
+          "small_detail": "off",
+          "weights": {}
+        },
+        "trace_info": {
+          "audit": {
+            "core_fill": "outline_rows",
+            "core_r_mm": null,
+            "core_r_px": null,
+            "dropped_components": 0,
+            "dropped_ink_pct": 0.0,
+            "fallback_strokes": 305,
+            "fill_mm_resolved": 0.25,
+            "fill_px": 3.0,
+            "flag_mm_per_px": 0.045827,
+            "flag_mm_per_px_source": "placed_fit_from_mask_bbox",
+            "gap_guarantee_ridge_px": 0,
+            "gray_crush_fraction": 0.0,
+            "levels": 2,
+            "lifts": 3406,
+            "lifts_before_link": 3747,
+            "lifts_per_meter": 19.0,
+            "min_mark_mm2": 0.035,
+            "mm_per_px": 0.0833,
+            "n_core_axis_lines": 7,
+            "n_core_curved_ring_levels": 0,
+            "n_core_curved_unique": 0,
+            "n_core_passes": 2323,
+            "n_core_regions": 492,
+            "n_core_rows": 5887,
+            "n_core_skipped": 0,
+            "n_core_small_ring_levels": 0,
+            "n_outline_rings": 1153,
+            "outline_rings": 1,
+            "passes": 3476,
+            "pen_id_resolved": "energel_05",
+            "pinch_runs_fired": 202,
+            "pinch_runs_rejected": 178,
+            "pinch_runs_rejected_junction": 0,
+            "pinch_runs_rejected_short": 178,
+            "pinch_runs_total": 380,
+            "row_angle_fallback_regions": 89,
+            "row_angle_hist": {
+              "0": 81,
+              "135": 107,
+              "45": 178,
+              "90": 126
+            },
+            "row_angle_rule": "across",
+            "rows_angle_deg": 0.0,
+            "speck_ink_pct": 0.125,
+            "speck_polys_dropped": 34,
+            "structure_binary": {
+              "K_ink_frac": 0.78031,
+              "R_ink_frac": 0.779178,
+              "R_sha16": "30dd4f914f8ed4f0",
+              "components_dropped": 125,
+              "ink_px_added": 484,
+              "ink_px_dropped": 9877,
+              "mm_per_px": 0.083323,
+              "params": {
+                "analysis_mm_per_px": 0.09,
+                "coh_int_mm": 2.0,
+                "coh_min": 0.55,
+                "diffuse_E_max": 0.3,
+                "diffuse_area_mm2": 3.0,
+                "diffuse_sharp_max": 0.35,
+                "g_edge_sat": 0.1,
+                "line_add_dist_mm": 2.5,
+                "line_min_len_mm": 8.0,
+                "line_width_mm": 0.3,
+                "min_component_mm2": 0.035,
+                "n_scales": 5,
+                "persist_dilate_mm": 0.72,
+                "sharp_win_mm": 2.0,
+                "sigma_f_mm": 0.12,
+                "zc3_grad_min": 0.035,
+                "zc_grad_min": 0.035
+              },
+              "shape": [
+                2358,
+                3535
+              ],
+              "version": "sab-3-modeB (ported from sab_lib3.mode_B, M11 pass 3)"
+            },
+            "texture_routing": "band_continuity_v1",
+            "tone": "off",
+            "total_polys": 3406,
+            "zero_pass_components": 26
+          },
+          "bilevel_source": false,
+          "downscaled": false,
+          "effective_res": 3535,
+          "front_end": {
+            "eps": 0.55,
+            "interpolated": false,
+            "k": 1.6,
+            "name": "bw_xdog",
+            "p": 20.0,
+            "phi": 2.0,
+            "side": 427,
+            "side_requested": "native",
+            "side_used": 427,
+            "sigma_px": 0.8,
+            "sigma_rescaled": false,
+            "src_short_side": 427
+          },
+          "mode": "tracev3",
+          "mode_cap": 3535,
+          "native_px": null,
+          "requested_res": 3535,
+          "texture_enabled": false,
+          "texture_sidecar_exists": false,
+          "texture_strokes": 0,
+          "upsampled": false
+        }
+      },
+      "audit_json_sha256": "71814d88d52cf1f3aa151b7a327d50e3be494f733ef008cc3a5e84f862a5cb60",
+      "gcode_file": "layout.gcode",
+      "gcode_sha256": "2cfd1860dc3a83815ea6b82c824f7f1f485e4fa622288d25c9a0c4b99d6f092d",
+      "http_status": 200,
+      "kind": "process",
+      "preview_file": "layout.preview.svg",
+      "preview_svg_sha256_stripped": "45ad35d79af92f4001078d428f67df107e8ec487dedc9a194b50e3612c161137",
+      "request": {
+        "path": "tests/golden_tests/fixtures/bwphoto-outline-rows-across/request.json",
+        "sha256": "bc4aeb939865f25f3e0ed61009e861b10838f6fea1e390af4d13b17725fb3b9f"
+      },
+      "response_metadata": {
+        "bbox_mm": [
+          19.0,
+          46.0,
+          181.0,
+          154.0
+        ],
+        "connector_count": 1049,
+        "connector_distance_mm": 0.0,
+        "connector_draw_length_mm": 1014.4,
+        "coverage_audit": null,
+        "debug_files": {},
+        "draw_length_mm": 100841.5,
+        "draw_moves": 1260,
+        "end_policy": "release",
+        "estimated_pen_lifts": 1260,
+        "estimated_plot_time_min": 48.1,
+        "estimated_plot_time_s": 2885.8,
+        "estimated_z_moves": 2520,
+        "file_size_kb": 1487.2,
+        "gcode_file": "layout.gcode",
+        "item_bboxes": [
+          [
+            19.0,
+            45.97,
+            181.0,
+            154.03
+          ]
+        ],
+        "item_geometry": [
+          {
+            "base_fit_scale": 0.173206,
+            "item_settings": {
+              "crop": null,
+              "dx": 0.0,
+              "dy": 0.0,
+              "id": "<upload-id, order-normalized>",
+              "rot": 0.0,
+              "scale": 1.0
+            },
+            "layout_center_mm": [
+              100.0,
+              100.0
+            ],
+            "scale_aware_equivalence_prelim_approx": {
+              "actual_placed_height_mm": 108.060951,
+              "actual_placed_width_mm": 162.0,
+              "analytic_base_fit": 0.236199,
+              "analytic_base_fit_prelim_raw": 0.278313,
+              "analytic_placed_height_mm": 108.024791,
+              "analytic_placed_width_mm": 162.0,
+              "analytic_resolution_basis": "final (boost fired, corrected via actual_boost)",
+              "analytic_s": 0.236199,
+              "analytic_s_prelim_raw": 0.278313,
+              "divergence_height_mm": 0.03616,
+              "divergence_width_mm": 0.0,
+              "fill_px_real": 3.00036,
+              "final_fit": 0.173206,
+              "final_height_mm": 623.885191,
+              "final_s": 0.173206,
+              "final_width_mm": 935.299943,
+              "mm_per_px_real": 0.062494,
+              "mm_per_px_real_prelim_raw": 0.073637,
+              "prelim_bbox_mm": [
+                0.0,
+                0.0,
+                582.078356,
+                388.141314
+              ],
+              "prelim_height_mm": 388.141314,
+              "prelim_width_mm": 582.078356,
+              "scale_aware_v2": true,
+              "v2_res_boost": {
+                "actual_boost": 1.1783,
+                "base_res": 3000,
+                "boosted_res": 3535,
+                "fill_px_real_pre_boost": 2.546275,
+                "needed_boost": 1.1782
+              }
+            },
+            "source_bbox_mm": [
+              0.0,
+              0.0,
+              935.299943,
+              623.885191
+            ],
+            "source_center_mm": [
+              467.649971,
+              311.942596
+            ],
+            "source_height_mm": 623.885191,
+            "source_width_mm": 935.299943
+          }
+        ],
+        "job_type": "gcode",
+        "lazy_preview_pen_mm": 0.25,
+        "line_length_stats_mm": {
+          "max_mm": 7244.85,
+          "mean_mm": 80.03,
+          "median_mm": 6.56,
+          "min_mm": 0.02
+        },
+        "longest_connector_mm": 20.05,
+        "machine_bbox": {
+          "bbox": [
+            33.5,
+            105.5,
+            195.5,
+            213.5
+          ],
+          "reach_bbox": [
+            3.0,
+            42.5,
+            255.0,
+            254.5
+          ],
+          "reach_label": "Plotter V3.2 (confirmed rectangular reach)",
+          "reach_polygon": [
+            [
+              3.0,
+              42.5
+            ],
+            [
+              255.0,
+              42.5
+            ],
+            [
+              255.0,
+              254.5
+            ],
+            [
+              3.0,
+              254.5
+            ]
+          ],
+          "reach_profile": "plotter_2003_v32",
+          "reach_validated": true,
+          "xy_moves_checked": 53644
+        },
+        "microlift": {
+          "lifts": 1260,
+          "mega_added_mm": 0.0,
+          "mega_lift_mm": 31.05,
+          "mega_lifts": 0,
+          "micro_hop_mm": 8.0,
+          "short_lift_mm": 0.6,
+          "short_lift_source": "profile:Pentel EnerGel 0.5 (Blue)",
+          "short_lifts": 1220,
+          "z_travel_saved_mm": 7076.0
+        },
+        "min_stroke_mm": 0.02,
+        "paper": "200x200mm",
+        "pen_lifts": 1260,
+        "pen_width_mm": 0.5,
+        "preview_clean_available": true,
+        "preview_file": "layout.preview.svg",
+        "preview_xray_available": true,
+        "quiet_fans": true,
+        "realised_pitch": {
+          "basis": "fill_px_final x (final placed scale x PX2MM); not the preliminary scale, not the fill_mm/fill_px back-solve",
+          "items": [
+            {
+              "fill_mm_target": 0.25,
+              "fill_px_audit": 3.0,
+              "fill_px_final": 3.0004,
+              "fill_px_source": "composite item_opts.fill_px (analytic path), floored at 1.2",
+              "final_scale": 0.173206,
+              "floor_binds": false,
+              "id": "3064403f",
+              "mm_per_px_final": 0.045828,
+              "realised_pitch_mm": 0.1375,
+              "scale_source": "composite._composite placement s = fit*item.scale (final traced SVG bbox); x PX2MM"
+            }
+          ],
+          "max_mm": 0.1375,
+          "min_mm": 0.1375
+        },
+        "small_detail": "off",
+        "stay_down_over_ink": {
+          "dt_tol_px": 0.05,
+          "enabled": true,
+          "layers": {
+            "1": {
+              "available": true,
+              "candidates": 2308,
+              "dt_tol_px": 0.05,
+              "fill_px": 3.0004,
+              "fused": 1049,
+              "fused_mm": 1014.437,
+              "lifts_after": 1260,
+              "lifts_before": 2309,
+              "longest_fused_mm": 20.049,
+              "mask_shape": [
+                2358,
+                3535
+              ],
+              "placed_mm_per_trace_px": 0.045828,
+              "rejected": 1259,
+              "sample_step_trace_px": 0.5,
+              "self_check_frac": 0.98538,
+              "threshold_px": 1.5002
+            }
+          },
+          "rule": "after routing, a pen-up travel becomes a pen-down connector, of any length, iff the straight connector stays inside the layer's own ink mask (stage_e_mask predicate: every 0.5 trace px sample has dt >= 0.5*fill_px - dt_tol_px); on a layer above the plain stroke cap (where OFF has no joins) the short joins use the same check (D1782); a layer with no usable mask fails closed (no joins at all)",
+          "totals": {
+            "candidates": 2308,
+            "fused": 1049,
+            "fused_mm": 1014.437,
+            "layers_checked": 1,
+            "layers_failed_closed": 0,
+            "layers_failed_closed_detail": {},
+            "rejected": 1259
+          }
+        },
+        "stroke_count": 1260,
+        "strokes_after": 1260,
+        "strokes_before": 2309,
+        "target_z_moves": 0,
+        "travel_length_mm": 2464.6,
+        "z_moves": 2520,
+        "z_moves_after": 2520,
+        "z_moves_before": 4618
+      },
+      "source_native_px_wh": [
+        [
+          640,
+          427
+        ]
+      ],
+      "warnings": [
+        {
+          "level": "warning",
+          "msg": "Pen-physics ceiling: smallest strokes ~0.02mm \u2014 below the ~0.5mm / 2\u00d7 pen-width line, readability may be physically limited. Plot larger, use a finer pen, or accept symbolic marks.",
+          "tier": "primary"
+        },
+        {
+          "level": "warning",
+          "msg": "Dense: 1260 strokes. Raise Connect Strokes first (keeps detail); Smoothness / Min Stroke Length reduce strokes by deleting detail.",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "Estimated 2,520 Z-moves \u2014 high. Raise Connect Strokes or set Target Z-moves (keeps detail).",
+          "tier": "secondary"
+        },
+        {
+          "level": "okay",
+          "msg": "Low-lift routing: 2309\u21921260 strokes, 4,618\u21922,520 Z-moves \u00b7 1049 connectors, +1014.4mm drawn.",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "Aggressive routing: connectors up to 20.05mm drawn to hit the Z-move target \u2014 expect visible joining marks across the artwork. Raise the target or it draws longer bridges.",
+          "tier": "primary"
+        }
+      ]
+    },
+    "bwphoto-outline-rows-set": {
+      "audit": {
+        "debug_metrics": {
+          "accepted_counts": {},
+          "candidate_counts": {},
+          "clean_lines": 2543,
+          "fused_lines": null,
+          "line_length_stats_mm": {
+            "max_mm": 4328.82,
+            "mean_mm": 39.26,
+            "median_mm": 2.95,
+            "min_mm": 0.01
+          },
+          "line_length_stats_px": {},
+          "lineart_quality": {},
+          "min_stroke_mm": 0.01,
+          "objective_score": null,
+          "pen_width_mm": 0.5,
+          "rejected_counts": {},
+          "routed_lines": 2543,
+          "small_detail": "off",
+          "weights": {}
+        },
+        "trace_info": {
+          "audit": {
+            "core_fill": "outline_rows",
+            "core_r_mm": null,
+            "core_r_px": null,
+            "dropped_components": 0,
+            "dropped_ink_pct": 0.0,
+            "fallback_strokes": 305,
+            "fill_mm_resolved": 0.25,
+            "fill_px": 3.0,
+            "flag_mm_per_px": 0.045827,
+            "flag_mm_per_px_source": "placed_fit_from_mask_bbox",
+            "gap_guarantee_ridge_px": 0,
+            "gray_crush_fraction": 0.0,
+            "levels": 2,
+            "lifts": 3407,
+            "lifts_before_link": 3748,
+            "lifts_per_meter": 19.0,
+            "min_mark_mm2": 0.035,
+            "mm_per_px": 0.0833,
+            "n_core_axis_lines": 1,
+            "n_core_curved_ring_levels": 0,
+            "n_core_curved_unique": 0,
+            "n_core_passes": 2324,
+            "n_core_regions": 492,
+            "n_core_rows": 5151,
+            "n_core_skipped": 0,
+            "n_core_small_ring_levels": 0,
+            "n_outline_rings": 1153,
+            "outline_rings": 1,
+            "passes": 3477,
+            "pen_id_resolved": "energel_05",
+            "pinch_runs_fired": 202,
+            "pinch_runs_rejected": 178,
+            "pinch_runs_rejected_junction": 0,
+            "pinch_runs_rejected_short": 178,
+            "pinch_runs_total": 380,
+            "row_angle_fallback_regions": 0,
+            "row_angle_hist": {
+              "0": 145,
+              "135": 114,
+              "45": 113,
+              "90": 120
+            },
+            "row_angle_rule": "set",
+            "rows_angle_deg": 0.0,
+            "speck_ink_pct": 0.125,
+            "speck_polys_dropped": 34,
+            "structure_binary": {
+              "K_ink_frac": 0.78031,
+              "R_ink_frac": 0.779178,
+              "R_sha16": "30dd4f914f8ed4f0",
+              "components_dropped": 125,
+              "ink_px_added": 484,
+              "ink_px_dropped": 9877,
+              "mm_per_px": 0.083323,
+              "params": {
+                "analysis_mm_per_px": 0.09,
+                "coh_int_mm": 2.0,
+                "coh_min": 0.55,
+                "diffuse_E_max": 0.3,
+                "diffuse_area_mm2": 3.0,
+                "diffuse_sharp_max": 0.35,
+                "g_edge_sat": 0.1,
+                "line_add_dist_mm": 2.5,
+                "line_min_len_mm": 8.0,
+                "line_width_mm": 0.3,
+                "min_component_mm2": 0.035,
+                "n_scales": 5,
+                "persist_dilate_mm": 0.72,
+                "sharp_win_mm": 2.0,
+                "sigma_f_mm": 0.12,
+                "zc3_grad_min": 0.035,
+                "zc_grad_min": 0.035
+              },
+              "shape": [
+                2358,
+                3535
+              ],
+              "version": "sab-3-modeB (ported from sab_lib3.mode_B, M11 pass 3)"
+            },
+            "texture_routing": "band_continuity_v1",
+            "tone": "off",
+            "total_polys": 3407,
+            "zero_pass_components": 26
+          },
+          "bilevel_source": false,
+          "downscaled": false,
+          "effective_res": 3535,
+          "front_end": {
+            "eps": 0.55,
+            "interpolated": false,
+            "k": 1.6,
+            "name": "bw_xdog",
+            "p": 20.0,
+            "phi": 2.0,
+            "side": 427,
+            "side_requested": "native",
+            "side_used": 427,
+            "sigma_px": 0.8,
+            "sigma_rescaled": false,
+            "src_short_side": 427
+          },
+          "mode": "tracev3",
+          "mode_cap": 3535,
+          "native_px": null,
+          "requested_res": 3535,
+          "texture_enabled": false,
+          "texture_sidecar_exists": false,
+          "texture_strokes": 0,
+          "upsampled": false
+        }
+      },
+      "audit_json_sha256": "97215bd7ec4eeb1a86aae54fb16584a7ce0f7a9d38e97607867d43e3db76250b",
+      "gcode_file": "layout.gcode",
+      "gcode_sha256": "ec48cba301b2ad9c2a3813cb1cac4cca52a09fabb15ca1ee290f3d92942a5cf4",
+      "http_status": 200,
+      "kind": "process",
+      "preview_file": "layout.preview.svg",
+      "preview_svg_sha256_stripped": "70a02e528c24504fc7dfdb05f4c07530527ee7c3f5ee489d6942419a923c9bb1",
+      "request": {
+        "path": "tests/golden_tests/fixtures/bwphoto-outline-rows-set/request.json",
+        "sha256": "eef57836f0f1906e52abf72595c4fe9d3b7f1d002210c00c9b4f0549515c5075"
+      },
+      "response_metadata": {
+        "bbox_mm": [
+          19.0,
+          46.0,
+          181.0,
+          154.0
+        ],
+        "connector_count": 0,
+        "connector_distance_mm": 0.0,
+        "connector_draw_length_mm": 0.0,
+        "coverage_audit": null,
+        "debug_files": {},
+        "draw_length_mm": 99840.4,
+        "draw_moves": 2543,
+        "end_policy": "release",
+        "estimated_pen_lifts": 2543,
+        "estimated_plot_time_min": 62.4,
+        "estimated_plot_time_s": 3741.8,
+        "estimated_z_moves": 5086,
+        "file_size_kb": 1506.3,
+        "gcode_file": "layout.gcode",
+        "item_bboxes": [
+          [
+            19.0,
+            45.97,
+            181.0,
+            154.03
+          ]
+        ],
+        "item_geometry": [
+          {
+            "base_fit_scale": 0.173206,
+            "item_settings": {
+              "crop": null,
+              "dx": 0.0,
+              "dy": 0.0,
+              "id": "<upload-id, order-normalized>",
+              "rot": 0.0,
+              "scale": 1.0
+            },
+            "layout_center_mm": [
+              100.0,
+              100.0
+            ],
+            "scale_aware_equivalence_prelim_approx": {
+              "actual_placed_height_mm": 108.060951,
+              "actual_placed_width_mm": 162.0,
+              "analytic_base_fit": 0.236199,
+              "analytic_base_fit_prelim_raw": 0.278313,
+              "analytic_placed_height_mm": 108.024791,
+              "analytic_placed_width_mm": 162.0,
+              "analytic_resolution_basis": "final (boost fired, corrected via actual_boost)",
+              "analytic_s": 0.236199,
+              "analytic_s_prelim_raw": 0.278313,
+              "divergence_height_mm": 0.03616,
+              "divergence_width_mm": 0.0,
+              "fill_px_real": 3.00036,
+              "final_fit": 0.173206,
+              "final_height_mm": 623.885191,
+              "final_s": 0.173206,
+              "final_width_mm": 935.299943,
+              "mm_per_px_real": 0.062494,
+              "mm_per_px_real_prelim_raw": 0.073637,
+              "prelim_bbox_mm": [
+                0.0,
+                0.0,
+                582.078356,
+                388.141314
+              ],
+              "prelim_height_mm": 388.141314,
+              "prelim_width_mm": 582.078356,
+              "scale_aware_v2": true,
+              "v2_res_boost": {
+                "actual_boost": 1.1783,
+                "base_res": 3000,
+                "boosted_res": 3535,
+                "fill_px_real_pre_boost": 2.546275,
+                "needed_boost": 1.1782
+              }
+            },
+            "source_bbox_mm": [
+              0.0,
+              0.0,
+              935.299943,
+              623.885191
+            ],
+            "source_center_mm": [
+              467.649971,
+              311.942596
+            ],
+            "source_height_mm": 623.885191,
+            "source_width_mm": 935.299943
+          }
+        ],
+        "job_type": "gcode",
+        "lazy_preview_pen_mm": 0.25,
+        "line_length_stats_mm": {
+          "max_mm": 4328.82,
+          "mean_mm": 39.26,
+          "median_mm": 2.95,
+          "min_mm": 0.01
+        },
+        "longest_connector_mm": 0.0,
+        "machine_bbox": {
+          "bbox": [
+            33.5,
+            105.5,
+            195.5,
+            213.5
+          ],
+          "reach_bbox": [
+            3.0,
+            42.5,
+            255.0,
+            254.5
+          ],
+          "reach_label": "Plotter V3.2 (confirmed rectangular reach)",
+          "reach_polygon": [
+            [
+              3.0,
+              42.5
+            ],
+            [
+              255.0,
+              42.5
+            ],
+            [
+              255.0,
+              254.5
+            ],
+            [
+              3.0,
+              254.5
+            ]
+          ],
+          "reach_profile": "plotter_2003_v32",
+          "reach_validated": true,
+          "xy_moves_checked": 52833
+        },
+        "microlift": {
+          "lifts": 2543,
+          "mega_added_mm": 31.0,
+          "mega_lift_mm": 31.05,
+          "mega_lifts": 1,
+          "micro_hop_mm": 8.0,
+          "short_lift_mm": 0.6,
+          "short_lift_source": "profile:Pentel EnerGel 0.5 (Blue)",
+          "short_lifts": 2489,
+          "z_travel_saved_mm": 14436.2
+        },
+        "min_stroke_mm": 0.01,
+        "paper": "200x200mm",
+        "pen_lifts": 2543,
+        "pen_width_mm": 0.5,
+        "preview_clean_available": true,
+        "preview_file": "layout.preview.svg",
+        "preview_xray_available": false,
+        "quiet_fans": true,
+        "realised_pitch": {
+          "basis": "fill_px_final x (final placed scale x PX2MM); not the preliminary scale, not the fill_mm/fill_px back-solve",
+          "items": [
+            {
+              "fill_mm_target": 0.25,
+              "fill_px_audit": 3.0,
+              "fill_px_final": 3.0004,
+              "fill_px_source": "composite item_opts.fill_px (analytic path), floored at 1.2",
+              "final_scale": 0.173206,
+              "floor_binds": false,
+              "id": "6d53ba6d",
+              "mm_per_px_final": 0.045828,
+              "realised_pitch_mm": 0.1375,
+              "scale_source": "composite._composite placement s = fit*item.scale (final traced SVG bbox); x PX2MM"
+            }
+          ],
+          "max_mm": 0.1375,
+          "min_mm": 0.1375
+        },
+        "small_detail": "off",
+        "stay_down_over_ink": {
+          "dt_tol_px": 0.05,
+          "enabled": true,
+          "layers": {
+            "1": {
+              "available": false,
+              "candidates": 2542,
+              "fused": 0,
+              "fused_mm": 0.0,
+              "lifts_after": 2543,
+              "lifts_before": 2543,
+              "longest_fused_mm": 0.0,
+              "reason": "placement_self_check_failed(frac=0.9790)",
+              "rejected": 2542
+            }
+          },
+          "rule": "after routing, a pen-up travel becomes a pen-down connector, of any length, iff the straight connector stays inside the layer's own ink mask (stage_e_mask predicate: every 0.5 trace px sample has dt >= 0.5*fill_px - dt_tol_px); on a layer above the plain stroke cap (where OFF has no joins) the short joins use the same check (D1782); a layer with no usable mask fails closed (no joins at all)",
+          "totals": {
+            "candidates": 2542,
+            "fused": 0,
+            "fused_mm": 0.0,
+            "layers_checked": 0,
+            "layers_failed_closed": 1,
+            "layers_failed_closed_detail": {
+              "1": "placement_self_check_failed(frac=0.9790)"
+            },
+            "rejected": 2542
+          }
+        },
+        "stroke_count": 2543,
+        "strokes_after": 2543,
+        "strokes_before": 2543,
+        "target_z_moves": 0,
+        "travel_length_mm": 3793.4,
+        "z_moves": 5086,
+        "z_moves_after": 5086,
+        "z_moves_before": 5086
+      },
+      "source_native_px_wh": [
+        [
+          640,
+          427
+        ]
+      ],
+      "warnings": [
+        {
+          "level": "warning",
+          "msg": "stay-down mask unavailable for layer 1 -- lifts not reduced there (placement_self_check_failed(frac=0.9790))",
+          "tier": "primary"
+        },
+        {
+          "level": "warning",
+          "msg": "Pen-physics ceiling: smallest strokes ~0.01mm \u2014 below the ~0.5mm / 2\u00d7 pen-width line, readability may be physically limited. Plot larger, use a finer pen, or accept symbolic marks.",
+          "tier": "primary"
+        },
+        {
+          "level": "warning",
+          "msg": "Very dense: 2543 strokes. Prefer Connect Strokes / Target Z-moves (keeps detail); Min Stroke Length / Noise Cull also reduce strokes but DELETE small detail (text, ticks).",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "Estimated 5,086 Z-moves \u2014 very hard on the Z stepper. Raise Connect Strokes / set Target Z-moves before sending (detail-preserving); Min Stroke Length helps but deletes small detail.",
+          "tier": "secondary"
+        }
+      ]
+    },
+    "bwphoto-outline-rows-zero": {
+      "audit": {
+        "debug_metrics": {
+          "accepted_counts": {},
+          "candidate_counts": {},
+          "clean_lines": 2454,
+          "fused_lines": null,
+          "line_length_stats_mm": {
+            "max_mm": 8750.87,
+            "mean_mm": 80.67,
+            "median_mm": 6.56,
+            "min_mm": 0.02
+          },
+          "line_length_stats_px": {},
+          "lineart_quality": {},
+          "min_stroke_mm": 0.02,
+          "objective_score": null,
+          "pen_width_mm": 0.5,
+          "rejected_counts": {},
+          "routed_lines": 1249,
+          "small_detail": "off",
+          "weights": {}
+        },
+        "trace_info": {
+          "audit": {
+            "core_fill": "outline_rows",
+            "core_r_mm": null,
+            "core_r_px": null,
+            "dropped_components": 0,
+            "dropped_ink_pct": 0.0,
+            "fallback_strokes": 305,
+            "fill_mm_resolved": 0.25,
+            "fill_px": 3.0,
+            "flag_mm_per_px": 0.045827,
+            "flag_mm_per_px_source": "placed_fit_from_mask_bbox",
+            "gap_guarantee_ridge_px": 0,
+            "gray_crush_fraction": 0.0,
+            "levels": 2,
+            "lifts": 3329,
+            "lifts_before_link": 3670,
+            "lifts_per_meter": 18.0,
+            "min_mark_mm2": 0.035,
+            "mm_per_px": 0.0833,
+            "n_core_axis_lines": 3,
+            "n_core_curved_ring_levels": 0,
+            "n_core_curved_unique": 0,
+            "n_core_passes": 2246,
+            "n_core_regions": 492,
+            "n_core_rows": 4353,
+            "n_core_skipped": 0,
+            "n_core_small_ring_levels": 0,
+            "n_outline_rings": 1153,
+            "outline_rings": 1,
+            "passes": 3399,
+            "pen_id_resolved": "energel_05",
+            "pinch_runs_fired": 202,
+            "pinch_runs_rejected": 178,
+            "pinch_runs_rejected_junction": 0,
+            "pinch_runs_rejected_short": 178,
+            "pinch_runs_total": 380,
+            "rows_angle_deg": 0.0,
+            "speck_ink_pct": 0.125,
+            "speck_polys_dropped": 34,
+            "structure_binary": {
+              "K_ink_frac": 0.78031,
+              "R_ink_frac": 0.779178,
+              "R_sha16": "30dd4f914f8ed4f0",
+              "components_dropped": 125,
+              "ink_px_added": 484,
+              "ink_px_dropped": 9877,
+              "mm_per_px": 0.083323,
+              "params": {
+                "analysis_mm_per_px": 0.09,
+                "coh_int_mm": 2.0,
+                "coh_min": 0.55,
+                "diffuse_E_max": 0.3,
+                "diffuse_area_mm2": 3.0,
+                "diffuse_sharp_max": 0.35,
+                "g_edge_sat": 0.1,
+                "line_add_dist_mm": 2.5,
+                "line_min_len_mm": 8.0,
+                "line_width_mm": 0.3,
+                "min_component_mm2": 0.035,
+                "n_scales": 5,
+                "persist_dilate_mm": 0.72,
+                "sharp_win_mm": 2.0,
+                "sigma_f_mm": 0.12,
+                "zc3_grad_min": 0.035,
+                "zc_grad_min": 0.035
+              },
+              "shape": [
+                2358,
+                3535
+              ],
+              "version": "sab-3-modeB (ported from sab_lib3.mode_B, M11 pass 3)"
+            },
+            "texture_routing": "band_continuity_v1",
+            "tone": "off",
+            "total_polys": 3329,
+            "zero_pass_components": 26
+          },
+          "bilevel_source": false,
+          "downscaled": false,
+          "effective_res": 3535,
+          "front_end": {
+            "eps": 0.55,
+            "interpolated": false,
+            "k": 1.6,
+            "name": "bw_xdog",
+            "p": 20.0,
+            "phi": 2.0,
+            "side": 427,
+            "side_requested": "native",
+            "side_used": 427,
+            "sigma_px": 0.8,
+            "sigma_rescaled": false,
+            "src_short_side": 427
+          },
+          "mode": "tracev3",
+          "mode_cap": 3535,
+          "native_px": null,
+          "requested_res": 3535,
+          "texture_enabled": false,
+          "texture_sidecar_exists": false,
+          "texture_strokes": 0,
+          "upsampled": false
+        }
+      },
+      "audit_json_sha256": "beae453d868e8fbd88d6cb19ca2903514d21ff653252f0350f3502377b050acc",
+      "gcode_file": "layout.gcode",
+      "gcode_sha256": "05b3ea8ff18ecf200b5aa5c0bd5bb3508667aed2782dfa0ee5c38bc337a06ede",
+      "http_status": 200,
+      "kind": "process",
+      "preview_file": "layout.preview.svg",
+      "preview_svg_sha256_stripped": "44161a977db2633afacf523ac2a3c17607e9a7bde286138dfccef66aec0e538e",
+      "request": {
+        "path": "tests/golden_tests/fixtures/bwphoto-outline-rows-zero/request.json",
+        "sha256": "1d38e80c6c953573067e938ec976bc02bd696294420ddbd3fb0084f7336db833"
+      },
+      "response_metadata": {
+        "bbox_mm": [
+          19.0,
+          46.0,
+          181.0,
+          154.0
+        ],
+        "connector_count": 1205,
+        "connector_distance_mm": 0.0,
+        "connector_draw_length_mm": 1050.4,
+        "coverage_audit": null,
+        "debug_files": {},
+        "draw_length_mm": 100758.4,
+        "draw_moves": 1249,
+        "end_policy": "release",
+        "estimated_pen_lifts": 1249,
+        "estimated_plot_time_min": 48.0,
+        "estimated_plot_time_s": 2878.4,
+        "estimated_z_moves": 2498,
+        "file_size_kb": 1440.6,
+        "gcode_file": "layout.gcode",
+        "item_bboxes": [
+          [
+            19.0,
+            45.99,
+            181.0,
+            154.01
+          ]
+        ],
+        "item_geometry": [
+          {
+            "base_fit_scale": 0.173206,
+            "item_settings": {
+              "crop": null,
+              "dx": 0.0,
+              "dy": 0.0,
+              "id": "<upload-id, order-normalized>",
+              "rot": 0.0,
+              "scale": 1.0
+            },
+            "layout_center_mm": [
+              100.0,
+              100.0
+            ],
+            "scale_aware_equivalence_prelim_approx": {
+              "actual_placed_height_mm": 108.028871,
+              "actual_placed_width_mm": 162.0,
+              "analytic_base_fit": 0.236199,
+              "analytic_base_fit_prelim_raw": 0.278313,
+              "analytic_placed_height_mm": 107.95189,
+              "analytic_placed_width_mm": 162.0,
+              "analytic_resolution_basis": "final (boost fired, corrected via actual_boost)",
+              "analytic_s": 0.236199,
+              "analytic_s_prelim_raw": 0.278313,
+              "divergence_height_mm": 0.076981,
+              "divergence_width_mm": 0.0,
+              "fill_px_real": 3.00036,
+              "final_fit": 0.173206,
+              "final_height_mm": 623.699983,
+              "final_s": 0.173206,
+              "final_width_mm": 935.299943,
+              "mm_per_px_real": 0.062494,
+              "mm_per_px_real_prelim_raw": 0.073637,
+              "prelim_bbox_mm": [
+                0.0,
+                0.0,
+                582.078356,
+                387.879376
+              ],
+              "prelim_height_mm": 387.879376,
+              "prelim_width_mm": 582.078356,
+              "scale_aware_v2": true,
+              "v2_res_boost": {
+                "actual_boost": 1.1783,
+                "base_res": 3000,
+                "boosted_res": 3535,
+                "fill_px_real_pre_boost": 2.546275,
+                "needed_boost": 1.1782
+              }
+            },
+            "source_bbox_mm": [
+              0.0,
+              0.0,
+              935.299943,
+              623.699983
+            ],
+            "source_center_mm": [
+              467.649971,
+              311.849991
+            ],
+            "source_height_mm": 623.699983,
+            "source_width_mm": 935.299943
+          }
+        ],
+        "job_type": "gcode",
+        "lazy_preview_pen_mm": 0.25,
+        "line_length_stats_mm": {
+          "max_mm": 8750.87,
+          "mean_mm": 80.67,
+          "median_mm": 6.56,
+          "min_mm": 0.02
+        },
+        "longest_connector_mm": 30.74,
+        "machine_bbox": {
+          "bbox": [
+            33.5,
+            105.5,
+            195.5,
+            213.5
+          ],
+          "reach_bbox": [
+            3.0,
+            42.5,
+            255.0,
+            254.5
+          ],
+          "reach_label": "Plotter V3.2 (confirmed rectangular reach)",
+          "reach_polygon": [
+            [
+              3.0,
+              42.5
+            ],
+            [
+              255.0,
+              42.5
+            ],
+            [
+              255.0,
+              254.5
+            ],
+            [
+              3.0,
+              254.5
+            ]
+          ],
+          "reach_profile": "plotter_2003_v32",
+          "reach_validated": true,
+          "xy_moves_checked": 51931
+        },
+        "microlift": {
+          "lifts": 1249,
+          "mega_added_mm": 93.0,
+          "mega_lift_mm": 31.05,
+          "mega_lifts": 3,
+          "micro_hop_mm": 8.0,
+          "short_lift_mm": 0.6,
+          "short_lift_source": "profile:Pentel EnerGel 0.5 (Blue)",
+          "short_lifts": 1211,
+          "z_travel_saved_mm": 7023.8
+        },
+        "min_stroke_mm": 0.02,
+        "paper": "200x200mm",
+        "pen_lifts": 1249,
+        "pen_width_mm": 0.5,
+        "preview_clean_available": true,
+        "preview_file": "layout.preview.svg",
+        "preview_xray_available": true,
+        "quiet_fans": true,
+        "realised_pitch": {
+          "basis": "fill_px_final x (final placed scale x PX2MM); not the preliminary scale, not the fill_mm/fill_px back-solve",
+          "items": [
+            {
+              "fill_mm_target": 0.25,
+              "fill_px_audit": 3.0,
+              "fill_px_final": 3.0004,
+              "fill_px_source": "composite item_opts.fill_px (analytic path), floored at 1.2",
+              "final_scale": 0.173206,
+              "floor_binds": false,
+              "id": "747c36db",
+              "mm_per_px_final": 0.045828,
+              "realised_pitch_mm": 0.1375,
+              "scale_source": "composite._composite placement s = fit*item.scale (final traced SVG bbox); x PX2MM"
+            }
+          ],
+          "max_mm": 0.1375,
+          "min_mm": 0.1375
+        },
+        "small_detail": "off",
+        "stay_down_over_ink": {
+          "dt_tol_px": 0.05,
+          "enabled": true,
+          "layers": {
+            "1": {
+              "available": true,
+              "candidates": 2453,
+              "dt_tol_px": 0.05,
+              "fill_px": 3.0004,
+              "fused": 1205,
+              "fused_mm": 1050.425,
+              "lifts_after": 1249,
+              "lifts_before": 2454,
+              "longest_fused_mm": 30.743,
+              "mask_shape": [
+                2358,
+                3535
+              ],
+              "placed_mm_per_trace_px": 0.045828,
+              "rejected": 1248,
+              "sample_step_trace_px": 0.5,
+              "self_check_frac": 0.98482,
+              "threshold_px": 1.5002
+            }
+          },
+          "rule": "after routing, a pen-up travel becomes a pen-down connector, of any length, iff the straight connector stays inside the layer's own ink mask (stage_e_mask predicate: every 0.5 trace px sample has dt >= 0.5*fill_px - dt_tol_px); on a layer above the plain stroke cap (where OFF has no joins) the short joins use the same check (D1782); a layer with no usable mask fails closed (no joins at all)",
+          "totals": {
+            "candidates": 2453,
+            "fused": 1205,
+            "fused_mm": 1050.425,
+            "layers_checked": 1,
+            "layers_failed_closed": 0,
+            "layers_failed_closed_detail": {},
+            "rejected": 1248
+          }
+        },
+        "stroke_count": 1249,
+        "strokes_after": 1249,
+        "strokes_before": 2454,
+        "target_z_moves": 0,
+        "travel_length_mm": 2688.1,
+        "z_moves": 2498,
+        "z_moves_after": 2498,
+        "z_moves_before": 4908
+      },
+      "source_native_px_wh": [
+        [
+          640,
+          427
+        ]
+      ],
+      "warnings": [
+        {
+          "level": "warning",
+          "msg": "Pen-physics ceiling: smallest strokes ~0.02mm \u2014 below the ~0.5mm / 2\u00d7 pen-width line, readability may be physically limited. Plot larger, use a finer pen, or accept symbolic marks.",
+          "tier": "primary"
+        },
+        {
+          "level": "warning",
+          "msg": "Dense: 1249 strokes. Raise Connect Strokes first (keeps detail); Smoothness / Min Stroke Length reduce strokes by deleting detail.",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "Estimated 2,498 Z-moves \u2014 high. Raise Connect Strokes or set Target Z-moves (keeps detail).",
+          "tier": "secondary"
+        },
+        {
+          "level": "okay",
+          "msg": "Low-lift routing: 2454\u21921249 strokes, 4,908\u21922,498 Z-moves \u00b7 1205 connectors, +1050.4mm drawn.",
+          "tier": "secondary"
+        },
+        {
+          "level": "warning",
+          "msg": "Aggressive routing: connectors up to 30.74mm drawn to hit the Z-move target \u2014 expect visible joining marks across the artwork. Raise the target or it draws longer bridges.",
+          "tier": "primary"
         }
       ]
     },
@@ -637,7 +4123,7 @@
       "audit": {},
       "audit_json_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
       "gcode_file": "fan_probe.gcode",
-      "gcode_sha256": "5fb92f6a234f33d492bf41b8d1e2fcbe4dd80f63ebf1ccf3479ea781dd519085",
+      "gcode_sha256": "8ef09a9289018780ccde146dbd64220893cc92a705977c032722f194b17af89d",
       "http_status": 200,
       "kind": "fan_probe",
       "preview_file": null,
@@ -920,6 +4406,41 @@
       "reason": "Archived settings.json places the drawing so its bbox reaches Y257.5 at X~84.7; plotter_2002's stepped polygon allowed Y up to 264.5 in that X band (drawing fit), but the Kai-ratified plotter_2003_v32 rectangle caps Y at 254.5 everywhere -- an accepted trade for full B5-plus width (Kai, 2026-07-16: \"we likely are losing reach in some places, but more than make up for it...\").",
       "recorded_at": "2026-07-19T23:44:03",
       "status": "negative"
+    },
+    "inkroute-sheet-bic": {
+      "audit": {
+        "asset_sha256": "068448c9632afef58114525da4a3a322dff3ee981f3fe390a5dea72e7b03ce6d",
+        "deepest_z_down_abs": 18.45,
+        "n_pendown_actual_total": 3525,
+        "n_pendown_expected_total": 3525,
+        "pen_id": "bic_cristal_blue",
+        "pendown_count_matches": true,
+        "plot_time_estimate_s": 2623.5,
+        "plot_time_model_a_min": 53.9,
+        "total_draw_mm": 69177.4,
+        "z_touch_abs": 19.05,
+        "z_touch_source": "profile:BIC Cristal 1.0 Blue",
+        "z_up_abs": null
+      },
+      "audit_json_sha256": "1df75ca1d6b75b6038701af2abba75234d307f426cec1fd618d902610e55ff79",
+      "gcode_file": "calibration_inkroute_bic_bic_cristal_blue_z1905.gcode",
+      "gcode_sha256": "81190cd748cb15ee602eec1045528636383da0b2512bb8806c77723acb6d7a4f",
+      "http_status": 200,
+      "kind": "calibration_sheet",
+      "preview_file": "calibration_inkroute_bic_bic_cristal_blue_z1905_preview.svg",
+      "preview_svg_sha256_stripped": "3fb1925b705e80e75637b93633da3d54b4b5397f99ac0bbe9926b77855aeaad3",
+      "request": {
+        "path": null,
+        "sha256": "3fc52dbe80f068cdb4506803e7d5ff6088e1bdcd410edd120ca64973740c2288"
+      },
+      "response_metadata": {
+        "gcode_file": "calibration_inkroute_bic_bic_cristal_blue_z1905.gcode",
+        "kind": "inkroute_bic",
+        "label": "Ink-routed connectors on paper: one heli window, OFF then ON (BIC Cristal, 0.12mm)",
+        "placement_notes": [],
+        "size_kb": 7426.3
+      },
+      "warnings": []
     },
     "loco-472-trestle": {
       "audit": {
@@ -1696,6 +5217,41 @@
         }
       ]
     },
+    "rowangle-sheet-bic": {
+      "audit": {
+        "asset_sha256": "d71705bfa8227beda0e816206f489566403c7c96e19c1fcd6ac8dac13068c0f3",
+        "deepest_z_down_abs": 18.45,
+        "n_pendown_actual_total": 4291,
+        "n_pendown_expected_total": 4291,
+        "pen_id": "bic_cristal_blue",
+        "pendown_count_matches": true,
+        "plot_time_estimate_s": 1706.1,
+        "plot_time_model_a_min": 43.15,
+        "total_draw_mm": 16807.5,
+        "z_touch_abs": 19.05,
+        "z_touch_source": "profile:BIC Cristal 1.0 Blue",
+        "z_up_abs": null
+      },
+      "audit_json_sha256": "e45e371ae51f02c38e9c2e9c78dba80f47c623c1c507feb9cb25672ec61f06ba",
+      "gcode_file": "calibration_rowangle_bic_bic_cristal_blue_z1905.gcode",
+      "gcode_sha256": "496813e7ac9acdacc9cababc1707d732487ec24ce466aeb875ec3007b538879c",
+      "http_status": 200,
+      "kind": "calibration_sheet",
+      "preview_file": "calibration_rowangle_bic_bic_cristal_blue_z1905_preview.svg",
+      "preview_svg_sha256_stripped": "70178295917ba3e70b6435a493f124898c9ee64129d3e987650d99df4cfab882",
+      "request": {
+        "path": null,
+        "sha256": "9e223be341cb64a5fee34833026950ba621f4db94af1976f0d61e2f2dc0ee3eb"
+      },
+      "response_metadata": {
+        "gcode_file": "calibration_rowangle_bic_bic_cristal_blue_z1905.gcode",
+        "kind": "rowangle_bic",
+        "label": "Row direction on paper: one heli window x 4 row looks (BIC Cristal, 0.12mm)",
+        "placement_notes": [],
+        "size_kb": 1191.9
+      },
+      "warnings": []
+    },
     "ship": {
       "audit": {
         "debug_metrics": {
@@ -2217,5 +5773,5 @@
     "elapsed_s",
     "job_id"
   ],
-  "recorded_at": "2026-08-05T22:59:00 (partial: 6 microlift fixtures re-recorded 2026-08-05; calibration_plot left at its pre-existing recorded value, still failing, cause unknown) | partial addition 2026-08-16T02:56:02: synth-tallframe-height-limited added (M04 criterion 2, height-limited golden fixture); all prior entries left byte-identical -- see artifacts/height-fixture-2026-08-16/RESULT.md"
+  "recorded_at": "2026-08-05T22:59:00 (partial: 6 microlift fixtures re-recorded 2026-08-05; calibration_plot left at its pre-existing recorded value, still failing, cause unknown) | partial addition 2026-08-16T02:56:02: synth-tallframe-height-limited added (M04 criterion 2, height-limited golden fixture); all prior entries left byte-identical -- see artifacts/height-fixture-2026-08-16/RESULT.md | 2026-10-25 (D1801): harness bodies of bwphoto-native-default, plane, ship, loco-472-trestle pinned stay_down_over_ink=false in memory (FIXTURES body_overrides) for the Stay-down-over-ink default flip; recorded shas unchanged, no re-record"
 }

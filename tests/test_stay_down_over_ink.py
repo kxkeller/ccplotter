@@ -166,6 +166,107 @@ def test_doc_layer_without_mask_fails_closed_and_warns(tmp_path):
     assert not [w for w in build_warnings(st) if "stay-down mask unavailable" in w["msg"]]
 
 
+# --------------------------------------------------------------------------- D1802: ineligible-by-construction items
+def test_doc_not_applicable_layer_is_routed_as_off_and_never_warns(tmp_path):
+    """D1802: a layer with no trace mask by construction (plotready / non-tracev3) is `not_applicable`, not failed closed:
+    routed SVG byte-identical to stay-down OFF, no stay_down_over_ink key (no eligible layer), no warning."""
+    from ccplotter.stats_warnings import build_warnings
+    svg, ctx = _doc_fixture(tmp_path)
+    off = _route_low_lift_doc(svg, tmp_path / "off.svg", 0.5, None)
+    na = _route_low_lift_doc(svg, tmp_path / "na.svg", 0.5, None, stay_down_ctx={}, stay_down_na={1}, max_walk_segs=100000)
+    assert "stay_down_over_ink" not in na
+    _strip = lambda f: re.sub(rb"<dc:date>[^<]*</dc:date>", b"", (tmp_path / f).read_bytes())      # vpype stamps a timestamp
+    assert _strip("off.svg") == _strip("na.svg")
+    assert na["strokes_after"] == off["strokes_after"] == 4
+    st = {"stroke_count": na["strokes_after"], "estimated_z_moves": na["z_moves_after"], **na}
+    assert not [w for w in build_warnings(st) if "stay-down" in w["msg"]]
+    # positive control: the SAME doc, same empty ctx, but the layer ELIGIBLE (not in the na set) still fails closed and warns
+    el = _route_low_lift_doc(svg, tmp_path / "el.svg", 0.5, None, stay_down_ctx={}, stay_down_na=set())
+    assert el["stay_down_over_ink"]["totals"]["layers_failed_closed"] == 1
+    st = {"stroke_count": el["strokes_after"], "estimated_z_moves": el["z_moves_after"], **el}
+    assert len([w for w in build_warnings(st) if "stay-down mask unavailable" in w["msg"]]) == 1
+
+
+def test_route_plotready_absent_flag_is_byte_identical_to_off_no_key_no_warning():
+    """D1802 at the route: a plotready job (no trace mask by construction) with the key ABSENT (default ON) equals explicit false."""
+    b_off, p_off = _run("sdoi_pr_off", {"style": "plotready", "connector_distance": 0.5, "stay_down_over_ink": False})
+    b_def, p_def = _run("sdoi_pr_def", {"style": "plotready", "connector_distance": 0.5})
+    assert p_off and p_off == p_def
+    assert "stay_down_over_ink" not in b_def and "stay_down_over_ink" not in b_off
+    assert not [w for w in b_def.get("warnings", []) if "stay-down" in str(w)]
+    assert b_def["strokes_after"] == b_off["strokes_after"]
+    assert [w.get("msg") for w in b_def.get("warnings", [])] == [w.get("msg") for w in b_off.get("warnings", [])]
+
+
+def test_route_eligible_tracev3_with_missing_sidecar_still_fails_closed_with_warning(monkeypatch):
+    """D1802 other side: an ELIGIBLE tracev3 layer whose mask sidecar cannot be loaded joins nothing and warns."""
+    import ccplotter.stage_e_mask as sem
+    b_off, _ = _run("sdoi_ms_off", {"stay_down_over_ink": False})
+    monkeypatch.setattr(sem, "load_sidecar", lambda svg: None)
+    b, _ = _run("sdoi_ms_on", {})
+    assert b["stay_down_over_ink"]["totals"]["layers_failed_closed"] == 1
+    assert b["strokes_after"] == b_off["strokes_after"]
+    assert any("stay-down mask unavailable" in str(w.get("msg")) for w in b.get("warnings", []))
+
+
+# --------------------------------------------------------------------------- D1782: every join is checked
+def _dense_doc(tmp, n_filler):
+    """A layer above the plain walk cap (20000). Walk order is forced by geometry: white pair (y=10) first, then the
+    in-ink pair (y=20, entered at its left start, so its 0.3 mm gap is consecutive), then far-away tiny fillers."""
+    gap = 0.3 / PX2MM
+    m = np.zeros((260, 400), bool)
+    m[48:200, 205:380] = True                         # ink under the fillers (placement self-check needs strokes on ink)
+    m[6:14, 10:61] = True
+    m[6:14, int(60 + gap) + 3:100] = True            # white between x=60 and ~x=63+
+    m[16:24, 100:200] = True                          # solid row: the in-ink gap is inside ink
+    strokes = [_c((10, 10), (60, 10)), _c((60 + gap, 10), (100, 10)),
+               _c((100, 20), (160, 20)), _c((160 + gap, 20), (190, 20))]
+    for k in range(n_filler):
+        strokes.append(_c((210.0 + (k % 150), 50.0 + (k // 150)), (210.2 + (k % 150), 50.0 + (k // 150))))
+    svg = tmp / "dense.svg"
+    _write_doc(svg, strokes, w=400, h=100 + n_filler // 150 + 5)
+    write_sidecar(svg, m, 2.4)
+    return svg, {1: {"svg": svg, "s": 1.0, "rot_deg": 0.0, "c0_px": (0.0, 0.0), "t_px": (0.0, 0.0)}}
+
+
+def test_dense_layer_short_join_across_white_is_rejected_in_ink_is_joined(tmp_path):
+    from ccplotter.stats_warnings import ROUTE_WALK_MAX_SEGS_PLAIN, ROUTE_WALK_MAX_SEGS_TWOPEN
+    import vpype as vp
+    svg, ctx = _dense_doc(tmp_path, ROUTE_WALK_MAX_SEGS_PLAIN + 50)
+
+    def crossed(path):
+        doc = vp.read_multilayer_svg(str(path), quantization=0.1)
+        hit = {10: (60, 61), 20: (160, 161)}
+        out = {10: False, 20: False}
+        for ln in doc.layers[1]:
+            a = np.asarray(ln)
+            for p, q in zip(a[:-1], a[1:]):
+                for y, (x0, x1) in hit.items():
+                    if abs(p.imag - y) < 1 and abs(q.imag - y) < 1 and min(p.real, q.real) < x0 + 0.5 and max(p.real, q.real) > x1 - 0.2:
+                        out[y] = True
+        return out
+
+    # control: the lifted cap with the UNCHECKED 0.5 mm router (the pre-D1782 behaviour) joins BOTH gaps, white included
+    _route_low_lift_doc(svg, tmp_path / "ctl.svg", 0.5, None, max_walk_segs=ROUTE_WALK_MAX_SEGS_TWOPEN)
+    assert crossed(tmp_path / "ctl.svg") == {10: True, 20: True}, "control: unchecked router joins the white gap"
+    on = _route_low_lift_doc(svg, tmp_path / "on.svg", 0.5, None, stay_down_ctx=ctx, max_walk_segs=ROUTE_WALK_MAX_SEGS_TWOPEN)
+    assert "route_skipped_guard" not in on
+    assert crossed(tmp_path / "on.svg") == {10: False, 20: True}, "white 0.3 mm gap NOT joined; in-ink one joined"
+
+
+def test_below_cap_on_keeps_off_joins_and_never_adds_lifts(tmp_path):
+    """D1782 (cap-only rule): at or below the cap OFF's ordinary 0.5 mm joins are today's default; ON keeps them exactly (even one
+    across white) and only ADDS checked stay-down joins -> ON lifts <= OFF lifts. The >cap rule is test_dense_layer_*."""
+    from ccplotter.stats_warnings import ROUTE_WALK_MAX_SEGS_PLAIN
+    for n_fill in (10, ROUTE_WALK_MAX_SEGS_PLAIN + 50):
+        svg, ctx = _dense_doc(tmp_path / f"d{n_fill}" if (tmp_path / f"d{n_fill}").mkdir() is None else tmp_path, n_fill)
+        off = _route_low_lift_doc(svg, tmp_path / f"off{n_fill}.svg", 0.5, None, max_walk_segs=100000)
+        on = _route_low_lift_doc(svg, tmp_path / f"on{n_fill}.svg", 0.5, None, stay_down_ctx=ctx, max_walk_segs=100000)
+        assert on["strokes_after"] <= off["strokes_after"], (n_fill, on["strokes_after"], off["strokes_after"])
+        if n_fill < ROUTE_WALK_MAX_SEGS_PLAIN:
+            assert on["connector_count"] >= off["connector_count"] >= 2, "below the cap ON keeps OFF's joins (white-gap one included)"
+
+
 # --------------------------------------------------------------------------- /api/process
 def _blocks_png(path):
     """40 solid discs inside a thick frame: separate strokes whose travels are sometimes wholly in ink (disc touching the
@@ -192,14 +293,18 @@ def _run(did, extra):
     return body, pts
 
 
-def test_route_absent_false_and_junk_are_identical_and_on_joins_strokes():
-    b0, a = _run("sdoi_absent", {})
+def test_route_absent_is_on_and_false_and_junk_are_the_old_off_path():
+    """Default ON since 2026-10-25 (Kai sign-off): key ABSENT == explicit true; a PRESENT falsy / junk value is the old OFF path."""
+    b0, a = _run("sdoi_off0", {"stay_down_over_ink": False})
     assert "stay_down_over_ink" not in b0
-    for i, v in enumerate((False, 0, None, "false", "0", "junk")):
+    for i, v in enumerate((0, None, "false", "0", "junk")):
         b, p = _run(f"sdoi_inert{i}", {"stay_down_over_ink": v})
         assert a and a == p, v
         assert "stay_down_over_ink" not in b and b["strokes_after"] == b0["strokes_after"], v
+    ab, p_ab = _run("sdoi_absent", {})
+    assert "stay_down_over_ink" in ab and ab["strokes_after"] < b0["strokes_after"], "absent key must now give the ON path"
     on, p_on = _run("sdoi_on", {"stay_down_over_ink": True})
+    assert p_ab == p_on and ab["strokes_after"] == on["strokes_after"], "absent == explicit true"
     rec = on["stay_down_over_ink"]
     assert rec["totals"]["layers_checked"] == 1 and rec["totals"]["layers_failed_closed"] == 0, rec
     assert rec["totals"]["fused"] > 0 and on["strokes_after"] < b0["strokes_after"], (on["strokes_after"], b0["strokes_after"])
@@ -258,6 +363,7 @@ def test_twopen_on_reduces_lifts_records_and_every_connector_is_inside_own_ink(p
     n0 = {c: len(g0["strokes"][c]) for c in ("blue", "black")}
     n1 = {c: len(g1["strokes"][c]) for c in ("blue", "black")}
     assert sum(n1.values()) < sum(n0.values()), (n0, n1)
+    assert all(n1[c] <= n0[c] for c in n0), (n0, n1)          # D1782: ON never adds lifts
     rec = g1["info"]["stay_down_over_ink"]
     assert rec["enabled"] and set(rec["layers"]) == {"blue", "black"}
     jd = run_on[0]
@@ -337,7 +443,8 @@ def test_stay_down_flag_parse_all_entry_paths_and_not_forwarded_to_plain_job(pre
     from ccplotter.routes.twopen import _keytint_prepare, TwoPenRefusal
     b64 = base64.b64encode(IMG.read_bytes()).decode()
     base = {"image_b64": b64, "paper": PAPER, "margin": MARGIN}
-    assert _keytint_prepare(dict(base), "sdoi_b0")["stay_down_over_ink"] is False
+    assert _keytint_prepare(dict(base), "sdoi_b0")["stay_down_over_ink"] is True       # default ON since 2026-10-25
+    assert _keytint_prepare(dict(base, stay_down_over_ink=None), "sdoi_b0n")["stay_down_over_ink"] is False
     assert _keytint_prepare(dict(base, stay_down_over_ink=True), "sdoi_b1")["stay_down_over_ink"] is True
     assert _keytint_prepare(dict(base, stay_down_over_ink=False), "sdoi_b2")["stay_down_over_ink"] is False
     with pytest.raises(TwoPenRefusal):

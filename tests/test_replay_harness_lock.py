@@ -160,3 +160,30 @@ def test_cli_exits_3_with_message_when_lock_is_held(tmp_path):
 
 if __name__ == "__main__":
     sys.exit(pytest.main([__file__, "-q"]))
+
+
+# --- D1809: the golden body_overrides pin set is exactly the fixtures recorded before the Stay-down default flip, plus the
+# D1987 -structure-binary-off golden (8f98353d), which must equal the pre-flip bwphoto-native-default and so pins stay-down OFF too
+PINNED_SD_OFF = {"bwphoto-native-default", "plane", "ship", "loco-472-trestle",
+                 "bwphoto-native-default-structure-binary-off"}
+
+
+def _override_violations(fixtures):
+    got = {fx["label"]: fx["body_overrides"] for fx in fixtures if fx.get("body_overrides")}
+    bad = []
+    if set(got) != PINNED_SD_OFF:
+        bad.append(("label set", sorted(got)))
+    bad += [(k, v) for k, v in got.items() if v != {"stay_down_over_ink": False}]
+    return bad
+
+
+def test_body_overrides_are_exactly_the_pinned_goldens():
+    assert _override_violations(h.FIXTURES) == []
+    # positive control: an unpinned override, or a changed value, on a COPY must be caught
+    import copy
+    fx5 = copy.deepcopy(h.FIXTURES)
+    next(f for f in fx5 if f["label"] == "synth-tallframe-height-limited")["body_overrides"] = {"stay_down_over_ink": False}
+    assert _override_violations(fx5), "an unpinned override must fail the lock"
+    fx6 = copy.deepcopy(h.FIXTURES)
+    next(f for f in fx6 if f["label"] == "plane")["body_overrides"] = {"stay_down_over_ink": True}
+    assert _override_violations(fx6), "a changed pin value must fail the lock"

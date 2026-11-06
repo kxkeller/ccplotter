@@ -208,7 +208,7 @@ def test_captured_job_equals_an_independent_plain_bwphoto_job(prep):
     with open(IMG, "rb") as f:
         did = c.post("/api/add_drawing", data={"file": (f, IMG.name)}, content_type="multipart/form-data").get_json()["id"]
     r = c.post("/api/process", json={"style": "bwphoto", "job_type": "preview", "paper": PAPER, "margin": MARGIN,
-                                     "pen_id": BLACK, "items": [{"id": did, "scale": 1, "rot": 0, "dx": 0, "dy": 0, "crop": None}]})
+                                     "pen_id": BLACK, "stay_down_over_ink": False, "bw_structure_binary": False, "items": [{"id": did, "scale": 1, "rot": 0, "dx": 0, "dy": 0, "crop": None}]})
     assert r.status_code == 200, r.get_json()
     independent = _strokes(WORK_DIR / "layout.routed.svg")
     assert _max_dxy(independent, _strokes(prep["plain_routed_svg"])) == 0.0
